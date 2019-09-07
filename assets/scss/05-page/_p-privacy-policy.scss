@@ -1,0 +1,9 @@
+.p-privacy-policy {
+  .a-ol {
+    &__item {
+      &::before {
+        content: '';
+      }
+    }
+  }
+}

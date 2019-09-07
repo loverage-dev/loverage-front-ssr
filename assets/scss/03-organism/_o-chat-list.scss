@@ -1,0 +1,11 @@
+.o-chat-list {
+  .m-chat-item {
+    & + li {
+      margin-top: 16px;
+
+      @include mq {
+        margin-top: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.a-ul {
+  &__item {
+    margin-left: .5em;
+    text-indent: -.5em;
+
+    &::before {
+      content: '・';
+    }
+  }
+}

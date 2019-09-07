@@ -1,0 +1,44 @@
+.a-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 15px;
+  z-index: 10;
+  width: calc(100% - 30px);
+  padding: 15px 20px;
+  border-radius: 3px;
+  box-shadow: 0 2px 15px 1px rgba(0,0,0,0.20);
+  background-color: $base-font-color;
+  color: $base-background-color;
+  font-size: 14px;
+  line-height: 1.5;
+
+  display: none;
+
+  &__close {
+    position: absolute;
+    bottom: 50%;
+    right: 12px;
+    transform: translate(0, 50%);
+    padding: 8px;
+
+    display: none; //いったん必要なしと判断
+
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  @include mq {
+    left: 35px;
+    width: auto;
+    min-width: 250px;
+    max-width: calc(100% - 70px);
+    padding: 15px 76px 15px 22px;
+  }
+
+  @include mq(medium) {
+    bottom: 35px;
+    padding: 18px 76px 18px 22px;
+  }
+}

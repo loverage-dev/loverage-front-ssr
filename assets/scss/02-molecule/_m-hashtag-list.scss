@@ -1,0 +1,14 @@
+.m-hashtag-list {
+  @include clearfix;
+  margin-left: -20px;
+
+  &__item {
+    float: left;
+    margin: 3px 0 3px 20px;
+  }
+
+  .a-hashtag {
+    display: block;
+    height: 100%;
+  }
+}

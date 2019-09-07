@@ -1,0 +1,37 @@
+.t-search-result {
+  .a-btn--large {
+    margin-top: 35px;
+  }
+
+  .m-question-post-form {
+    .age {
+      float: left;
+    }
+
+    @include mq(medium) {
+      @include clearfix;
+      float: right;
+      width: 484px;
+
+      & + .o-card-list--row {
+        clear: both;
+      }
+
+      &__heading {
+        margin-right: 20px;
+        float: left;
+      }
+
+      .selectbox-wrapper {
+        float: left;
+      }
+    }
+  }
+
+  .a-heading {
+    @include mq(medium) {
+      float: left;
+      padding-top: 6px;
+    }
+  }
+}

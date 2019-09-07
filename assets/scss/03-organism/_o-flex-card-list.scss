@@ -1,0 +1,101 @@
+.o-flex-card-list {
+  @include mq(medium) {
+    @include inner;
+    padding-top: 110px;
+    padding-bottom: 110px;
+    background-image: url('#{$img-path}bg_marble3_sp.png.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: $base-background-color;
+
+    &__inner {
+      @include inner-block;
+      display: flex;
+    }
+
+    &__item {
+      @include clearfix;
+      width: calc(50% - 30px);
+
+      &--1 {
+        margin-right: 60px;
+
+        .m-card {
+          position: relative;
+          padding-top: 160%;
+
+          &__title {
+            font-size: 24px;
+          }
+
+          &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            &-inner {
+              padding-top: 160%;
+            }
+          }
+
+          &__text {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            width: calc(100% - 120px);
+
+            .neon {
+              svg {
+                width: 88px;
+                height: 22px;
+              }
+            }
+          }
+        }
+      }
+
+      &-inner {
+        float: right;
+        width: calc(50% - 19px);
+
+        &:first-child {
+          float: left;
+        }
+
+        .m-card {
+          &:first-child {
+            margin-bottom: 60px;
+          }
+
+          &__title {
+            padding-bottom: 0;
+            margin-bottom: 12px;
+            background-image: none;
+            font-size: 15px;
+            line-height: 23px;
+          }
+
+          &-info {
+            .a-link {
+              display: none;
+            }
+          }
+        }
+
+        .small {
+          .m-card__image-inner {
+            padding-top: 100%;
+          }
+        }
+
+        .large {
+          .m-card__image-inner {
+            padding-top: 140%;
+          }
+        }
+      }
+    }
+  }
+}

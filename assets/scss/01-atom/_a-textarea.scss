@@ -1,0 +1,19 @@
+.a-textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 8px 12px;
+  border: 1px solid $line-color;
+  border-radius: 3px;
+  background-color: $base-background-color;
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: 14px;
+
+  &::placeholder {
+    color: $gray30;
+  }
+
+  @include mq(medium) {
+    padding: 12px 15px;
+  }
+}

@@ -1,0 +1,86 @@
+.a-popup-header {
+  position: relative;
+  height: 58px;
+  background-color: $base-background-color;
+  line-height: 58px;
+
+  @include mq {
+    height: 60px;
+    line-height: 60px;
+  }
+
+  @include mq(medium) {
+    @include inner;
+    height: 81px;
+    line-height: 81px;
+  }
+
+  &__inner {
+    @include inner-block;
+    position: relative;
+  }
+
+  &__heading {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+    @include mq(medium) {
+      font-size: 22px;
+    }
+  }
+
+  &__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 20px;
+
+    svg {
+      width: 22px;
+      height: 13px;
+    }
+
+    @include mq(medium) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include mq(medium) {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      display: block;
+
+      svg {
+        width: 160px;
+        height: 35px;
+      }
+    }
+  }
+
+  &__close {
+    display: none;
+
+    @include mq(medium) {
+      position: absolute;
+      top: 33px;
+      right: 0;
+      display: block;
+      height: 14px;
+      font-size: 14px;
+      color: $gray50;
+      font-weight: bold;
+      line-height: 1;
+
+      svg {
+        width: 12px;
+        height: 13px;
+        vertical-align: -1px;
+      }
+    }
+  }
+}

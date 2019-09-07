@@ -1,0 +1,21 @@
+.t-doc {
+  &__inner {
+    .a-heading {
+      margin-bottom: 8px;
+
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
+    }
+
+    .more-indent {
+      text-indent: -1.7em;
+      margin-left: 1.7em;
+    }
+  }
+
+  &__date {
+    margin-top: 30px;
+    text-align: right;
+  }
+}

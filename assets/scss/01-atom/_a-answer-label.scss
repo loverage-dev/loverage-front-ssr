@@ -1,0 +1,25 @@
+.a-answer-label {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 6px;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.35;
+
+  @include mq {
+    font-size: 16px;
+  }
+
+  &.is-option1 {
+    border-color: $pink;
+    background-color: $light-pink;
+  }
+
+  &.is-option2 {
+    border-color: $green;
+    background-color: $light-blue;
+  }
+}

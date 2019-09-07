@@ -1,0 +1,71 @@
+.a-btn {
+  display: block;
+  position: relative;
+  border: 1px solid $gray20;
+  font-size: 13px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    transform: rotate(-45deg);
+    border-left: 1px solid $gray20;
+    background-color: $base-background-color;
+  }
+
+  &--large {
+    padding: 18px 25px;
+    font-weight: bold;
+
+    &::after {
+      top: -10px;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--medium {
+    padding: 12px 15px;
+
+    &::after {
+      top: -8px;
+      right: -8px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--more {
+    .arrow {
+      position: absolute;
+      bottom: calc(50% - 10px);
+      right: 30px;
+    }
+  }
+
+  &--right-arrow {
+    .arrow {
+      position: absolute;
+      bottom: calc(50% - 12px);
+      right: 30px;
+    }
+  }
+
+  &--pink-arrow {
+    .variable-fill {
+      fill: $pink;
+    }
+  }
+
+  &--green-arrow {
+    .variable-fill {
+      fill: $green;
+    }
+  }
+
+  &--gray-arrow {
+    .variable-fill {
+      fill: $gray50;
+    }
+  }
+}

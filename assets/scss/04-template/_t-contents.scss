@@ -1,0 +1,27 @@
+.t-contents {
+  padding-top: 79.5px;
+
+  @include mq {
+    padding-top: 0;
+  }
+
+  &__inner {
+    @include inner;
+    padding-top: 25px;
+    padding-bottom: 60px;
+
+    .o-card-list {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &-block {
+      @include mq(medium) {
+        @include inner-block;
+        max-width: 800px;
+        padding-top: 55px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="14px" viewBox="0 0 7 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ion-social-facebook - Ionicons</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="footer-sp" transform="translate(-183.000000, -521.000000)" fill="#343434">
+            <g id="Group-20" transform="translate(139.000000, 479.000000)">
+                <path d="M48.5,47 L50.75,47 L50.46875,49.25 L48.5,49.25 L48.5,56 L45.5820312,56 L45.5820312,49.25 L44,49.25 L44,47 L45.5820312,47 L45.5820312,45.4882812 C45.5820312,44.5039013 45.8281225,43.7597681 46.3203125,43.2558594 C46.8125025,42.7519506 47.6328068,42.5 48.78125,42.5 L50.75,42.5 L50.75,44.75 L49.5546875,44.75 C49.1093728,44.75 48.8222663,44.8203118 48.6933594,44.9609375 C48.5644525,45.1015632 48.5,45.3359359 48.5,45.6640625 L48.5,47 Z" id="ion-social-facebook---Ionicons"></path>
+            </g>
+        </g>
+    </g>
+</svg>

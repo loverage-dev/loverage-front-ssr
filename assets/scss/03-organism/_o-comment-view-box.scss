@@ -1,0 +1,33 @@
+.o-comment-view-box {
+  padding-top: 36px;
+
+  @include mq {
+    width: 560px;
+    padding-top: 48px;
+    margin: 0 auto;
+  }
+
+  .a-heading--l {
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include mq {
+      margin-bottom: 24px;
+    }
+  }
+
+  .a-btn--more {
+    margin-top: 24px;
+    text-align: center;
+
+    &::after {
+      background-color: #f2f2f2;
+    }
+
+    .arrow {
+      position: static;
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+}

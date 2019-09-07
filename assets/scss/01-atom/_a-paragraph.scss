@@ -1,0 +1,8 @@
+.a-paragraph {
+  font-size: 15px;
+  line-height: 2.13;
+
+  @include mq {
+    font-size: 16px;
+  }
+}

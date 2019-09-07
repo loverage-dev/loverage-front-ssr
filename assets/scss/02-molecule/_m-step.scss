@@ -1,0 +1,48 @@
+.m-step {
+  @include clearfix;
+
+  &__item {
+    float: left;
+
+    & + li {
+      position: relative;
+      margin-left: 40px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: -30px;
+        width: 18px;
+        height: 1px;
+        background-color: $gray30;
+      }
+    }
+  }
+
+  &__number {
+    width: 24px;
+    height: 24px;
+    padding-top: 2px;
+    border-radius: 12px;
+    margin-bottom: 2px;
+    background-color: $gray20;
+    color: $base-background-color;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+    .is-active & {
+      background-color: $base-font-color;
+    }
+  }
+
+  &__heading {
+    font-size: 11px;
+    text-align: center;
+
+    .is-active & {
+      font-weight: bold;
+    }
+  }
+}

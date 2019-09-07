@@ -1,0 +1,222 @@
+.o-global-footer {
+  text-align: center;
+
+  @include mq(medium) {
+    @include inner;
+  }
+
+  &__inner {
+    @include inner;
+
+    @include mq(medium) {
+      @include inner-block;
+      @include clearfix;
+      position: relative;
+      padding-top: 65px;
+      padding-bottom: 70px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__id {
+    padding: 60px 0 30px;
+    border-bottom: 1px solid $line-color;
+    margin-bottom: 20px;
+
+    @include mq(medium) {
+      @include clearfix;
+      float: left;
+      padding: 0;
+      border-bottom: 0;
+      margin-bottom: 45px;
+    }
+
+    .logo {
+      @include mq(medium) {
+        float: left;
+        display: inline-block;
+        padding-right: 25px;
+        border-right: 1px solid $line-color;
+        margin-right: 25px;
+      }
+    }
+
+    .a-logo {
+      height: 30px;
+      width: 137px;
+      margin: 0 auto;
+
+      @include mq(medium) {
+        height: 32px;
+        width: 150px;
+        margin: 0;
+      }
+    }
+
+    .description {
+      display: none;
+
+      @include mq(medium) {
+        display: block;
+        float: left;
+        padding-top: 7px;
+        font-size: 12px;
+        font-weight: bold;
+        color: $gray40;
+      }
+    }
+  }
+
+  &__nav {
+    @include mq(medium) {
+      float: none;
+      clear: both;
+      padding-top: 40px;
+      background-image: linear-gradient(to right, $gray40, $gray40 1px, transparent 1px, transparent 4px);
+      background-size: 5px 1px;
+      background-position: top;
+      background-repeat: repeat-x;
+    }
+
+    .list {
+      padding-bottom: 24px;
+      border-bottom: 1px solid $line-color;
+
+      @include mq(medium) {
+        @include clearfix;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .item {
+        margin-top: 12px;
+        color: $gray50;
+
+        @include mq(medium) {
+          float: left;
+          margin-top: 2px;
+          margin-right: 20px;
+          font-size: 12px;
+        }
+
+        &1, &2 {
+          float: left;
+          width: 50%;
+          border-left: 1px solid $line-color;
+          margin-top: 0;
+          margin-bottom: 22px;
+          font-weight: bold;
+
+          @include mq(medium) {
+            width: auto;
+            border-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-right: 35px;
+            font-size: 14px;
+          }
+
+          a {
+            display: block;
+            width: 100%;
+          }
+        }
+
+        &2 {
+          border-right: 1px solid $line-color;
+
+          @include mq(medium) {
+            border-right: 0;
+          }
+        }
+
+        &3 {
+          clear: both;
+
+          @include mq(medium) {
+            clear: none;
+          }
+        }
+
+        a {
+          display: inline-block;
+          height: 100%;
+          padding: 0 30px;
+
+          @include mq(medium) {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__sns {
+    padding: 28px 0 48px;
+    color: $gray50;
+    font-size: 13px;
+
+    @include mq(medium) {
+      @include clearfix;
+      position: absolute;
+      right: 0;
+      top: 45px;
+      padding: 0;
+    }
+
+    .follow {
+      margin-bottom: 10px;
+
+      @include mq(medium) {
+        float: left;
+        padding-top: 25px;
+        padding-right: 20px;
+      }
+    }
+
+    .list {
+      position: relative;
+
+      @include mq(medium) {
+        float: left;
+      }
+
+      .item {
+        display: inline-block;
+        margin: 0 2px;
+
+        &3 {
+          position: absolute;
+          bottom: -25px;
+          right: calc(50% - 23px);
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    display: block;
+    padding: 28px 0;
+    background-color: $gray10;
+    color: $gray40;
+    font-size: 13px;
+
+    @include mq(medium) {
+      display: none;
+    }
+
+    &--pc {
+      display: none;
+
+      @include mq(medium) {
+        display: block;
+        position: absolute;
+        bottom: 72px;
+        right: 0;
+        font-size: 12px;
+        color: $gray40;
+      }
+    }
+  }
+}

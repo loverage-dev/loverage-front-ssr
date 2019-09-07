@@ -1,0 +1,63 @@
+.o-history-box {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  width: 280px;
+  border-radius: 6px;
+  background-color: $gray10;
+  box-shadow: 0 1px 12px 0 rgba(0,0,0,0.14);
+  overflow: scroll;
+
+  &__heading {
+    padding: 10px;
+    border-radius: 6px 6px 0 0;
+    background-color: $pink;
+    font-size: 13px;
+    font-weight: bold;
+    color: $base-background-color;
+  }
+
+  &-list {
+    &__item {
+      a {
+        display: block;
+        padding: 6px 26px 10px 10px;
+        border-bottom: 1px solid $backgournd-gray;
+        background-image: url('#{$img-path}icon_arrow--blue.svg');
+        background-position: right 12px bottom 15px;
+        background-repeat: no-repeat;
+      }
+      span {
+        display: block;
+        padding: 6px 26px 10px 10px;
+        border-bottom: 1px solid $backgournd-gray;
+      }
+
+      &:last-child {
+        a {
+          border-bottom: 0;
+        }
+      }
+
+      .date {
+        display: block;
+        font-size: 11px;
+        color: $gray50;
+      }
+
+      .no-history {
+        display: block;
+        font-size: 11px;
+        color: $gray50;
+      }
+
+      .title {
+        font-weight: bold;
+        line-height: 1.25;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

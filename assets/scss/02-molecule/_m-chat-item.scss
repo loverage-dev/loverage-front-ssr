@@ -1,0 +1,43 @@
+.m-chat-item {
+  @include clearfix;
+
+  .a-balloon {
+    width: calc(100% - 40px);
+
+    @include mq {
+      width: calc(100% - 48px);
+    }
+  }
+
+  &.is-option1 {
+    .a-avatar--s {
+      float: left;
+      border-color: $pink;
+      background-color: $light-pink;
+      margin-right: 8px;
+    }
+
+    .a-balloon {
+      float: left;
+      border-color: $pink;
+      background-color: $light-pink;
+      border-top-left-radius: 6px;
+    }
+  }
+
+  &.is-option2 {
+    .a-avatar--s {
+      float: right;
+      border-color: $green;
+      background-color: $light-blue;
+      margin-left: 8px;
+    }
+
+    .a-balloon {
+      float: right;
+      border-color: $green;
+      background-color: $light-blue;
+      border-top-right-radius: 6px;
+    }
+  }
+}

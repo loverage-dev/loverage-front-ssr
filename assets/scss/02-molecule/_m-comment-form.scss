@@ -1,0 +1,45 @@
+.m-comment-form {
+  padding: 24px 0 0;
+  border-top: 1px solid $line-color;
+  margin-top: 30px;
+
+  @include mq {
+    width: 560px;
+    padding: 40px 0 0;
+    margin: 40px auto 0;
+  }
+
+  &__your-answer {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 12px;
+
+    @include mq {
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .text1 {
+      display: inline-block;
+      margin-right: 4px;
+    }
+    .text2 {
+      display: inline-block;
+    }
+
+    .a-answer-label {
+      margin: 3px 4px 3px 0;
+    }
+  }
+
+  .a-textarea {
+    @include mq {
+      margin-bottom: 10px;
+    }
+  }
+
+  .a-btn-round {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

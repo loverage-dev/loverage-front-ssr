@@ -1,0 +1,32 @@
+.a-balloon {
+  padding: 9px 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+
+  @include mq {
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+
+  &__heading {
+    margin-bottom: 3px;
+    font-weight: bold;
+
+    &-label {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: 1px;
+      font-size: 11px;
+      color: $gray50;
+    }
+  }
+
+  &--text {
+    .genderage {
+      color: $gray50;
+    }
+  }
+}

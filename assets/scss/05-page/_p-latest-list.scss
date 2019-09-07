@@ -1,0 +1,21 @@
+.p-latest-list {
+  @include mq-sp-only {
+    .o-card-list--row {
+      .list {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  @include mq(medium) {
+    .t-contents__inner {
+      &.t-2column__main {
+        padding-top: 0;
+      }
+
+      .o-card-list {
+        padding-top: 0;
+      }
+    }
+  }
+}

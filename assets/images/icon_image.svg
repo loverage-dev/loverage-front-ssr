@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="13px" viewBox="0 0 17 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="calltoaction-sp" transform="translate(-32.000000, -294.000000)" fill="#D1D1D1" fill-rule="nonzero">
+            <g id="Group-13" transform="translate(-24.000000, 0.000000)">
+                <path d="M59.5416667,297.895833 C59.5416667,297.309333 60.0176667,296.833333 60.6041667,296.833333 C61.1906667,296.833333 61.6666667,297.309333 61.6666667,297.895833 C61.6666667,298.483042 61.1906667,298.958333 60.6041667,298.958333 C60.0176667,298.958333 59.5416667,298.483042 59.5416667,297.895833 Z M65.9166667,298.25 L64.132375,301.083333 L62.375,299.695 L59.5416667,303.916667 L69.4583333,303.916667 L65.9166667,298.25 Z M71.5833333,295.416667 L71.5833333,305.333333 L57.4166667,305.333333 L57.4166667,295.416667 L71.5833333,295.416667 Z M73,294 L56,294 L56,306.75 L73,306.75 L73,294 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
