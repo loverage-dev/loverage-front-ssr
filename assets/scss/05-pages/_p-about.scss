@@ -1,0 +1,18 @@
+.p-about {
+  @include media-query {
+    .a-heading-mini {
+      margin-top: 20px;
+    }
+  }
+
+  &__sentences {
+    @extend .a-sentence;
+    margin-top: 32px;
+  }
+
+  &__author {
+    @extend .a-sentence;
+    margin-top: 24px;
+    text-align: right;
+  }
+}

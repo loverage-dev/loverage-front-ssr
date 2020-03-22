@@ -1,0 +1,19 @@
+.a-pagetitle {
+  @include mobile-padding;
+  background-color: $black;
+  color: $white;
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 16px;
+  padding-top: 16px;
+
+  @include media-query {
+    font-size: 32px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+    &__inner {
+      @include desktop-one-column;
+    }
+  }
+}

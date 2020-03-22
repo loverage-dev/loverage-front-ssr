@@ -1,0 +1,21 @@
+.a-toast {
+  background-color: $gray50;
+  border-radius: $base-border-radius;
+  bottom: 12px;
+  color: $white;
+  font-size: 14px;
+  font-weight: bold;
+  left: 12px;
+  max-width: 360px;
+  padding: 12px;
+  position: fixed;
+  width: calc(100% - 24px);
+  z-index: 99;
+
+  @include media-query {
+    bottom: 40px;
+    font-size: 16px;
+    left: 40px;
+    padding: 16px;
+  }
+}

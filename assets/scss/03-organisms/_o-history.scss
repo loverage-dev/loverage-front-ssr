@@ -1,0 +1,66 @@
+.o-history {
+  background-color: $gray00;
+  border: 1px solid $gray20;
+  border-radius: 6px;
+  box-shadow: 0 1px 12px 0 rgba(0,0,0,0.14);
+  width: 280px;
+
+  // position: absolute;
+  // top: 34px;
+  // right: 0;
+
+  &__heading {
+    border-radius: 6px 6px 0 0;
+    background-color: $black;
+    color: $white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  &__list {
+    max-height: 300px;
+    overflow-y: auto;
+
+    &-item {
+
+      a {
+        display: block;
+        padding: 6px 28px 10px 10px;
+        border-bottom: 1px solid $gray20;
+        background-image: url('#{$icon-path}arrow-right-blue.svg');
+        background-position: right 8px bottom 12px;
+        background-repeat: no-repeat;
+        background-size: 16px;
+      }
+
+      &-null {
+        color: $gray50;
+        display: block;
+        font-size: 12px;
+        padding: 6px 28px 10px 10px;
+      }
+
+      &:last-child {
+        a {
+          border-bottom: 0;
+        }
+      }
+
+      &-date {
+        color: $gray50;
+        display: block;
+        font-size: 11px;
+        margin-bottom: 4px;
+      }
+
+      &-title {
+        font-weight: bold;
+        line-height: 1.25;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

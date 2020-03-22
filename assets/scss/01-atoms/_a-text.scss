@@ -1,0 +1,77 @@
+.a-text {
+  &--bold {
+      font-weight: bold;
+  }
+
+  &-70 {
+    font-size: 26px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+
+    @include media-query {
+      font-size: 32px;
+    }
+  }
+
+  &-60 {
+    font-size: 24px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+
+    @include media-query {
+      font-size: 28px;
+    }
+  }
+
+  &-50 {
+    font-size: 20px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+
+    @include media-query {
+      font-size: 24px;
+    }
+  }
+
+  &-40 {
+    font-size: 18px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+
+    @include media-query {
+      font-size: 20px;
+    }
+  }
+
+  &-30 {
+    font-size: 16px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+  }
+
+  &-20 {
+    font-size: 14px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+  }
+
+  &-10 {
+    font-size: 12px;
+
+    &--200 {
+      line-height: 2.0;
+    }
+  }
+}

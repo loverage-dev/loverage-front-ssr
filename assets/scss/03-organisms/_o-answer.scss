@@ -1,0 +1,316 @@
+.o-answer {
+  @include mobile-padding;
+  background-color: $black;
+  padding-bottom: 40px;
+  padding-top: 20px;
+
+  @include media-query {
+    padding-bottom: 60px;
+    padding-top: 40px;
+  }
+
+  &__title {
+    color: $white;
+    font-size: 26px;
+    font-weight: bold;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  &__inner {
+    position: relative;
+
+    @include media-query {
+      @include desktop-one-column;
+    }
+  }
+
+  &-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    padding: 40px 20px;
+    border-radius: 16px;
+    background-color: $white;
+    background-image: url('#{$img-path}blur-bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-align: center;
+    width: 100%;
+
+    @include media-query {
+      padding: 60px 40px;
+    }
+
+    &-step {
+      @include clearfix;
+      width: 155px;
+      margin: 0 auto 12px;
+
+      &__item {
+        float: left;
+
+        & + li {
+          position: relative;
+          margin-left: 40px;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: -30px;
+            width: 18px;
+            height: 1px;
+            background-color: $gray30;
+          }
+        }
+      }
+
+      &__number {
+        width: 24px;
+        height: 24px;
+        padding-top: 2px;
+        border-radius: 12px;
+        margin-bottom: 2px;
+        background-color: $gray30;
+        color: $white;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+
+        .is-active & {
+          background-color: $black;
+        }
+      }
+
+      &__heading {
+        font-size: 11px;
+        margin-top: 8px;
+        text-align: center;
+
+        .is-active & {
+          font-weight: bold;
+        }
+      }
+
+      @include media-query {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__question {
+      display: none;
+
+      &.is-active {
+        display: block;
+      }
+
+      &--step1 {
+        .o-answer-form-btn-list {
+          &__item {
+
+            .a-button-primary {
+              margin-left: auto;
+              margin-right: auto;
+              background-color: $color-key-b;
+            }
+
+            &:first-child {
+              margin-bottom: 12px;
+
+              .a-button-primary {
+                background-color: $color-key-a;
+              }
+            }
+          }
+        }
+      }
+
+      &--step2 {
+        .o-answer-form-btn-list {
+          @include clearfix;
+
+          &__item {
+            float: left;
+            width: calc((100% - 12px) / 2);
+            margin-bottom: 12px;
+
+            &:first-child {
+              margin-right: 12px;
+            }
+
+            &:last-child {
+              clear: both;
+              float: none;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+
+      &--step3-1 {
+        .o-answer-form-btn-list {
+          margin-bottom: -12px;
+
+          &__item {
+            float: left;
+            width: calc((100% - 24px) / 3);
+            margin: 0 0 12px 12px;
+
+            &:nth-of-type(3n+1) {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+
+      &--step3-2 {
+        .o-answer-form-btn-list {
+          &__item {
+            float: left;
+            width: calc((100% - 12px) / 2);
+
+            &:first-child {
+              margin-right: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    &__heading {
+      margin-bottom: 6px;
+      font-size: 16px;
+      font-weight: bold;
+
+      @include media-query {
+        margin-bottom: 8px;
+        font-size: 20px;
+      }
+    }
+
+    &__description {
+      margin-bottom: 18px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: $gray50;
+
+      @include media-query {
+        margin-bottom: 30px;
+        font-size: 16px;
+      }
+    }
+
+    &__label {
+      margin-bottom: 15px;
+      text-align: center;
+
+      &-inner {
+        display: inline-block;
+        padding: 0 6px;
+        border: 1px solid $gray20;
+        border-radius: 3px;
+        background-color: $white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    &-btn-list {
+      @include clearfix;
+
+      &__item {
+        .a-button-primary {
+          display: block;
+          box-shadow: 0 2px 15px 0 rgba(0,0,0,0.20);
+        }
+      }
+    }
+  }
+
+  &-result {
+    padding: 40px 20px;
+    border-radius: 16px;
+    background-color: $white;
+
+    &-chart {
+      position: relative;
+      height: 210px;
+      width: 240px;
+      margin: 0 auto;
+
+      &__bar {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 105px;
+        border-radius: 20px 20px 0 0;
+        background-color: $color-key-b;
+
+        &-number {
+          background-color: $color-key-b-bg2;
+          position: absolute;
+          bottom: 20px;
+          right: 50%;
+          transform: translate(50%, 0);
+          min-width: 31px;
+          max-width: calc(100% - 16px);
+          padding-left: 6px;
+          padding-right: 6px;
+          border-radius: 31px;
+          color: $white;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          line-height: 1.25;
+          word-wrap: break-word;
+        }
+
+        &:first-child {
+          right: auto;
+          left: 0;
+          background-color: $color-key-a;
+
+          .o-answer-result-chart__bar-number {
+            background-color: $color-key-a-bg2;
+          }
+        }
+
+        &.is-full {
+          height: 100%;
+        }
+      }
+    }
+
+    &-title {
+      border-top: 2px solid $gray20;
+
+      &-list {
+        @include clearfix;
+        width: 240px;
+        padding-top: 10px;
+        margin: 0 auto;
+
+        &__item {
+          float: right;
+          width: 105px;
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 1.35;
+          text-align: center;
+
+          @include media-query {
+            font-size: 14px;
+          }
+
+          &:first-child {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}

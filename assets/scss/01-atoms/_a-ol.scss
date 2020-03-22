@@ -1,0 +1,14 @@
+.a-ol {
+  @extend .a-sentence;
+  counter-reset: section;
+
+  &__item {
+    counter-increment: section;
+    margin-left: 1.1em;
+    text-indent: -1.1em;
+
+    &::before {
+      content: counter(section)'. ';
+    }
+  }
+}

@@ -1,0 +1,149 @@
+.o-footer {
+  text-align: center;
+
+  &__block {
+    @include mobile-padding;
+    padding-bottom: 28px;
+    padding-top: 40px;
+  }
+
+  &__logo {
+    margin: 0 auto;
+    width: 128px;
+  }
+
+  &__nav-list {
+    border-bottom: 1px solid $gray20;
+    padding: 40px 0 28px;
+
+    &-item {
+      color: $gray50;
+      padding-top: 16px;
+
+      a {
+        display: block;
+      }
+
+      &:nth-of-type(1), &:nth-of-type(2) {
+        border-right: 1px solid $gray20;
+        font-weight: bold;
+        float: left;
+        padding-top: 0;
+        width: 50%;
+      }
+
+      &:nth-of-type(1) {
+        border-left: 1px solid $gray20;
+      }
+
+      &:nth-of-type(3) {
+        clear: both;
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &__sns {
+    padding-top: 28px;
+
+    &-heading {
+      color: $gray50;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    &-list {
+      @include clearfix;
+
+      height: 70px;
+      margin: 0 auto;
+      position: relative;
+      width: 96px;
+
+      .twitter {
+        float: left;
+      }
+
+      .instagram {
+        float: right;
+      }
+
+      .facebook {
+        bottom: 0;
+        left: 26px;
+        position: absolute;
+      }
+    }
+  }
+
+  &__copyright {
+    background-color: $gray10;
+    color: $gray50;
+    display: block;
+    padding: 32px 16px;
+  }
+
+  @include media-query {
+    &__block {
+      @include clearfix;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1160px;
+      padding-bottom: 40px;
+    }
+
+    &__box {
+      float: left;
+    }
+
+    &__sns {
+      @include clearfix;
+      float: right;
+      padding-top: 0;
+
+      &-heading {
+        float: left;
+        margin-right: 20px;
+        padding-top: 20px;
+      }
+
+      &-list {
+        float: right;
+      }
+    }
+
+    &__logo {
+      margin: 0;
+    }
+
+    &__nav-list {
+      @include clearfix;
+      border-bottom: 0;
+      padding: 32px 0 0;
+
+      &-item {
+        float: left;
+        padding-top: 0;
+        text-align: left;
+
+        & + li {
+          margin-left: 24px;
+        }
+
+        &:nth-of-type(1), &:nth-of-type(2) {
+          border-right: 0;
+          width: auto;
+        }
+
+        &:nth-of-type(1) {
+          border-left: 0;
+        }
+
+        &:nth-of-type(3) {
+          clear: none;
+          padding-top: 0;
+        }
+      }
+    }
+  }
+}

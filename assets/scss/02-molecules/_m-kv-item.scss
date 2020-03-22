@@ -1,0 +1,55 @@
+.m-kv-item {
+  border-bottom: 1px solid $gray10;
+  padding-bottom: 20px;
+  position: relative;
+
+  @include media-query {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &__image-area {
+    overflow: hidden;
+    position: relative;
+    padding-top: 48%;
+
+    img {
+      bottom: 50%;
+      max-width: none;
+      position: absolute;
+      right: 50%;
+      -webkit-transform: translate(50%,50%);
+      transform: translate(50%,50%);
+      width: 101%;
+    }
+
+    @include media-query {
+      padding-top: 44%;
+    }
+  }
+
+  .m-list-item {
+    @include mobile-padding;
+    margin-top: 16px;
+
+    @include media-query {
+      bottom: 60px;
+      max-width: $desktop-two-columns-width;
+      position: absolute;
+      right: 50%;
+      -webkit-transform: translate(50%,0);
+      transform: translate(50%,0);
+      width: 100%;;
+
+      &__right {
+        max-width: $desktop-one-column-width;
+      }
+
+      &__title {
+        color: $white;
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

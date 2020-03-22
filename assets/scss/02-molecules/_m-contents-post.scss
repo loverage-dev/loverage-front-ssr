@@ -1,0 +1,25 @@
+.m-contents-post {
+  &__title {
+    input {
+      border-bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__contents {
+    textarea {
+      border-bottom: 0;
+      border-radius: 0;
+      height: 130px;
+      vertical-align: bottom;
+    }
+  }
+
+  &__hashtag {
+    input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}

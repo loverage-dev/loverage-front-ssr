@@ -1,0 +1,62 @@
+.o-comment-area {
+  @include mobile-padding;
+  background-color: $gray10;
+  padding-bottom: 40px;
+  padding-top: 28px;
+
+  @include media-query {
+    padding-bottom: 60px;
+    padding-top: 40px;
+  }
+
+  &__inner {
+    @include media-query {
+      @include desktop-one-column;
+    }
+  }
+
+  .a-text-60 {
+    text-align: center;
+  }
+
+  .m-comment {
+    margin-top: 16px;
+  }
+
+  .a-button-seemore {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+  }
+
+  &__your-answer {
+    text-align: center;
+
+    .a-your-answer {
+      margin-top: 8px;
+    }
+
+    &-is {
+      margin-top: 40px;
+      text-align: center;
+    }
+  }
+
+  &__your-comment {
+    margin-top: 20px;
+
+    .a-textfield {
+      textarea {
+        height: 96px;
+      }
+    }
+
+    .a-button-primary {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 12px;
+    }
+  }
+}

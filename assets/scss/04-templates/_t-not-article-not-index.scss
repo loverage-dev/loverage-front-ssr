@@ -1,0 +1,18 @@
+.t-not-article-not-index {
+  padding-top: 121px;
+
+  .m-filter {
+    margin-bottom: 28px;
+    margin-top: 16px;
+  }
+
+  @include media-query {
+    padding-top: 0;
+  }
+
+  .a-pagetitle {
+    @include media-query {
+      padding-top: 147px;
+    }
+  }
+}

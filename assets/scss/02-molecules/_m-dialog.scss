@@ -1,0 +1,45 @@
+.m-dialog {
+  background-color: rgba(0, 0, 0, .5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  &__bg {
+    background-color: $white;
+    border-radius: 4px;
+    bottom: 50%;
+    max-width: 480px;
+    padding: 20px;
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, 50%);
+    width: calc(100% - 40px);
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+
+  &__button-area {
+    text-align: right;
+  }
+
+  .a-button-mini {
+    border: 0;
+    color: $color-key-b;
+    font-size: 16px;
+    display: inline-block;
+    width: auto;
+  }
+
+  a:last-child {
+    .a-button-mini {
+      margin-left: 12px;
+    }
+  }
+}

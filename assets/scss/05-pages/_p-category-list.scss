@@ -1,0 +1,36 @@
+.p-category-list {
+  &__block {
+    & + div {
+      margin-top: 32px;
+    }
+
+    &-list {
+      @include clearfix;
+
+      &--two-columns {
+        .p-category-list__block-list-item {
+          width: calc((100% - 12px) / 2);
+
+          &:nth-of-type(even) {
+            margin-left: 12px;
+          }
+        }
+      }
+
+      &--three-columns {
+        .p-category-list__block-list-item {
+          width: calc((100% - 24px) / 3);
+
+          &:nth-of-type(2), &:nth-of-type(3) {
+            margin-left: 12px;
+          }
+        }
+      }
+
+      &-item {
+        float: left;
+        margin-top: 12px;
+      }
+    }
+  }
+}

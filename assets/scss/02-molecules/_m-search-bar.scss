@@ -1,0 +1,54 @@
+.m-search-bar {
+  @include mobile-padding;
+  @include clearfix;
+
+  &__icon {
+    float: left;
+    height: 24px;
+    margin-right: 4px;
+    width: 24px;
+  }
+
+  &__form {
+    @include clearfix;
+
+    float: left;
+    width: calc(100% - 28px);
+  }
+
+  &__input {
+    border-bottom: 1px solid $gray30;
+    margin-right: 8px;
+    float: left;
+    font-family: $base-font-family;
+    font-size: 14px;
+    line-height: 1.35;
+    padding: 3px 4px 3px 2px;
+    width: calc(100% - 8px - 50px - 4px - 83px);
+  }
+
+  &__submit {
+    border-radius: $base-border-radius;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 3px 12px;
+
+    background-color: $black;
+    color: $white;
+    float: left;
+    margin-right: 4px;
+    width: 50px;
+  }
+
+  &__cancel {
+    border-radius: $base-border-radius;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 3px 12px;
+
+    color: $gray40;
+    float: left;
+    width: 83px;
+  }
+}

@@ -1,0 +1,13 @@
+.a-button-mini {
+  border: 2px solid $gray30;
+  border-radius: $base-border-radius;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 12px;
+
+  @include media-query {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}

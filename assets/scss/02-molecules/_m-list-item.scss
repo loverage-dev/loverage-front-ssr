@@ -1,0 +1,34 @@
+.m-list-item {
+  @include clearfix;
+  position: relative;
+
+  &__left {
+    float: left;
+    margin-right: 16px;
+    width: 92px;
+  }
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  &__info {
+    @include clearfix;
+
+    .a-tag--category, .a-likes, .a-views {
+      float: left;
+    }
+
+    .a-likes, .a-views {
+      margin-left: 16px;
+      margin-top: 4px;
+    }
+  }
+
+  .a-rank {
+    left: -12px;
+    position: absolute;
+    top: -12px;
+  }
+}

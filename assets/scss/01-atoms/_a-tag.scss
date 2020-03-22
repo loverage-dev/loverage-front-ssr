@@ -1,0 +1,16 @@
+.a-tag {
+  border-radius: $base-border-radius;
+  display: inline-block;
+  font-weight: bold;
+  padding: 4px 8px;
+
+  &--category {
+    background-color: rgba(247, 127, 153, 0.75);
+    color: $white;
+  }
+
+  &--tag {
+    border: 1px solid $gray30;
+    color: $color-key-b;
+  }
+}

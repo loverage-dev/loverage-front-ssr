@@ -1,0 +1,38 @@
+.p-index {
+  padding-top: 121px;
+
+  @include media-query {
+    padding-top: 0;
+  }
+
+  &__banner-area {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    text-align: center;
+
+    img {
+      width: 260px;
+    }
+
+    @include media-query {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+
+  .o-list-block-area {
+    @include media-query {
+      .o-list-block {
+        background-color: transparent;
+
+        &:first-child {
+          padding-top: 0;
+        }
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}

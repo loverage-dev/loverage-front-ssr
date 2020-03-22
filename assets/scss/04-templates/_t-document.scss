@@ -1,0 +1,13 @@
+.t-document {
+  .a-heading-mini {
+    margin-top: 32px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .a-ol {
+    margin-top: 16px;
+  }
+}

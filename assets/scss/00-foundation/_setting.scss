@@ -1,0 +1,50 @@
+// breakpoint
+$breakpoint-pc: 920px;
+
+// typography
+$base-font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+$base-font-size: 14px;
+$base-font-weight: 400;
+$base-line-height: 1.5;
+$latin-font-family: helvetica, arial, sans-serif;
+//antialiased,subpixel-antialiased,none
+$font-smoothing: antialiased;
+//auto,optimizeSpeed,optimizeLegibility,geometricPrecision
+$text-rendering: auto;
+
+// color
+$black: #333;
+$gray50: #666;
+$gray40: #999;
+$gray30: #ccc;
+$gray20: #e6e6e6;
+$gray10: #f0f0f0;
+$gray00: #f8f8f8;
+$white: #fff;
+
+$red: #eb5757;
+
+$color-key-a: #F77F99;
+$color-key-a-bg1: #FEF2F4;
+$color-key-a-bg2: #F99FB3;
+
+$color-key-b: #4477D3;
+$color-key-b-bg1: #ECF1FA;
+$color-key-b-bg2: #89A7E1;
+
+$color-male: #DFF5F3;
+$color-female: #F9ECE4;
+
+// shape
+$base-border-radius: 4px;
+
+// width
+$desktop-one-column-width: 620px;
+$desktop-two-columns-width: 920px;
+
+// img path
+$img-path: '../images/';
+$icon-path: '../images/icons/';
+
+// easing
+$easing: cubic-bezier(0.215, 0.61, 0.355, 1);

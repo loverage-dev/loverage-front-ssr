@@ -1,0 +1,11 @@
+.p-post-category-search-result {
+  &__description {
+    background-color: $gray10;
+    margin-bottom: 24px;
+    padding: 16px;
+
+    @include media-query {
+      margin-top: 8px;
+    }
+  }
+}

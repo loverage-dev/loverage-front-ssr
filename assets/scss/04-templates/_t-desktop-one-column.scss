@@ -1,0 +1,17 @@
+.t-desktop-one-column {
+  border-bottom: 1px solid $gray10;
+
+  &__inner {
+    @include mobile-padding;
+    padding-bottom: 40px;
+    padding-top: 20px;
+
+    @include media-query {
+      @include desktop-one-column;
+      // padding-bottom: 60px;
+      padding-left: 0;
+      padding-right: 0;
+      // padding-top: 60px;
+    }
+  }
+}

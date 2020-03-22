@@ -1,0 +1,40 @@
+.p-article {
+  &__itself {
+    @include mobile-padding;
+    padding-bottom: 40px;
+    padding-top: 20px;
+
+    .a-avatar {
+      float: left;
+      margin-right: 16px;
+    }
+
+    .a-text-30 {
+      letter-spacing: .05em;
+      line-height: 2.25;
+    }
+
+    .m-tag-list {
+      margin-top: 12px;
+    }
+
+    @include media-query {
+      @include desktop-one-column;
+      padding-top: 40px;
+    }
+  }
+
+  &__block {
+    @include clearfix;
+  }
+
+  .o-footer {
+    &__copyright {
+      padding-bottom: 92px;
+
+      @include media-query {
+        padding-bottom: 108px;
+      }
+    }
+  }
+}

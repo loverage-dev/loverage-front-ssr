@@ -1,0 +1,19 @@
+.m-filter {
+  @include clearfix;
+  max-width: 320px;
+
+  .a-label {
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .a-selectbox {
+    float: left;
+    width: 108px;
+
+    &:last-child {
+      margin-left: 12px;
+      width: calc(100% - 120px);
+    }
+  }
+}

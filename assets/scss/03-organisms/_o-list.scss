@@ -1,0 +1,39 @@
+.o-list {
+  .m-list-item {
+    margin-top: 20px;
+  }
+
+  & + button, & + a > button  {
+    margin-top: 20px;
+
+    @include media-query {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &-block {
+    @include mobile-padding;
+    padding-bottom: 40px;
+    padding-top: 28px;
+
+    .a-text-60 {
+      text-align: center;
+    }
+
+    .m-list-item {
+      @include media-query {
+        @include desktop-one-column;
+      }
+    }
+
+    &-area {
+      .o-list-block {
+        &:nth-of-type(even) {
+          background-color: $gray00;
+        }
+      }
+    }
+  }
+}

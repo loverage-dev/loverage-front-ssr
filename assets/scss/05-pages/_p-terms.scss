@@ -1,0 +1,13 @@
+.p-terms {
+  .a-ol {
+    &__item {
+      .a-ol {
+        &__item {
+          &::before {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.t-desktop-two-columns {
+  @include media-query {
+    @include clearfix;
+    @include desktop-two-columns;
+    padding-bottom: 60px;
+    padding-top: 60px;
+
+    &__left {
+      float: left;
+    }
+
+    &__right {
+      float: right;
+    }
+  }
+}

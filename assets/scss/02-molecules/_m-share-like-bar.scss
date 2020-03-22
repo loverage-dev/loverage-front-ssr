@@ -1,0 +1,64 @@
+.m-share-like-bar {
+  @include clearfix;
+  @include mobile-padding;
+  background-color: rgba(255, 255, 255, .9);
+  bottom: 0;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  position: fixed;
+  right: 50%;
+  transform: translate(50%, 0);
+  width: 100%;
+  z-index: 98;
+
+  &__share-list {
+    @include clearfix;
+    float: left;
+    height: 40px;
+
+    &-item {
+      float: left;
+
+      & + li {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  &__like {
+    background-color: $white;
+    border: 2px solid $color-key-a;
+    border-radius: 20px;
+    float: right;
+    height: 40px;
+    position: relative;
+    width: 40px;
+
+    svg {
+      left: 8px;
+      position: absolute;
+      top: 8px;
+
+      // transition: all 1s $easing;
+    }
+
+    &.is-liked {
+      svg {
+        fill: $color-key-a;
+      }
+    }
+  }
+
+  @include media-query {
+    // background-color: transparent;
+    max-width: 1240px;
+    padding-bottom: 16px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 16px;
+
+    &__block {
+      @include desktop-one-column;
+    }
+  }
+}

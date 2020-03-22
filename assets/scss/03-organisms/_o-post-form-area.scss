@@ -1,0 +1,88 @@
+.o-post-form-area {
+  @include mobile-padding;
+  background-color: $gray10;
+  padding-bottom: 40px;
+  padding-top: 40px;
+
+  .is-error {
+    input, textarea, select {
+      border: 2px solid $red;
+    }
+  }
+
+  &__error-text {
+    color: $red;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+
+  &__heading {
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  &__form {
+    margin-top: 16px;
+  }
+
+  &__no {
+    margin-top: 12px;
+  }
+
+  &__gender-year-block {
+    @include clearfix;
+  }
+
+  &__gender {
+    float: left;
+    width: 108px;
+  }
+
+  &__year {
+    float: right;
+    width: calc(100% - 120px);
+  }
+
+  &__submit-block {
+    @include clearfix;
+    margin-top: 16px;
+
+    &-terms {
+      float: left;
+      font-size: 12px;
+      padding-top: 8px;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    .a-button-primary {
+      float: right;
+      width: calc(100% - 120px);
+    }
+  }
+
+  textarea, input, select {
+    background-color: $white;
+  }
+
+  .a-label {
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  @include media-query {
+    padding-bottom: 60px;
+    padding-top: 60px;
+
+    &__block {
+      margin: 0 auto;
+      max-width: 480px;
+    }
+  }
+}

@@ -1,83 +1,67 @@
 @charset "utf-8";
 
-// @import '00_foundation/*';
-// @import '01-atoms/*';
-// @import '02-molecules/*';
-// @import '03-organisms/*';
-// @import '04-templates/*';
-// @import '05-pages/*';
+@import '00-foundation/reset';
+@import '00-foundation/setting';
+@import '00-foundation/mixin';
+@import '00-foundation/base';
+
+@import '01-atoms/a-avatar'; // ejs
+@import '01-atoms/a-button-mini';
+@import '01-atoms/a-button-primary';
+@import '01-atoms/a-button-secondary';
+@import '01-atoms/a-button-seemore'; // ejs
+@import '01-atoms/a-category-menu'; // ejs
+@import '01-atoms/a-heading-mini';
+@import '01-atoms/a-label';
+@import '01-atoms/a-likes'; // ejs
+@import '01-atoms/a-like-text'; // ejs
+@import '01-atoms/a-logo'; // ejs
+@import '01-atoms/a-ol';
+@import '01-atoms/a-sentence';
+@import '01-atoms/a-pagetitle'; // ejs
+@import '01-atoms/a-rank'; // ejs
+@import '01-atoms/a-selectbox';
+@import '01-atoms/a-tag';
+@import '01-atoms/a-text';
+@import '01-atoms/a-textfield';
+@import '01-atoms/a-toast'; // ejs
+@import '01-atoms/a-views'; // ejs
+@import '01-atoms/a-your-answer'; // ejs
+
+@import '02-molecules/m-comment';  // ejs
+@import '02-molecules/m-contents-post'; // ejs
+@import '02-molecules/m-dialog'; // ejs
+@import '02-molecules/m-filter'; // ejs
+@import '02-molecules/m-kv-item'; // ejs
+@import '02-molecules/m-list-item'; // ejs
+@import '02-molecules/m-search-bar'; // ejs
+@import '02-molecules/m-share-like-bar'; // ejs
+@import '02-molecules/m-tag-list'; // ejs
+
+@import '03-organisms/o-answer'; // ejs
+@import '03-organisms/o-article-title-area'; // ejs
+@import '03-organisms/o-comment-area'; // ejs
+@import '03-organisms/o-footer'; // ejs
+@import '03-organisms/o-header'; // ejs
+@import '03-organisms/o-history'; // ejs
+@import '03-organisms/o-list'; // ejs
+@import '03-organisms/o-post-form-area'; // ejs
+@import '03-organisms/o-post-form-modal'; // ejs
+
+@import '04-templates/t-contents';
+@import '04-templates/t-desktop-one-column';
+@import '04-templates/t-desktop-two-columns';
+@import '04-templates/t-document';
+@import '04-templates/t-not-article-not-index';
+
+@import '05-pages/p-about'; // ejs
+@import '05-pages/p-article'; // ejs
+@import '05-pages/p-category-list'; // ejs
+@import '05-pages/p-contributor-category-search-result'; // ejs
+@import '05-pages/p-index'; // ejs
+@import '05-pages/p-post-category-search-result'; // ejs
+@import '05-pages/p-privacy-policy'; // ejs
+@import '05-pages/p-ranking'; // ejs
+@import '05-pages/p-terms'; // ejs
+
 // @import '99-utilities/*';
-
-@import '00_foundation/setting';
-@import '00_foundation/reset';
-@import '00_foundation/mixin';
-@import '00_foundation/base';
-
-@import '01-atom/a-avatar';
-@import '01-atom/a-answer-label';
-@import '01-atom/a-balloon';
-@import '01-atom/a-btn';
-@import '01-atom/a-btn-round';
-@import '01-atom/a-counter';
-@import '01-atom/a-date';
-@import '01-atom/a-hashtag';
-@import '01-atom/a-heading';
-@import '01-atom/a-input';
-@import '01-atom/a-label';
-@import '01-atom/a-link';
-@import '01-atom/a-logo';
-@import '01-atom/a-ol';
-@import '01-atom/a-popup-header';
-@import '01-atom/a-paragraph';
-@import '01-atom/a-selectbox';
-@import '01-atom/a-share-btn';
-@import '01-atom/a-tab';
-@import '01-atom/a-textarea';
-@import '01-atom/a-toast';
-@import '01-atom/a-ul';
-
-@import '02-molecule/m-card-info';
-@import '02-molecule/m-card';
-@import '02-molecule/m-chat-item';
-@import '02-molecule/m-chart';
-@import '02-molecule/m-comment-form';
-@import '02-molecule/m-contents-textarea';
-@import '02-molecule/m-dialog';
-@import '02-molecule/m-hashtag-list';
-@import '02-molecule/m-kv';
-@import '02-molecule/m-list-heading';
-@import '02-molecule/m-question-post-form';
-@import '02-molecule/m-search-area';
-@import '02-molecule/m-share-btn-list';
-@import '02-molecule/m-step';
-@import '02-molecule/m-sub-kv';
-
-@import '03-organism/o-answering-form';
-@import '03-organism/o-card-list';
-@import '03-organism/o-chat-list';
-@import '03-organism/o-comment-view-box';
-@import '03-organism/o-flex-card-list';
-@import '03-organism/o-global-header';
-@import '03-organism/o-global-footer';
-@import '03-organism/o-history-box';
-@import '03-organism/o-pagetitle';
-@import '03-organism/o-question-post-bottom-area';
-@import '03-organism/o-question-post-popup';
-
-@import '04-template/t-2column';
-@import '04-template/t-contents';
-@import '04-template/t-doc';
-@import '04-template/t-ranking';
-@import '04-template/t-search-result';
-
-@import '05-page/p-about';
-@import '05-page/p-article';
-@import '05-page/p-category-list';
-@import '05-page/p-index';
-@import '05-page/p-latest-list';
-@import '05-page/p-privacy-policy';
-@import '05-page/p-terms';
-
-@import '99-utility/u-display';
-
-@import 'styleguide';

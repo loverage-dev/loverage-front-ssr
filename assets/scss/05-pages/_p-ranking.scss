@@ -1,0 +1,36 @@
+.p-ranking {
+  &__tabs {
+    @include clearfix;
+    margin-bottom: 32px;
+
+    &-item {
+      float: left;
+      margin-right: 24px;
+
+      &.is-active {
+        a {
+          color: $black;
+          font-weight: bold;
+          position: relative;
+
+          &::after {
+            background-color: $black;
+            bottom: 0;
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+          }
+        }
+      }
+
+      a {
+        color: $gray50;
+        display: block;
+        font-size: 16px;
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
