@@ -1,17 +1,30 @@
 <template>
-
 <div class="t-contents t-not-article-not-index">
     <CategoryMenu />
     <PageTitle />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
-      <h2 class="a-heading-mini">「Love」 + 「Average」 = 「Loverage」</h2>
-      <p class="p-about__sentences">
-        日々の恋愛の中で「これって自分だけ？」と感じることはありませんか？<br>誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。<br><br>Loverageは、そんなあなたの恋愛にまつわる相談事を、二択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。<br><br>日々の些細な出来事から、性にまつわるプライベートなことまで、家族や友人にも言えないあなたの今の気持ちをお聞かせください。
-      </p>
-      <div class="p-about__author">
-        Loverage運営事務局
+      <ul class="p-ranking__tabs">
+        <li class="p-ranking__tabs-item">
+          <a href="">閲覧数</a>
+        </li>
+        <li class="p-ranking__tabs-item is-active">
+          <a href="">いいね数</a>
+        </li>
+      </ul>
+      <div class="o-list">
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
+          <ListItemRanking />
       </div>
+      <a href=""><button class="a-button-secondary">閲覧数ランキングも見る</button></a>
     </div>
   </div>
   <div class="o-list-block-area">
@@ -19,19 +32,19 @@
       <ListBlock />
       <ListBlock />
       <ListBlock />
-      <ListBlock />
   </div>
 </div>
+
 </template>
 
 <script>
-
 import CategoryMenu from '~/components/atom/category-menu.vue'
 import PageTitle from '~/components/atom/pagetitle.vue'
+import ListItemRanking from '~/components/molecule/list-item--ranking.vue'
 import ListBlock from '~/components/organism/list-block.vue'
 
 export default {
-  name: "About",
+  name: "LikesRanking",
   props: {},
   data() {
     return {};
@@ -45,6 +58,7 @@ export default {
   components: {
       CategoryMenu,
       PageTitle,
+      ListItemRanking,
       ListBlock
   }
 };
