@@ -1,7 +1,7 @@
 <template>
 <div class="t-contents t-not-article-not-index t-document">
   <CategoryMenu />
-  <PageTitle />
+  <PageTitle :pageTitle="pageTitle" />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <h2 class="a-heading-mini">総則</h2>
@@ -143,7 +143,9 @@ export default {
   name: "PrivacyPolicy",
   props: {},
   data() {
-    return {};
+    return {
+      pageTitle: '個人情報保護方針'
+    };
   },
   created: function(){
     },

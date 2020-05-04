@@ -8,11 +8,11 @@
 <script>
 export default {
   name: "PageTitle",
-  props: {},
-  data() {
-    return {
-        pageTitle: "title"
-    };
+  props: {
+    pageTitle: {
+      type: String,
+      default: 'No Title'
+    }
   },
   created: function(){
     },

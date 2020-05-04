@@ -2,7 +2,7 @@
 
 <div class="t-contents t-not-article-not-index">
     <CategoryMenu />
-    <PageTitle />
+    <PageTitle  :pageTitle="aaa"/>
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <h2 class="a-heading-mini">「Love」 + 「Average」 = 「Loverage」</h2>

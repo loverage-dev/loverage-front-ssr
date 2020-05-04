@@ -12,8 +12,6 @@
 //import Loading from '~/components/atom/loading.vue'
 import Header from '~/components/organism/header.vue'
 import Footer from '~/components/organism/footer.vue'
-import CategoryMenu from '~/components/atom/category-menu.vue'
-import KvItem from '~/components/molecule/kv-item.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
 
 export default {
@@ -21,8 +19,6 @@ export default {
     //Loading,
     Header,
     Footer,
-    CategoryMenu,
-    KvItem,
     PostFormArea
   }
 }

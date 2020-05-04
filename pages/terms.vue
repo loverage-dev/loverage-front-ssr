@@ -1,7 +1,7 @@
 <template>
 <div class="t-contents t-not-article-not-index t-document">
   <CategoryMenu />
-  <PageTitle />
+  <PageTitle :pageTitle="pageTitle" />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <p class="a-sentence">この利用規約（以下「本規約」といいます。）は、「Loverage」WEBサイト（以下「本サイト」といいます。）を運営するLoverage運営事務局（以下「当事務局」といいます。）と本サイトを閲覧する利用者および本サイト上において提供される各サービス（以下「本サービス」といいます。）を利用する利用者（以下「本サイトを閲覧する利用者」および「本サービスを利用する利用者」をあわせて「ユーザー」といいます。）との間の一切の関係に適用されます。
@@ -225,7 +225,9 @@ export default {
   name: "Teams",
   props: {},
   data() {
-    return {};
+    return {
+      pageTitle: "利用規約"
+    };
   },
   created: function(){
     },

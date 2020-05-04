@@ -35,8 +35,10 @@ import Answer from '~/components/organism/answer.vue'
 import CommentArea from '~/components/organism/comment-area.vue'
 import ShareLikeBar from '~/components/molecule/share-like-bar.vue'
 import ListBlock from '~/components/organism/list-block.vue'
+
 export default {
   name: "Article",
+  layout: "article",
   props: {},
   data() {
     return {};
@@ -55,7 +57,12 @@ export default {
       CommentArea,
       ShareLikeBar,
       ListBlock
-  }
+  },
+  head: {
+    bodyAttrs: {
+      class: 'p-article'
+    }
+  },
 };
 </script>
 

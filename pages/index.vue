@@ -22,6 +22,7 @@
 import ListBlock from '~/components/organism/list-block.vue'
 
 export default {
+  layout: "index",
   components: {
     ListBlock
   },
