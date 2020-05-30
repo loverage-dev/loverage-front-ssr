@@ -1,5 +1,5 @@
 <template>
-  <div class="t-contents box" v-show="$store.state.loading">
+  <div class="t-contents box" v-if="$store.state.loading">
     <div class="spinner">
       <div class="cube1"></div>
       <div class="cube2"></div>
@@ -15,8 +15,17 @@ export default {
     return {
       overlayPosition: {
         top: "0"
-      }
+      },
+      loading: false
     };
+  },
+  methods: {
+    start() {
+      this.loading = true
+    },
+    finish() {
+      this.loading = false
+    }
   },
   created: function(){
     },

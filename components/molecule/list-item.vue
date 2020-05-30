@@ -4,11 +4,11 @@
     <div class="m-list-item">
         <div class="m-list-item__left"><img src="~assets/images/dammy-thumbnail.jpg" alt=""></div>
         <div class="m-list-item__right">
-        <h6 class="m-list-item__title">僕は男性とのセックスでも快感を得ることができる、いわゆるバイセクシャルの人間です。数日前、クラク...</h6>
+        <h6 class="m-list-item__title">{{ article.content }}</h6>
         <div class="m-list-item__info">
-            <a href="" class="a-tag a-tag--category">カテゴリー</a>
-            <Likes />
-            <Views />
+            <a href="" class="a-tag a-tag--category">{{ article.category }}</a>
+            <Likes :count="article.ref_count" />
+            <Views :count="article.ref_count" />
         </div>
         </div>
     </div>
@@ -23,7 +23,12 @@ import Views from '~/components/atom/views.vue'
 
 export default {
   name: "ListItem",
-  props: {},
+  props: {
+    article: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {};
   },

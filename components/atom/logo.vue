@@ -1,5 +1,5 @@
 <template>
-<a href="" class="a-logo"><img src="~assets/images/logo.svg" alt="Loverage"></a>
+<router-link to="/" class="a-logo"><img src="~assets/images/logo.svg" alt="Loverage"></router-link>
 </template>
 
 

@@ -12,10 +12,10 @@
                 <li class="o-footer__nav-list-item"><a href="">検索する</a></li>
                 <li class="o-footer__nav-list-item"><a href="">カテゴリ</a></li>
                 <li class="o-footer__nav-list-item"><a href="">ランキング</a></li>
-                <li class="o-footer__nav-list-item"><a href="">Loveargeとは</a></li>
-                <li class="o-footer__nav-list-item"><a href="">利用規約</a></li>
-                <li class="o-footer__nav-list-item"><a href="">個人情報保護方針</a></li>
-                <li class="o-footer__nav-list-item"><a href="">お問い合わせ</a></li>
+                <li class="o-footer__nav-list-item"><router-link to="/about">Loveargeとは</router-link></li>
+                <li class="o-footer__nav-list-item"><router-link to="/terms">利用規約</router-link></li>
+                <li class="o-footer__nav-list-item"><router-link to="/privacy-policy">個人情報保護方針</router-link></li>
+                <li class="o-footer__nav-list-item"><a href="https://forms.gle/SyRjk8Yv9VeatFCL7" target="_blank">お問い合わせ</a></li>
                 </ul>
             </nav>
             </div>

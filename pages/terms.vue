@@ -1,7 +1,7 @@
 <template>
 <div class="t-contents t-not-article-not-index t-document">
   <CategoryMenu />
-  <PageTitle :pageTitle="pageTitle" />
+  <PageTitle :pageTitle="'利用規約'" />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <p class="a-sentence">この利用規約（以下「本規約」といいます。）は、「Loverage」WEBサイト（以下「本サイト」といいます。）を運営するLoverage運営事務局（以下「当事務局」といいます。）と本サイトを閲覧する利用者および本サイト上において提供される各サービス（以下「本サービス」といいます。）を利用する利用者（以下「本サイトを閲覧する利用者」および「本サービスを利用する利用者」をあわせて「ユーザー」といいます。）との間の一切の関係に適用されます。
@@ -206,10 +206,10 @@
     </div>
   </div>
   <div class="o-list-block-area">
-    <ListBlock />
-    <ListBlock />
-    <ListBlock />
-    <ListBlock />
+      <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
+      <ListBlock :title="'編集者のおすすめ'" :articles="$store.state.editors_pick" />
+      <ListBlock :title="'話題の記事'" :articles="$store.state.hot_topic" />
+      <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" />
   </div>
 </div>
 
@@ -220,17 +220,46 @@
 import CategoryMenu from '~/components/atom/category-menu.vue'
 import PageTitle from '~/components/atom/pagetitle.vue'
 import ListBlock from '~/components/organism/list-block.vue'
+import axios from "axios";
 
 export default {
-  name: "Teams",
+  name: "Terms",
   props: {},
   data() {
-    return {
-      pageTitle: "利用規約"
-    };
+    return {}
   },
   created: function(){
-    },
+    const url = 'https://limitless-crag-46636.herokuapp.com'
+    if(!this.$store.state.latest && !this.$store.state.hot_topic && !this.$store.state.editors_pick && !this.$store.state.featured){
+      this.$store.commit("setLoading", true);
+      axios
+        .all([
+          axios.get(
+            `${ url }/api/v1/editors_picks?limit=5`
+          ),
+          axios.get(
+            `${ url }/api/v1/latest?limit=5`
+          ),
+          axios.get(
+            `${ url }/api/v1/hot_topics?limit=5`
+          ),
+          axios.get(
+            `${ url }/api/v1/featureds?limit=5`
+          )
+        ])
+        .then(
+          axios.spread((api1Result, api2Result, api3Result, api4Result) => {
+            this.$store.commit("setEditorsPick", api1Result.data.articles);
+            this.$store.commit("setLatest", api2Result.data.articles);
+            this.$store.commit("setHotTopic", api3Result.data.articles);
+            this.$store.commit("setFeatured", api4Result.data.articles);
+          })
+        )
+        .finally(() => {
+          this.$store.commit("setLoading", false);
+        });
+    }
+  },
   mounted: function(){
   },
   destroyed: function(){

@@ -1,12 +1,8 @@
 <template>
     <div class="o-list-block">
-  <h4 class="a-text-60 a-text--bold">回遊導線見出し</h4>
+  <h4 class="a-text-60 a-text--bold">{{ title }}</h4>
   <div class="o-list">
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
-      <ListItem />
+      <ListItem :title="title" :article="article" v-for="article in articles" :key="article.id" />
   </div>
   <a href=""><button class="a-button-primary">もっと見る</button></a>
 </div>
@@ -18,7 +14,16 @@ import ListItem from '~/components/molecule/list-item.vue'
 
 export default {
   name: "ListBlock",
-  props: {},
+  props: {
+    articles: {
+      type: Array,
+      default: []
+    },
+    title:{
+      type: String,
+      default: ""
+    }
+  },
   data() {
     return {};
   },

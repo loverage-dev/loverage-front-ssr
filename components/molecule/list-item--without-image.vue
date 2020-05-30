@@ -1,17 +1,17 @@
 <template>
 
-    <a href="">
+  <a href="" v-if="$store.state.top_feature_special">
     <div class="m-list-item">
-        <div class="m-list-item__right">
-        <h6 class="m-list-item__title">僕は男性とのセックスでも快感を得ることができる、いわゆるバイセクシャルの人間です。数日前、クラク...</h6>
+      <div class="m-list-item__right">
+        <h6 class="m-list-item__title">{{ $store.state.top_feature_special.content }}</h6>
         <div class="m-list-item__info">
-            <a href="" class="a-tag a-tag--category">カテゴリー</a>
-            <Likes />
-            <Views />
+            <a href="" class="a-tag a-tag--category">{{ $store.state.top_feature_special.category }}</a>
+            <Likes :count="$store.state.top_feature_special.ref_count" />
+            <Views :count="$store.state.top_feature_special.ref_count" />
         </div>
-        </div>
+      </div>
     </div>
-    </a>
+  </a>
 
 </template>
 
@@ -22,7 +22,6 @@ import Views from '~/components/atom/views.vue'
 
 export default {
   name: "ListItemWithoutImage",
-  props: {},
   data() {
     return {};
   },

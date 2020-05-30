@@ -2,10 +2,10 @@
     <div class="t-desktop-two-columns">
       <div class="t-desktop-two-columns__left">
         <div class="o-list-block-area">
-          <ListBlock />
-          <ListBlock />
-          <ListBlock />
-          <ListBlock />
+          <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
+          <ListBlock :title="'編集者のおすすめ'" :articles="$store.state.editors_pick" />
+          <ListBlock :title="'話題の記事'" :articles="$store.state.hot_topic" />
+          <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" />
         </div>
       </div>
       <div class="t-desktop-two-columns__right">
@@ -26,33 +26,25 @@ export default {
   components: {
     ListBlock
   },
-   head: {
+  head: {
     bodyAttrs: {
       class: 'p-index'
     }
   },
-  created: function(){
-    this.$store.commit("setLoading", true);
-    const url = 'https://limitless-crag-46636.herokuapp.com'
-    this.$axios.$get(`${ url }/api/v1/overview`)
-    .then(response => {
-      this.$store.commit("setTopFeatureSpecial", response.key_visual)
-      this.$store.commit("setTopFeatureNormal", response.others_1.articles)
-      this.$store.commit("setWomensTopic", response.big_futured_for_f)
-      this.$store.commit("setMensTopic", response.big_futured_for_m)
-      this.$store.commit("setRankingView", response.rankings_view.articles)
-      this.$store.commit("setLatest", response.latest.articles)
-      this.$store.commit("setFeatured", response.featured.articles)
-      this.$store.commit("setFeaturedSP", response.sub_visual)
-      this.$store.commit("setHotTopic", response.hot_topic.articles)
-      this.$store.commit("setEditorsPick", response.editors_picks.articles)
-      this.$store.commit("setOthers1", response.others_2.articles)
-      this.$store.commit("setOthers2", response.others_3.articles)
-      console.log(response)
-    })
-    .finally(()=>{
-        this.$store.commit("setLoading", false)
-    })
+  async fetch({store, app:{$axios, $API_URL}}){
+    let { data } = await $axios.get(`${ $API_URL() }/api/v1/overview`)
+    store.commit('setTopFeatureSpecial', data.key_visual)
+    store.commit("setTopFeatureNormal", data.others_1.articles)
+    store.commit("setWomensTopic", data.big_futured_for_f)
+    store.commit("setMensTopic", data.big_futured_for_m)
+    store.commit("setRankingView", data.rankings_view.articles)
+    store.commit("setLatest", data.latest.articles)
+    store.commit("setFeatured", data.featured.articles)
+    store.commit("setFeaturedSP", data.sub_visual)
+    store.commit("setHotTopic", data.hot_topic.articles)
+    store.commit("setEditorsPick", data.editors_picks.articles)
+    store.commit("setOthers1", data.others_2.articles)
+    store.commit("setOthers2", data.others_3.articles)
   }
 }
 </script>
