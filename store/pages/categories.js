@@ -14,7 +14,7 @@ export default {
         if(!rootState.shared.categories.categoryList){
           await dispatch('shared/categories/getCategoryList', null, { root: true })
         }
-        
+
         //カテゴリーの説明文を取得
         let target = rootState.shared.categories.categoryList.filter(c =>{
           return c.name == category;
@@ -46,8 +46,8 @@ export default {
       setArticlesSub2(state, data){
         state.articles_sub2 = data;
       },
-      setArticlesSub2(state, data){
-        state.articles_sub2 = data;
+      setArticlesSub3(state, data){
+        state.articles_sub3 = data;
       }
     }
 }

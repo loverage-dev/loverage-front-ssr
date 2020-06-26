@@ -39,23 +39,26 @@ export default {
       commit('setCategoryPosts', res.articles)
     },
     /********************************************
-     * ピックアップ記事（Featured/HotTopic/EditorsPick）の取得
+     * ピックアップ記事（Featured/HotTopic/EditorsPick/latest）の取得
      ********************************************/
     async getPickUps ({commit}) {
       await Promise.all(
         [
           this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/featureds?limit=10`),
           this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/hot_topics?limit=10`),
-          this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/editors_picks?limit=10`)
+          this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/editors_picks?limit=10`),
+          this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/latest?limit=10`)
         ]
       )
       .then(result => {
         let api1Result = result[0]
         let api2Result = result[1]
         let api3Result = result[2]
+        let api4Result = result[3]
         commit("setFeatured", api1Result.articles)
         commit("setHotTopic", api2Result.articles)
         commit("setEditorsPick", api3Result.articles)
+        commit("setLatest", api4Result.articles)
         }
       )
     }

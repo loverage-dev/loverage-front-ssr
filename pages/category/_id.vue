@@ -1,7 +1,7 @@
 <template>
     <div class="t-contents t-not-article-not-index">
         <CategoryMenu />
-        <PageTitle :pageTitle="`カテゴリ  -  ${ $route.params.id }`"/>
+        <PageTitle :pageTitle="`カテゴリー  -  ${ $route.params.id }`"/>
         {{description}}
         {{JSON.stringify(articles)}}
         {{JSON.stringify(articles_sub1)}}
@@ -40,23 +40,9 @@ export default {
       articles_sub3: state => state.articles_sub3
     })
   },
-  mounted: ()=>{
-    // let category = this.categories.filter(c =>{
-    //   return c.name == this.$route.query.category;
-    // })
-    // this.categoryDescription = category[0].description
-  },
   async asyncData({ store,route }) {
-    // await store.dispatch('shared/categories/getCategories')
     await store.dispatch('pages/categories/getCategories', {category: route.params.id})
   }
-  // async fetch({store, route, app:{$axios, $API_URL}}){
-  //   console.log(decodeURI(route.query.title))
-  //   console.log(decodeURI(route.params.id))
-  //   let { data } = await $axios.get(`${ $API_URL() }/api/v1/articles?category=${decodeURI(route.query.title)}`)
-  //   // store.commit('setTopFeatureSpecial', data.key_visual)
-  //   console.log(data)
-  // }
 }
 </script>
 
