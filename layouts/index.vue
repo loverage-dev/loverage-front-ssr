@@ -7,7 +7,7 @@
     <PostFormArea />
     <Footer />
   </div>
-</template>
+</template> 
 
 <script>
 import Header from '~/components/organism/header.vue'

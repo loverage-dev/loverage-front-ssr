@@ -1,11 +1,13 @@
 <template>
+  <client-only>
     <div class="o-list-block">
-  <h4 class="a-text-60 a-text--bold">{{ title }}</h4>
-  <div class="o-list">
-      <ListItem :title="title" :article="article" v-for="article in articles" :key="article.id" />
-  </div>
-  <a href=""><button class="a-button-primary">もっと見る</button></a>
-</div>
+    <h4 class="a-text-60 a-text--bold">{{ title }}</h4>
+      <div class="o-list">
+          <ListItem :title="title" :article="article" v-for="article in articles" :key="article.id" />
+      </div>
+    <a href=""><button class="a-button-primary">もっと見る</button></a>
+    </div>
+  </client-only>
 </template>
 
 

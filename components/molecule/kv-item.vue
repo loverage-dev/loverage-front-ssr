@@ -4,7 +4,9 @@
             <div class="m-kv-item__image-area">
               <img src="~assets/images/dammy-kv.jpg" alt="">
             </div>
-            <ListItemWithoutImage />
+            <client-only>
+              <ListItemWithoutImage />
+            </client-only>
         </div>
     </a>
 </template>

@@ -1,3 +1,5 @@
+require('dotenv').config()
+const { API_BASE_URL } = process.env;
 
 module.exports = {
   mode: 'universal',
@@ -54,5 +56,8 @@ module.exports = {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    API_BASE_URL
   }
 }

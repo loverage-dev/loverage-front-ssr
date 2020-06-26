@@ -2,10 +2,10 @@
     <div class="t-desktop-two-columns">
       <div class="t-desktop-two-columns__left">
         <div class="o-list-block-area">
-          <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
-          <ListBlock :title="'編集者のおすすめ'" :articles="$store.state.editors_pick" />
-          <ListBlock :title="'話題の記事'" :articles="$store.state.hot_topic" />
-          <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" />
+          <ListBlock :title="'最新の記事'" :articles="latests" />
+          <ListBlock :title="'編集者のおすすめ'" :articles="editors_picks" />
+          <ListBlock :title="'話題の記事'" :articles="hot_topics" />
+          <ListBlock :title="'ピックアップ記事'" :articles="featureds" />
         </div>
       </div>
       <div class="t-desktop-two-columns__right">
@@ -20,6 +20,7 @@
 
 <script>
 import ListBlock from '~/components/organism/list-block.vue'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   layout: "index",
@@ -31,53 +32,31 @@ export default {
       class: 'p-index'
     }
   },
-  async fetch({store, app:{$axios, $API_URL}}){
-    let { data } = await $axios.get(`${ $API_URL() }/api/v1/overview`)
-    store.commit('setTopFeatureSpecial', data.key_visual)
-    store.commit("setTopFeatureNormal", data.others_1.articles)
-    store.commit("setWomensTopic", data.big_futured_for_f)
-    store.commit("setMensTopic", data.big_futured_for_m)
-    store.commit("setRankingView", data.rankings_view.articles)
-    store.commit("setLatest", data.latest.articles)
-    store.commit("setFeatured", data.featured.articles)
-    store.commit("setFeaturedSP", data.sub_visual)
-    store.commit("setHotTopic", data.hot_topic.articles)
-    store.commit("setEditorsPick", data.editors_picks.articles)
-    store.commit("setOthers1", data.others_2.articles)
-    store.commit("setOthers2", data.others_3.articles)
+  methods: {
+     ...mapActions('shared/articles',['getOverviewPosts']),
+     ...mapActions('shared/categories',['getCategories'])
+  },
+  computed:{
+    ...mapState("shared/articles",{
+      featureds: state => state.featured,
+      hot_topics: state => state.hot_topic,
+      editors_picks: state => state.editors_pick,
+      latests: state => state.latest,
+    }),
+    ...mapState("shared/categories",{
+      categories: state => state.categories
+    })
+  },
+  async asyncData({ store }) {
+    // if (store.getters['items'].length) {
+    //     return
+    // }
+    await store.dispatch('shared/articles/getOverviewPosts')
+    await store.dispatch('shared/categories/getCategories')
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

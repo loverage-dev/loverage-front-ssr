@@ -1,13 +1,13 @@
 <template>
 
-  <a href="" v-if="$store.state.top_feature_special">
+  <a href="">
     <div class="m-list-item">
       <div class="m-list-item__right">
-        <h6 class="m-list-item__title">{{ $store.state.top_feature_special.content }}</h6>
+        <h6 class="m-list-item__title">{{ top.content }}</h6>
         <div class="m-list-item__info">
-            <a href="" class="a-tag a-tag--category">{{ $store.state.top_feature_special.category }}</a>
-            <Likes :count="$store.state.top_feature_special.ref_count" />
-            <Views :count="$store.state.top_feature_special.ref_count" />
+            <a href="" class="a-tag a-tag--category">{{ top.category }}</a>
+            <Likes :count="top.ref_count" />
+            <Views :count="top.ref_count" />
         </div>
       </div>
     </div>
@@ -19,21 +19,18 @@
 <script>
 import Likes from '~/components/atom/likes.vue'
 import Views from '~/components/atom/views.vue'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "ListItemWithoutImage",
-  data() {
-    return {};
-  },
-  created: function(){
-    },
-  mounted: function(){
-  },
-  destroyed: function(){
-  },
   components: {
       Likes,
       Views
+  },
+  computed:{
+    ...mapState("shared/articles",{
+      top: state => state.top_feature_special
+    })
   }
 };
 </script>

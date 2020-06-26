@@ -1,22 +1,17 @@
 <template>
-<div class="a-rank">1</div>
+<div class="a-rank">{{ rank }}</div>
 </template>
 
 
 <script>
 export default {
   name: "Rank",
-  props: {},
-  data() {
-    return {};
-  },
-  created: function(){
-    },
-  mounted: function(){
-  },
-  destroyed: function(){
-  },
-  components: {}
+  props: {
+    rank: {
+      type: Number,
+      default: 0
+    }
+  }
 };
 </script>
 

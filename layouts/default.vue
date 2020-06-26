@@ -1,7 +1,7 @@
 <template>
   <div class="t-wrapper">
     <Header />
-    <nuxt v-show="!$store.state.loading" />
+    <nuxt/>
     <PostFormArea />
     <Footer />
   </div>
@@ -21,7 +21,7 @@ export default {
     CategoryMenu,
     KvItem,
     PostFormArea
-  }
+  },
 }
 </script>
 

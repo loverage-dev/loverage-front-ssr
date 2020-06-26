@@ -14,10 +14,10 @@
       </div>
     </div>
     <div class="o-list-block-area">
-        <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
+        <!-- <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
         <ListBlock :title="'編集者のおすすめ'" :articles="$store.state.editors_pick" />
         <ListBlock :title="'話題の記事'" :articles="$store.state.hot_topic" />
-        <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" />
+        <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" /> -->
     </div>
   </div>
 </template>
@@ -36,36 +36,36 @@ export default {
     return {};
   },
   created: function(){
-    const url = 'https://limitless-crag-46636.herokuapp.com'
-    if(!this.$store.state.latest && !this.$store.state.hot_topic && !this.$store.state.editors_pick && !this.$store.state.featured){
-      this.$store.commit("setLoading", true);
-      axios
-        .all([
-          axios.get(
-            `${ url }/api/v1/editors_picks?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/latest?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/hot_topics?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/featureds?limit=5`
-          )
-        ])
-        .then(
-          axios.spread((api1Result, api2Result, api3Result, api4Result) => {
-            this.$store.commit("setEditorsPick", api1Result.data.articles);
-            this.$store.commit("setLatest", api2Result.data.articles);
-            this.$store.commit("setHotTopic", api3Result.data.articles);
-            this.$store.commit("setFeatured", api4Result.data.articles);
-          })
-        )
-        .finally(() => {
-          this.$store.commit("setLoading", false);
-        });
-    }
+    // const url = 'https://limitless-crag-46636.herokuapp.com'
+    // if(!this.$store.state.latest && !this.$store.state.hot_topic && !this.$store.state.editors_pick && !this.$store.state.featured){
+    //   this.$store.commit("setLoading", true);
+    //   axios
+    //     .all([
+    //       axios.get(
+    //         `${ url }/api/v1/editors_picks?limit=5`
+    //       ),
+    //       axios.get(
+    //         `${ url }/api/v1/latest?limit=5`
+    //       ),
+    //       axios.get(
+    //         `${ url }/api/v1/hot_topics?limit=5`
+    //       ),
+    //       axios.get(
+    //         `${ url }/api/v1/featureds?limit=5`
+    //       )
+    //     ])
+    //     .then(
+    //       axios.spread((api1Result, api2Result, api3Result, api4Result) => {
+    //         this.$store.commit("setEditorsPick", api1Result.data.articles);
+    //         this.$store.commit("setLatest", api2Result.data.articles);
+    //         this.$store.commit("setHotTopic", api3Result.data.articles);
+    //         this.$store.commit("setFeatured", api4Result.data.articles);
+    //       })
+    //     )
+    //     .finally(() => {
+    //       this.$store.commit("setLoading", false);
+    //     });
+    // }
   },
   mounted: function(){
   },
