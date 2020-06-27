@@ -100,9 +100,9 @@
         <li class="a-category-menu__list-item">
           <nuxt-link 
             :to="{
-              path: encodeURI('/category/性・SEX')
+              path: encodeURI('/category/SEX・性')
             }">
-            性・SEX
+            SEX・性
           </nuxt-link>
         </li>
         <li class="a-category-menu__list-item">
