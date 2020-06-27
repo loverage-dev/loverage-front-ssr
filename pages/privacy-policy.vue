@@ -124,10 +124,10 @@
     </div>
   </div>
   <div class="o-list-block-area">
-      <ListBlock :title="'最新の記事'" :articles="$store.state.latest" />
-      <ListBlock :title="'編集者のおすすめ'" :articles="$store.state.editors_pick" />
-      <ListBlock :title="'話題の記事'" :articles="$store.state.hot_topic" />
-      <ListBlock :title="'ピックアップ記事'" :articles="$store.state.featured" />
+      <ListBlock :title="'ピックアップ記事'" :articles="articles_sub1" />
+      <ListBlock :title="'話題の記事'" :articles="articles_sub2" />
+      <ListBlock :title="'編集者のおすすめ'" :articles="articles_sub3" />
+      <ListBlock :title="'最新の記事'" :articles="articles_sub4" />
   </div>
 </div>
 
@@ -139,6 +139,7 @@ import CategoryMenu from '~/components/atom/category-menu.vue'
 import PageTitle from '~/components/atom/pagetitle.vue'
 import ListBlock from '~/components/organism/list-block.vue'
 import axios from "axios";
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "PrivacyPolicy",
@@ -148,43 +149,19 @@ export default {
       pageTitle: '個人情報保護方針'
     };
   },
-  created: function(){
-    // const url = 'https://limitless-crag-46636.herokuapp.com'
-    const url = 'https://whispering-anchorage-57506.herokuapp.com'
-
-    if(!this.$store.state.latest && !this.$store.state.hot_topic && !this.$store.state.editors_pick && !this.$store.state.featured){
-      this.$store.commit("setLoading", true);
-      axios
-        .all([
-          axios.get(
-            `${ url }/api/v1/editors_picks?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/latest?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/hot_topics?limit=5`
-          ),
-          axios.get(
-            `${ url }/api/v1/featureds?limit=5`
-          )
-        ])
-        .then(
-          axios.spread((api1Result, api2Result, api3Result, api4Result) => {
-            this.$store.commit("setEditorsPick", api1Result.data.articles);
-            this.$store.commit("setLatest", api2Result.data.articles);
-            this.$store.commit("setHotTopic", api3Result.data.articles);
-            this.$store.commit("setFeatured", api4Result.data.articles);
-          })
-        )
-        .finally(() => {
-          this.$store.commit("setLoading", false);
-        });
-    }
+  methods: {
+     ...mapActions('pages/privacy-policy',['getArticles'])
   },
-  mounted: function(){
+  computed:{
+    ...mapState("pages/privacy-policy",{
+      articles_sub1: state => state.articles_sub1,
+      articles_sub2: state => state.articles_sub2,
+      articles_sub3: state => state.articles_sub3,
+      articles_sub4: state => state.articles_sub4
+    })
   },
-  destroyed: function(){
+  async asyncData({ store }) {
+    await store.dispatch('pages/privacy-policy/getArticles')
   },
   components: {
       CategoryMenu,
