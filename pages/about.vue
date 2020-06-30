@@ -36,6 +36,11 @@ export default {
   data() {
     return {};
   },
+  head: {
+    bodyAttrs: {
+      class: 'p-about'
+    }
+  },
    methods: {
      ...mapActions('pages/privacy-policy',['getArticles'])
   },
