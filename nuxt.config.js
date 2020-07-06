@@ -31,13 +31,19 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/util.js'
+    '@/plugins/util.js',
+    '@/plugins/filter.js'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/moment'
   ],
+  moment: {
+    // ここにオプションが記述できる
+    locales: ['ja']
+  },
   /*
   ** Nuxt.js modules
   */

@@ -2,27 +2,36 @@
 
 <div class="t-contents">
   <article>
-    <ArticleTitleArea />
+    <ArticleTitleArea
+      :title="article.post.title"
+      :category="article.post.category" 
+      :created_at="article.post.created_at" 
+      :age="article.post.user_age"
+      :gender="article.post.user_sex"
+      :likesCount="article.post.ref_count"
+      :viewsCount="article.post.ref_count"
+       />
     <div class="p-article__itself">
       <div class="p-article__block">
         <Avatar />
         <p class="a-text-30">
-          {{ $route.params.id }}
-          大学生です。この前、バイト先の店長から急に告白されました。歳は10個も上ですが、いつも優しく学校や家での悩み事にも親身になって聞いてくれます。人としても男性としてもすごく好きなのですが、周りの友人は同じ大学や同年代と付き合っている人がほとんどなのですごく不安もあります。自分だけなのでは…？と思ってしまっています。学生時代に、バイト先の店長と恋愛関係になった経験がある方はいますか？大学生です。この前、バイト先の店長から急に告白されました。歳は10個も上ですが、いつも優しく学校や家での悩み事にも親身になって聞いてくれます。人としても男性としてもすごく好きなのですが、周りの友人は同じ大学や同年代と付き合っている人がほとんどなのですごく不安もあります。自分だけなのでは…？と思ってしまっています。学生時代に、バイト先の店長と恋愛関係になった経験がある方はいますか？
+          {{ article.post.content }}
         </p>
       </div>
-      <TagList />
+      <TagList 
+        v-if="article.post.tag_list.length != 0"
+        :tags="article.post.tag_list" />
     </div>
     <Answer />
-    <CommentArea />
+    <CommentArea v-if="article.comments.contents.length != 0" />
     <ShareLikeBar />
   </article>
   <aside>
-    <div class="o-list-block-area">
+    <!-- <div class="o-list-block-area">
         <ListBlock />
         <ListBlock />
         <ListBlock />
-    </div>
+    </div> -->
   </aside>
 </div>
 
@@ -36,20 +45,12 @@ import Answer from '~/components/organism/answer.vue'
 import CommentArea from '~/components/organism/comment-area.vue'
 import ShareLikeBar from '~/components/molecule/share-like-bar.vue'
 import ListBlock from '~/components/organism/list-block.vue'
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "Article",
   layout: "article",
   props: {},
-  data() {
-    return {};
-  },
-  created: function(){
-    },
-  mounted: function(){
-  },
-  destroyed: function(){
-  },
   components: {
       ArticleTitleArea,
       Avatar,
@@ -64,6 +65,14 @@ export default {
       class: 'p-article'
     }
   },
+  computed:{
+    ...mapState("pages/article",{
+      article: state => state.article
+    })
+  },
+  async asyncData({ store,route }) {
+    await store.dispatch('pages/article/getArticle', {articleId: route.params.id})
+  }
 };
 </script>
 

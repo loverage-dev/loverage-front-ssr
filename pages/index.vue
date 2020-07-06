@@ -34,7 +34,7 @@ export default {
   },
   methods: {
      ...mapActions('shared/articles',['getOverviewPosts']),
-     ...mapActions('shared/categories',['getCategories'])
+     ...mapActions('shared/categories',['getCategoryList'])
   },
   computed:{
     ...mapState("shared/articles",{
@@ -52,7 +52,7 @@ export default {
     //     return
     // }
     await store.dispatch('shared/articles/getOverviewPosts')
-    await store.dispatch('shared/categories/getCategories')
+    await store.dispatch('shared/categories/getCategoryList')
   }
 }
 </script>
