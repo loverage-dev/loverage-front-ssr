@@ -1,6 +1,7 @@
 export default {
   namespaced: true,
     state: () => ({
+      mode: 'view',
       rankings_view: null,
       rankings_vote: null,
       rankings_favorite: null
@@ -18,7 +19,13 @@ export default {
             commit("setRankingsVote", api2Result.articles);
           }
         )
-        }
+      },
+      toRankingView({commit}){
+        commit("setViewMode")
+      },
+      toRankingLikes({commit}){
+        commit("setLikesMode")
+      }
     },
     mutations:{
       setRankingsView(state, data){
@@ -26,6 +33,12 @@ export default {
       },
       setRankingsVote(state, data){
         state.rankings_vote = data;
+      },
+      setViewMode(state){
+        state.mode = 'view'
+      },
+      setLikesMode(state){
+        state.mode = 'likes'
       }
     }
   }

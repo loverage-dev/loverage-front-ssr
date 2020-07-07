@@ -2,7 +2,12 @@
     <div class="o-article-title-area">
       <div class="o-article-title-area__inner">
           <div class="o-article-title-area__category">
-          <a href="" class="a-tag a-tag--category">{{ category }}</a>についての相談
+            <nuxt-link 
+              class="a-tag a-tag--category"
+              :to="{
+                path: encodeURI(`/category/${ category }`)
+              }">{{ category }}
+            </nuxt-link>についての相談
           </div>
           <h1><div class="o-article-title-area__title">{{ title }}</div></h1>
           <div class="o-article-title-area__left">

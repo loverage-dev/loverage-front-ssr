@@ -5,7 +5,13 @@
       <div class="m-list-item__right">
         <h6 class="m-list-item__title">{{ top.content }}</h6>
         <div class="m-list-item__info">
-            <a href="" class="a-tag a-tag--category">{{ top.category }}</a>
+            <nuxt-link 
+              class="a-tag a-tag--category"
+              :to="{
+                path: encodeURI(`/category/${ top.category }`)
+              }">
+              {{ top.category }}
+            </nuxt-link>
             <Likes :count="top.ref_count" />
             <Views :count="top.ref_count" />
         </div>

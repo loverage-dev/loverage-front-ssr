@@ -11,7 +11,7 @@
                     <li class="o-footer__nav-list-item"><a href="">相談する</a></li>
                     <li class="o-footer__nav-list-item"><a href="">検索する</a></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/category-list">カテゴリ</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><a href="">ランキング</a></li>
+                    <li class="o-footer__nav-list-item"><nuxt-link to="/ranking">ランキング</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/about">Loveargeとは</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/terms">利用規約</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/privacy-policy">個人情報保護方針</nuxt-link></li>

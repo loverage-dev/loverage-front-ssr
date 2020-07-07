@@ -1,18 +1,25 @@
 <template>
     <client-only>
-      <a href="">
+      <nuxt-link 
+        :to="{
+          path: encodeURI(`/article/${ article.id }`)
+        }">
       <div class="m-list-item">
           <div class="m-list-item__left"><img src="~assets/images/dammy-thumbnail.jpg" alt=""></div>
           <div class="m-list-item__right">
           <h6 class="m-list-item__title">{{ article.content }}</h6>
           <div class="m-list-item__info">
-              <a href="" class="a-tag a-tag--category">{{ article.category }}</a>
+              <nuxt-link 
+                class="a-tag a-tag--category"
+                :to="{ path: encodeURI(`/category/${ article.category }`)}">
+                {{ article.category }}
+              </nuxt-link>
               <Likes :count="article.ref_count" />
               <Views :count="article.ref_count" />
           </div>
           </div>
       </div>
-      </a>
+      </nuxt-link>
     </client-only>
 
 </template>
@@ -29,15 +36,6 @@ export default {
       type: Object,
       default: null
     }
-  },
-  data() {
-    return {};
-  },
-  created: function(){
-    },
-  mounted: function(){
-  },
-  destroyed: function(){
   },
   components: {
       Likes,
