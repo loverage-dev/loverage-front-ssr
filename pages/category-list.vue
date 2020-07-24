@@ -9,113 +9,84 @@
         <ul class="p-category-list__block-list p-category-list__block-list--two-columns">
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/出会い')
-              }">
+              :to="{  path: encodeURI('/category/出会い')}">
               <button class="a-button-secondary">出会い</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <nuxt-link 
-              :to="{
-                path: encodeURI('/category/片想い')
-              }">
+            <nuxt-link :to="{　path: encodeURI('/category/片想い')}">
               <button class="a-button-secondary">片想い</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/友達・同僚')
-              }">
+              :to="{　path: encodeURI('/category/友達・同僚')}">
             <button class="a-button-secondary">友達・同僚</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/デート')
-              }">
+              :to="{　path: encodeURI('/category/デート')}">
             <button class="a-button-secondary">デート</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/告白')
-              }">
+              :to="{　path: encodeURI('/category/告白')}">
               <button class="a-button-secondary">告白</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/彼氏・彼女')
-              }">
+              :to="{　path: encodeURI('/category/彼氏・彼女')}">
               <button class="a-button-secondary">彼氏・彼女</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/元カレ・元カノ')
-              }">
+              :to="{  path: encodeURI('/category/元カレ・元カノ') }">
             <button class="a-button-secondary">元カレ・元カノ</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/結婚')
-              }">
+              :to="{ path: encodeURI('/category/結婚') }">
               <button class="a-button-secondary">結婚</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/結婚生活')
-              }">
+              :to="{ path: encodeURI('/category/結婚生活')}">
               <button class="a-button-secondary">結婚生活</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/別れ')
-              }">
+              :to="{ path: encodeURI('/category/別れ')}">
               <button class="a-button-secondary">別れ</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/浮気・不倫')
-              }">
+              :to="{ path: encodeURI('/category/浮気・不倫')}">
               <button class="a-button-secondary">浮気・不倫</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/失恋')
-              }">
+              :to="{ path: encodeURI('/category/失恋')}">
               <button class="a-button-secondary">失恋</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/性・SEX')
-              }">
+              :to="{ path: encodeURI('/category/性・SEX')}">
               <button class="a-button-secondary">性・SEX</button>
             </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
             <nuxt-link 
-              :to="{
-                path: encodeURI('/category/その他')
-              }">
+              :to="{ path: encodeURI('/category/その他')}">
               <button class="a-button-secondary">その他</button>
             </nuxt-link>
           </li>
