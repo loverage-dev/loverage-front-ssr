@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import moment from 'moment'
 
+/**************************************************
+ * 　パイプ各種
+ **************************************************/
+
+// 投稿者の年代キーワードを日本語名へ変換
 Vue.filter('to_jp_age', function (value) {
     switch (value) {
       case "e_10s":
@@ -31,7 +36,9 @@ Vue.filter('to_jp_age', function (value) {
         return value
     }
   });
-  Vue.filter('to_jp_age_simple', function (value) {
+
+  // 投稿者の年代（簡易表記）を日本語名へ変換する
+    Vue.filter('to_jp_age_simple', function (value) {
     switch (value) {
       case "10s":
         return "10代"
@@ -49,6 +56,8 @@ Vue.filter('to_jp_age', function (value) {
         return value
     }
   });
+
+  // 投稿者の性別を日本語名へ変換する
   Vue.filter('to_jp_gender', function (value) {
     switch (value) {
       case "m":
@@ -61,10 +70,14 @@ Vue.filter('to_jp_age', function (value) {
         return value
     }
   });
+
+  // 年月日時分をフォーマットする
   Vue.filter('format_datetime', function (value) {
     return moment(value).format('YYYY/MM/DD HH:mm')
   }
   );
+
+  // 年月日をフォーマットする
   Vue.filter('format_date', function (value) {
     return moment(value).format('YY/MM/DD')
   }
