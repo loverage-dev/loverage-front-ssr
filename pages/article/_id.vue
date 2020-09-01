@@ -27,11 +27,11 @@
     <ShareLikeBar />
   </article>
   <aside>
-    <!-- <div class="o-list-block-area">
-        <ListBlock />
-        <ListBlock />
-        <ListBlock />
-    </div> -->
+    <div class="o-list-block-area">
+      <ListBlock :title="'ピックアップ記事'" :articles="articles_sub1" />
+      <ListBlock :title="'話題の記事'" :articles="articles_sub2" />
+      <ListBlock :title="'編集者のおすすめ'" :articles="articles_sub3" />
+      <ListBlock :title="'最新の記事'" :articles="articles_sub4" />    </div>
   </aside>
 </div>
 
@@ -67,7 +67,11 @@ export default {
   },
   computed:{
     ...mapState("pages/article",{
-      article: state => state.article
+      article: state => state.article,
+      articles_sub1: state => state.articles_sub1,
+      articles_sub2: state => state.articles_sub2,
+      articles_sub3: state => state.articles_sub3,
+      articles_sub4: state => state.articles_sub4
     })
   },
   async asyncData({ store,route }) {

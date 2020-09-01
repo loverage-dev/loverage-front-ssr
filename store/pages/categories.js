@@ -22,6 +22,7 @@ export default {
         
         //該当カテゴリーの記事を取得
         await dispatch('shared/articles/getCategoryPosts', {category: encodeURI(category)} , { root: true })
+        
         //サブ記事の取得
         await dispatch('shared/articles/getPickUps', null , { root: true })
 
