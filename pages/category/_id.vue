@@ -5,27 +5,37 @@
         <div class="t-desktop-one-column">
           <div class="t-desktop-one-column__inner">
             <p class="p-post-category-search-result__description" v-if='description' >{{ description }}</p>
-            <div class="a-heading-mini">検索結果 {{ articles.length - 1 }}件</div>
+            <div class="a-heading-mini">検索結果 {{ articlesGrepped.length }}件</div>
             <div class="m-filter">
               <div class="a-label">相談者のカテゴリーで絞り込み</div>
               <div class="a-selectbox">
-                <select name="name">
-                  <option value="female">女性</option>
-                  <option value="male">男性</option>
-                  <option value="others">その他</option>
+                <select name="gender" @change="onGrep(grepAgeValue,grepSexValue)" v-model="grepSexValue">
+                  <option value>性別</option>
+                  <option value="f">女性</option>
+                  <option value="m">男性</option>
+                  <option value="o">その他</option>
                 </select>
               </div>
               <div class="a-selectbox">
-                <select name="name">
-                  <option value="A">20代前半</option>
-                  <option value="B">選択肢B</option>
-                  <option value="O">選択肢C</option>
-                  <option value="D">選択肢D</option>
+                <select name="age" @change="onGrep(grepAgeValue,grepSexValue)" v-model="grepAgeValue">
+                  <option value>年代</option>
+                  <option value="e_10s">10代前半</option>
+                  <option value="l_10s">10代後半</option>
+                  <option value="e_20s">20代前半</option>
+                  <option value="l_20s">20代後半</option>
+                  <option value="e_30s">30代前半</option>
+                  <option value="l_30s">30代後半</option>
+                  <option value="e_40s">40代前半</option>
+                  <option value="l_40s">40代後半</option>
+                  <option value="e_50s">50代前半</option>
+                  <option value="l_50s">50代後半</option>
+                  <option value="e_60s">60代前半</option>
+                  <option value="l_60s">60代後半</option>
                 </select>
               </div>
             </div>
             <div class="o-list">
-              <ListItem :article="article" v-for="article in articles" v-bind:key="article.id" />
+              <ListItem :article="article" v-for="article in articlesGrepped" v-bind:key="article.id" />
             </div>
             <ButtonSeeMore />
           </div>
@@ -55,17 +65,28 @@ export default {
     ButtonSeeMore,
     ListItem
   },
+  data: () => {
+    return {
+      grepAgeValue: "",
+      grepSexValue: "",
+    };
+  },
   head: {
     bodyAttrs: {
       class: 'p-post-category-search-result'
     }
   },
   methods: {
-     ...mapActions('pages/categories',['getCategories'])
+     ...mapActions('pages/categories',['getCategories']),
+     ...mapActions('pages/categories',['filterBy']),
+    onGrep(age, sex){
+      this.$store.dispatch('pages/categories/filterBy', {age: age, sex: sex})
+    }
   },
   computed:{
     ...mapState("pages/categories",{
       articles: state => state.articles,
+      articlesGrepped: state => state.articlesGrepped,
       description: state => state.description,
       articles_sub1: state => state.articles_sub1,
       articles_sub2: state => state.articles_sub2,

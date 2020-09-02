@@ -1,11 +1,15 @@
+import articles from "../shared/articles";
+import article from "./article";
+
 export default {
   namespaced: true,
     state: () => ({
-      articles: null,       //該当カテゴリーの記事
-      description: "",      //該当カテゴリーの説明文
-      articles_sub1: null,  //回遊動線記事１
-      articles_sub2: null,  //回遊動線記事２
-      articles_sub3: null   //回遊動線記事３
+      articles: null,         //該当カテゴリーの記事
+      articlesGrepped: null,  //絞り込み結果
+      description: "",        //該当カテゴリーの説明文
+      articles_sub1: null,    //回遊動線記事１
+      articles_sub2: null,    //回遊動線記事２
+      articles_sub3: null     //回遊動線記事３
     }),
     actions:{
       async getCategories({commit, dispatch, rootState},{category}){
@@ -29,14 +33,27 @@ export default {
         //データの取得
         commit('setDescription', target[0].description)   
         commit('setArticles', rootState.shared.articles.categoryPosts)
+        commit('setArticlesGrepped', rootState.shared.articles.categoryPosts)
         commit('setArticlesSub1', rootState.shared.articles.featured)
         commit('setArticlesSub2', rootState.shared.articles.hot_topic)
         commit('setArticlesSub3', rootState.shared.articles.editors_pick)
+      },
+      filterBy:({commit, state},{age,sex})=>{
+        const articles = state.articles.filter(article => {
+          if (sex === "" && age === "") return true
+          if (sex === "") return article.user_age === age
+          if (age === "") return article.user_sex === sex
+          return article.user_sex === sex && article.user_age === age
+        })
+        commit('setArticlesGrepped', articles)
       }
     },
     mutations:{
       setArticles(state, data){
         state.articles = data;
+      },
+      setArticlesGrepped(state, data){
+        state.articlesGrepped = data;
       },
       setDescription(state, data){
         state.description = data;
