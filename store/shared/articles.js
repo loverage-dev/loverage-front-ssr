@@ -35,7 +35,7 @@ export default {
      * 指定のカテゴリー記事の取得
      ********************************************/
     async getCategoryPosts ({commit}, {category}) {
-      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?category=${ category }`)
+      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?category=${ category }&limit=100`)
       commit('setCategoryPosts', res.articles)
     },
     /********************************************
