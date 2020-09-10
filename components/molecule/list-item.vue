@@ -14,7 +14,7 @@
                 :to="{ path: encodeURI(`/category/${ article.category }`)}">
                 {{ article.category }}
               </nuxt-link>
-              <Likes :count="article.ref_count" />
+              <Likes :count="article.favorite" />
               <Views :count="article.ref_count" />
           </div>
           </div>

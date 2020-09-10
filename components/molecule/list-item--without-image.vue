@@ -12,7 +12,7 @@
               }">
               {{ top.category }}
             </nuxt-link>
-            <Likes :count="top.ref_count" />
+            <Likes :count="top.favorite" />
             <Views :count="top.ref_count" />
         </div>
       </div>
