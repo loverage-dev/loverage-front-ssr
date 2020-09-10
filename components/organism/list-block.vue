@@ -8,8 +8,14 @@
             :article="article" 
             v-for="article in articles" 
             :key="article.id" />
+          <ListItem 
+            :title="title" 
+            :article="article" 
+            v-for="article in articlesHidden" 
+            :key="'none-' + article.id"
+            style="display: none;" />
       </div>
-    <a href=""><button class="a-button-primary">もっと見る</button></a>
+    <button v-on:click="seeMore" class="a-button-primary" v-if="!isEndPage">もっと見る</button>
     </div>
   </client-only>
 </template>
@@ -25,9 +31,22 @@ export default {
       type: Array,
       default: []
     },
+    articlesHidden: {
+      type: Array,
+      default: []
+    },
     title:{
       type: String,
       default: ""
+    },
+    isEndPage:{
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    seeMore(){
+      this.$emit('clicked')
     }
   },
   data() {

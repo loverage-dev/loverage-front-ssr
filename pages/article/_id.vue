@@ -72,7 +72,7 @@ export default {
       articles_sub2: state => state.articles_sub2,
       articles_sub3: state => state.articles_sub3,
       articles_sub4: state => state.articles_sub4
-    })
+    }),
   },
   async asyncData({ store,route }) {
     await store.dispatch('pages/article/getArticle', {articleId: route.params.id})

@@ -35,9 +35,10 @@
               </div>
             </div>
             <div class="o-list">
-              <ListItem :article="article" v-for="article in articlesGrepped" v-bind:key="article.id" />
+              <ListItem :article="article" v-for="article in dipsItems" v-bind:key="article.id" />
+              <ListItem style="display:none;" :article="article" v-for="article in dipsItemsHidden" v-bind:key="'none-' + article.id" />
             </div>
-            <ButtonSeeMore />
+            <ButtonSeeMore v-on:clicked="showNext" v-if="!isEndPage" />
           </div>
         </div>
         <div class="o-list-block-area">
@@ -79,22 +80,37 @@ export default {
   methods: {
      ...mapActions('pages/categories',['getCategories']),
      ...mapActions('pages/categories',['filterBy']),
+     ...mapActions('pages/categories',['showNextPage']),
+     ...mapActions('pages/categories',['resetPageCount']),
     onGrep(age, sex){
       this.$store.dispatch('pages/categories/filterBy', {age: age, sex: sex})
+      this.$store.dispatch('pages/categories/resetPageCount')
+    },
+    showNext(){
+      this.$store.dispatch('pages/categories/showNextPage')
     }
   },
   computed:{
     ...mapState("pages/categories",{
       articles: state => state.articles,
       articlesGrepped: state => state.articlesGrepped,
+      upperPageCount: (state) => this.currentPageNum >= maxPageCountArticles ? state.articles : this.currentPageNum * 6,
       description: state => state.description,
       articles_sub1: state => state.articles_sub1,
       articles_sub2: state => state.articles_sub2,
-      articles_sub3: state => state.articles_sub3
+      articles_sub3: state => state.articles_sub3,
+    }),
+    ...mapGetters({
+      articleCount:'pages/categories/articleCount',
+      dipsItems:'pages/categories/dipsItems',
+      dipsItemsHidden:'pages/categories/dipsItemsHidden',
+      isEndPage:'pages/categories/isEndPage',
+      pageCount:'pages/categories/pageCount',
     })
   },
   async asyncData({ store,route }) {
     await store.dispatch('pages/categories/getCategories', {category: route.params.id})
+    store.dispatch('pages/categories/resetPageCount')
   }
 }
 </script>
