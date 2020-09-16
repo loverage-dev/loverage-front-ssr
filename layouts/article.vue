@@ -4,6 +4,7 @@
     <Header />
     <nuxt v-show="!$store.state.loading" />
     <PostFormArea />
+    <PostFormModal />
     <Footer />
   </div>
 </template>
@@ -13,13 +14,15 @@ import Loading from '~/components/atom/loading.vue'
 import Header from '~/components/organism/header.vue'
 import Footer from '~/components/organism/footer.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
+import PostFormModal from '~/components/organism/post-form-modal.vue'
 
 export default {
   components: {
     Loading,
     Header,
     Footer,
-    PostFormArea
+    PostFormArea,
+    PostFormModal
   }
 }
 </script>

@@ -3,6 +3,7 @@
     <Header />
     <nuxt/>
     <PostFormArea />
+    <PostFormModal />
     <Footer />
   </div>
 </template>
@@ -13,6 +14,7 @@ import Footer from '~/components/organism/footer.vue'
 import CategoryMenu from '~/components/atom/category-menu.vue'
 import KvItem from '~/components/molecule/kv-item.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
+import PostFormModal from '~/components/organism/post-form-modal.vue'
 
 export default {
   components: {
@@ -20,7 +22,8 @@ export default {
     Footer,
     CategoryMenu,
     KvItem,
-    PostFormArea
+    PostFormArea,
+    PostFormModal
   },
 }
 </script>
