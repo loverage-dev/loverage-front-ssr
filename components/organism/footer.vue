@@ -8,8 +8,8 @@
             </div>
             <nav>
                 <ul class="o-footer__nav-list">
-                    <li class="o-footer__nav-list-item"><a href="">相談する</a></li>
-                    <li class="o-footer__nav-list-item"><a href="">検索する</a></li>
+                    <li class="o-footer__nav-list-item"><a @click="showModalForm()" >相談する</a></li>
+                    <li class="o-footer__nav-list-item"><a @click="showSearchBar()" >検索する</a></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/category-list">カテゴリ</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/ranking">ランキング</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/about">Loveargeとは</nuxt-link></li>
@@ -47,6 +47,14 @@ export default {
   mounted: function(){
   },
   destroyed: function(){
+  },
+  methods:{
+    showModalForm(){
+      this.$store.dispatch('shared/modal/showModal')
+    },
+    showSearchBar(){
+      this.$store.dispatch('shared/search-bar/showSearchBar')
+    }
   },
   components: {
       Logo
