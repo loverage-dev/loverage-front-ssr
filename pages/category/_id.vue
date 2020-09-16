@@ -42,9 +42,24 @@
           </div>
         </div>
         <div class="o-list-block-area">
-          <ListBlock :title="'ピックアップ記事'" :articles="articles_sub1" />
-          <ListBlock :title="'話題の記事'" :articles="articles_sub2" />
-          <ListBlock :title="'編集者のおすすめ'" :articles="articles_sub3" />
+          <ListBlock
+          :title="'編集者のおすすめ'"
+          :articles="dipsItemsEditors"
+          :articlesHidden="dipsItemsHiddenEditors" 
+          v-on:clicked="showNextEditors"
+          :isEndPage="isEndPageEditors" />
+          <ListBlock
+          :title="'話題の記事'"
+          :articles="dipsItemsHotTopic"
+          :articlesHidden="dipsItemsHiddenHotTopic"
+          v-on:clicked="showNextHotTopic"
+          :isEndPage="isEndPageHotTopic" />
+          <ListBlock
+          :title="'ピックアップ記事'"
+          :articles="dipsItemsFeatured"
+          :articlesHidden="dipsItemsHiddenFeatured"
+          v-on:clicked="showNextFeatured"
+          :isEndPage="isEndPageFeatured" />
         </div>
     </div>
 </template>
@@ -77,11 +92,34 @@ export default {
       class: 'p-post-category-search-result'
     }
   },
+  mounted(){
+    this.$store.dispatch('pages/categories/resetPageCount')
+    this.$store.dispatch('shared/editors_pick/resetPageCount')
+    this.$store.dispatch('shared/hot_topic/resetPageCount')
+    this.$store.dispatch('shared/featured/resetPageCount')
+  },
   methods: {
      ...mapActions('pages/categories',['getCategories']),
      ...mapActions('pages/categories',['filterBy']),
      ...mapActions('pages/categories',['showNextPage']),
      ...mapActions('pages/categories',['resetPageCount']),
+
+
+     ...mapActions('shared/hot_topic',['getArticles']),
+     ...mapActions('shared/hot_topic',['showNextPage']),
+     ...mapActions('shared/hot_topic',['resetPageCount']),
+    　showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
+
+     ...mapActions('shared/editors_pick',['getArticles']),
+     ...mapActions('shared/editors_pick',['showNextPage']),
+     ...mapActions('shared/editors_pick',['resetPageCount']),
+    showNextEditors(){ this.$store.dispatch('shared/editors_pick/showNextPage')},
+
+     ...mapActions('shared/featured',['getArticles']),
+     ...mapActions('shared/featured',['showNextPage']),
+     ...mapActions('shared/featured',['resetPageCount']),
+    showNextFeatured(){　this.$store.dispatch('shared/featured/showNextPage')},
+
     onGrep(age, sex){
       this.$store.dispatch('pages/categories/filterBy', {age: age, sex: sex})
       this.$store.dispatch('pages/categories/resetPageCount')
@@ -100,16 +138,47 @@ export default {
       articles_sub2: state => state.articles_sub2,
       articles_sub3: state => state.articles_sub3,
     }),
+    ...mapState("shared/hot_topic",{
+      hot_topics: state => state.articles
+    }),
+    ...mapState("shared/featured",{
+      featureds: state => state.articles
+    }),
+    ...mapState("shared/editors_pick",{
+      editors_picks: state => state.articles
+    }),
     ...mapGetters({
       articleCount:'pages/categories/articleCount',
       dipsItems:'pages/categories/dipsItems',
       dipsItemsHidden:'pages/categories/dipsItemsHidden',
       isEndPage:'pages/categories/isEndPage',
       pageCount:'pages/categories/pageCount',
+
+      // ピックアップ記事
+      articleCountFeatured:'shared/featured/articleCount',
+      dipsItemsFeatured:'shared/featured/dipsItems',
+      dipsItemsHiddenFeatured:'shared/featured/dipsItemsHidden',
+      isEndPageFeatured:'shared/featured/isEndPage',
+      pageCountFeatured:'shared/featured/pageCount',
+      // 編集者のおすすめ
+      articleCountEditors:'shared/editors_pick/articleCount',
+      dipsItemsEditors:'shared/editors_pick/dipsItems',
+      dipsItemsHiddenEditors:'shared/editors_pick/dipsItemsHidden',
+      isEndPageEditors:'shared/editors_pick/isEndPage',
+      pageCountEditors:'shared/editors_pick/pageCount',
+      // 話題の記事
+      articleCountHotTopic:'shared/hot_topic/articleCount',
+      dipsItemsHotTopic:'shared/hot_topic/dipsItems',
+      dipsItemsHiddenHotTopic:'shared/hot_topic/dipsItemsHidden',
+      isEndPageHotTopic:'shared/hot_topic/isEndPage',
+      pageCountHotTopic:'shared/hot_topic/pageCount',
     })
   },
   async asyncData({ store,route }) {
     await store.dispatch('pages/categories/getCategories', {category: route.params.id})
+    await store.dispatch('shared/editors_pick/getArticles')
+    await store.dispatch('shared/hot_topic/getArticles')
+    await store.dispatch('shared/featured/getArticles')
     store.dispatch('pages/categories/resetPageCount')
   }
 }

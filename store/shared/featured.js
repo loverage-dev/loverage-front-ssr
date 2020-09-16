@@ -3,7 +3,7 @@ export default {
     state: () => ({
       articles: null,
       page: 0,
-      dispItemSize: 3,
+      dispItemSize: 4,
     }),
     getters: {
       dipsItems: state => {
