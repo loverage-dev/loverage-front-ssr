@@ -5,7 +5,14 @@
           path: encodeURI(`/article/${ article.id }`)
         }">
       <div class="m-list-item">
-          <div class="m-list-item__left"><img src="~assets/images/dammy-thumbnail.jpg" alt=""></div>
+          <div class="m-list-item__left">
+            <!-- <IconEyeCatching
+              :age="article.user_age" 
+              :sex="article.user_sex"
+              :tag="article.img_tag"
+              :fileNo="getRandomNo()"/> -->
+            <img src="~assets/images/dammy-thumbnail.jpg" alt="">
+          </div>
           <div class="m-list-item__right">
           <h6 class="m-list-item__title">{{ article.content }}</h6>
           <div class="m-list-item__info">
@@ -28,6 +35,7 @@
 <script>
 import Likes from '~/components/atom/likes.vue'
 import Views from '~/components/atom/views.vue'
+import IconEyeCatching from '~/components/atom/icon-eye-catching.vue'
 
 export default {
   name: "ListItem",
@@ -39,7 +47,8 @@ export default {
   },
   components: {
       Likes,
-      Views
+      Views,
+      IconEyeCatching
   }
 };
 </script>

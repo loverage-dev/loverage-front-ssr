@@ -3,11 +3,13 @@
  *        共通関数・定数用モジュール
  * ************************************************
 */
-const API_URL = () => {
-  return "https://limitless-crag-46636.herokuapp.com";
+import Vue from 'vue'
 
-    // return 'https://whispering-anchorage-57506.herokuapp.com'
-}
-export default ({}, inject) => {
-  inject('API_URL', API_URL);
-}
+Vue.mixin({
+  methods: {
+    getRandomNo(){
+      let num = 1 + Math.floor( Math.random() * 8 )
+      return num
+    }
+  }
+})
