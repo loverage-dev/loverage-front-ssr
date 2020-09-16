@@ -26,7 +26,8 @@ export default {
       },
     },
     actions:{
-      async getArticles ({commit}) {
+      async getArticles ({commit, state}) {
+        if(state.articles != null) return;
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/editors_picks?limit=50`)
         commit('setArticles', res.articles)
       },
