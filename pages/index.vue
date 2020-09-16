@@ -59,37 +59,29 @@ export default {
     this.$store.dispatch('shared/featured/resetPageCount')
   },
   methods: {
+
      ...mapActions('shared/articles',['getOverviewPosts']),
      ...mapActions('shared/categories',['getCategoryList']),
 
      ...mapActions('shared/hot_topic',['getArticles']),
      ...mapActions('shared/hot_topic',['showNextPage']),
      ...mapActions('shared/hot_topic',['resetPageCount']),
+    　showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
 
      ...mapActions('shared/editors_pick',['getArticles']),
      ...mapActions('shared/editors_pick',['showNextPage']),
      ...mapActions('shared/editors_pick',['resetPageCount']),
+    showNextEditors(){ this.$store.dispatch('shared/editors_pick/showNextPage')},
 
      ...mapActions('shared/featured',['getArticles']),
      ...mapActions('shared/featured',['showNextPage']),
      ...mapActions('shared/featured',['resetPageCount']),
+    showNextFeatured(){　this.$store.dispatch('shared/featured/showNextPage')},
 
      ...mapActions('shared/latest',['getArticles']),
      ...mapActions('shared/latest',['showNextPage']),
      ...mapActions('shared/latest',['resetPageCount']),
-
-    showNextHotTopic(){
-      this.$store.dispatch('shared/hot_topic/showNextPage')
-    },
-    showNextFeatured(){
-      this.$store.dispatch('shared/featured/showNextPage')
-    },
-    showNextLatest(){
-      this.$store.dispatch('shared/latest/showNextPage')
-    },
-    showNextEditors(){
-      this.$store.dispatch('shared/editors_pick/showNextPage')
-    }
+    showNextLatest(){　this.$store.dispatch('shared/latest/showNextPage')},
   },
   computed:{
       ...mapState("shared/latest",{
