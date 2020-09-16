@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="o-post-form-area__submit-block">
-        <div class="o-post-form-area__submit-block-terms"><a href="">利用規約</a>に同意して</div>
+        <div class="o-post-form-area__submit-block-terms"><nuxt-link to="/terms">利用規約</nuxt-link>に同意して</div>
         <button class="a-button-primary" type="submit">投稿する</button>
       </div>
     </form>
