@@ -32,7 +32,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/util.js',
-    '@/plugins/filter.js'
+    '@/plugins/filter.js',
+    '@/plugins/routerOption.js'
   ],
   /*
   ** Nuxt.js dev-modules
