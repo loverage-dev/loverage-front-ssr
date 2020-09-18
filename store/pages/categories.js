@@ -1,6 +1,3 @@
-import articles from "../shared/articles";
-import article from "./article";
-
 export default {
   namespaced: true,
     state: () => ({
