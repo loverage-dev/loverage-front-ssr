@@ -3,10 +3,10 @@
   <h2 class="o-answer__title">
     みんなの回答
   </h2>
-  <div class="o-answer__inner">
+  <div class="o-answer__inner" ref="ans__inner" v-bind:style="{ height: boxHeight + 'px'}">
 
-    <div class="o-answer-form">
-      <div class="o-answer-form__inner">
+    <div class="o-answer-form" ref="ques4_form">
+      <div class="o-answer-form__inner" ref="ques4_form__inner">
         <ul class="o-answer-form-step">
           <li class="o-answer-form-step__item">
             <div class="o-answer-form-step__number">1</div>
@@ -35,8 +35,8 @@
       </div>
     </div>
 
-    <div class="o-answer-form">
-      <div class="o-answer-form__inner">
+    <div class="o-answer-form" ref="ques3_form">
+      <div class="o-answer-form__inner" ref="ques3_form__inner">
         <ul class="o-answer-form-step">
           <li class="o-answer-form-step__item">
             <div class="o-answer-form-step__number">1</div>
@@ -66,8 +66,8 @@
       </div>
     </div>
 
-    <div class="o-answer-form">
-      <div class="o-answer-form__inner">
+    <div class="o-answer-form"  ref="ques2_form">
+      <div class="o-answer-form__inner" ref="ques2_form__inner">
         <ul class="o-answer-form-step">
           <li class="o-answer-form-step__item">
             <div class="o-answer-form-step__number">1</div>
@@ -94,8 +94,8 @@
       </div>
     </div>
 
-    <div class="o-answer-form">
-      <div class="o-answer-form__inner">
+    <div class="o-answer-form" ref="ques1_form">
+      <div class="o-answer-form__inner" ref="ques1_form__inner">
         <ul class="o-answer-form-step">
           <li class="o-answer-form-step__item is-active">
             <div class="o-answer-form-step__number">1</div>
@@ -114,14 +114,14 @@
           <h4 class="o-answer-form__heading">あなたはどう思いますか？</h4>
           <p class="o-answer-form__description">質問に答えることで、みんなの回答を見たり、<br>コメントを投稿することができます。<br>（会員登録不要）</p>
           <ul class="o-answer-form-btn-list">
-            <li class="o-answer-form-btn-list__item change-pointer"><span class="a-button-primary">性欲が強すぎる人</span></li>
-            <li class="o-answer-form-btn-list__item change-pointer"><span class="a-button-primary">性欲がない人</span></li>
+            <li class="o-answer-form-btn-list__item change-pointer"><span class="a-button-primary">{{ article.post.opt1 }}</span></li>
+            <li class="o-answer-form-btn-list__item change-pointer"><span class="a-button-primary">{{ article.post.opt2 }}</span></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="o-answer-result">
+    <div class="o-answer-result" ref="ans_form" v-bind:style="{ height: boxHeight + 'px'}">
     <!-- ▲のvisibilityとheightをjsで設定 -->
       <ul class="o-answer-result-chart">
         <li class="o-answer-result-chart__bar is-full">
@@ -135,8 +135,8 @@
       </ul>
       <div class="o-answer-result-title">
         <ul class="o-answer-result-title-list">
-          <li class="o-answer-result-title-list__item change-pointer">付き合う</li>
-          <li class="o-answer-result-title-list__item change-pointer">別れる</li>
+          <li class="o-answer-result-title-list__item change-pointer">{{ article.post.opt1 }}</li>
+          <li class="o-answer-result-title-list__item change-pointer">{{ article.post.opt2 }}</li>
         </ul>
       </div>
     </div>
@@ -149,15 +149,45 @@
 <script>
 export default {
   name: "Answer",
-  props: {},
+  props: {
+    article: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
-    return {};
+    return {
+      boxHeight: 300
+    };
   },
   created: function(){
     },
   mounted: function(){
+    window.addEventListener('resize', this.handleResize)
+    this.$nextTick(
+      ()=>{
+        this.resizeBox()
+      }
+    );
+  },
+  methods:{
+    resizeBox(){
+        let h = 0;
+        if(h < this.$refs.ques1_form.clientHeight) h = this.$refs.ques1_form.clientHeight;
+        if(h < this.$refs.ques2_form.clientHeight) h = this.$refs.ques2_form.clientHeight;
+        if(h < this.$refs.ques3_form.clientHeight) h = this.$refs.ques3_form.clientHeight;
+        if(h < this.$refs.ques4_form.clientHeight) h = this.$refs.ques4_form.clientHeight;
+        if(h < this.$refs.ans_form.clientHeight) h = this.$refs.ans_form.clientHeight;
+        this.boxHeight = h;
+    },
+    handleResize: function() {
+      this.resizeBox();
+    }
   },
   destroyed: function(){
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   },
   components: {}
 };
