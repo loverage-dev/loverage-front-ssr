@@ -1,7 +1,7 @@
 <template>
 
 <div class="m-tag-list">
-  <a href="" class="a-tag a-tag--tag" v-for="(tag,index) in tags" v-bind:key="index" >#{{tag}}</a>
+  <nuxt-link :to="{ path: '/search', query: { tag:tag }}" class="a-tag a-tag--tag" v-for="(tag,index) in tags" v-bind:key="index" >#{{tag}}</nuxt-link>
 </div>
 
 </template>
