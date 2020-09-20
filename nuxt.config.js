@@ -35,6 +35,7 @@ module.exports = {
     '@/plugins/filter.js',
     '@/plugins/routerOption.js'
   ],
+  loading: '~/components/loading.vue',
   /*
   ** Nuxt.js dev-modules
   */
