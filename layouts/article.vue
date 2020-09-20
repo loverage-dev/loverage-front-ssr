@@ -5,6 +5,7 @@
     <nuxt v-show="!$store.state.loading" />
     <PostFormArea />
     <PostFormModal />
+    <Dialog />
     <Footer />
   </div>
 </template>
@@ -15,6 +16,7 @@ import Header from '~/components/organism/header.vue'
 import Footer from '~/components/organism/footer.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
 import PostFormModal from '~/components/organism/post-form-modal.vue'
+import Dialog from '~/components/molecule/dialog.vue'
 
 export default {
   components: {
@@ -22,7 +24,8 @@ export default {
     Header,
     Footer,
     PostFormArea,
-    PostFormModal
+    PostFormModal,
+    Dialog
   }
 }
 </script>

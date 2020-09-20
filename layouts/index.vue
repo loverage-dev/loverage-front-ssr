@@ -7,6 +7,7 @@
     <PostFormArea />
     <Footer />
     <PostFormModal />
+    <Dialog />
   </div>
 </template> 
 
@@ -17,6 +18,7 @@ import CategoryMenu from '~/components/atom/category-menu.vue'
 import KvItem from '~/components/molecule/kv-item.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
 import PostFormModal from '~/components/organism/post-form-modal.vue'
+import Dialog from '~/components/molecule/dialog.vue'
 
 export default {
   components: {
@@ -25,7 +27,8 @@ export default {
     CategoryMenu,
     KvItem,
     PostFormArea,
-    PostFormModal
+    PostFormModal,
+    Dialog
   }
 }
 </script>

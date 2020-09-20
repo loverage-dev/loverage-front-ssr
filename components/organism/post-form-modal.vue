@@ -25,11 +25,20 @@ export default {
   computed:{
       ...mapState("shared/modal",{
         isShow: state => state.isShow
+      }),
+      ...mapState("shared/post-article",{
+        isFormChanged: state => state.isChanged
       })
   },
   methods: {
     closeModal(){
-      this.$store.dispatch('shared/modal/closeModal')
+      //フォームが変更済みの場合は、入力値のリセット要求をかける。
+      //term(利用規約)画面ではリセット要求はしない
+      if(this.isFormChanged && this.$route.name !== "terms"){
+        this.$store.dispatch('shared/dialog/showDialog')
+      }else{
+        this.$store.dispatch('shared/modal/closeModal')
+      }
     }
   },
   created: function(){
