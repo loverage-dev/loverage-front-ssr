@@ -182,29 +182,25 @@ export default {
       //変更内容のストア反映
       this.$store.dispatch('shared/post-article/chkChangedFormData');
     },
-    onSubmit: function() {
+    async onSubmit() {
       //入力値のエラーチェック
       this.$store.dispatch('shared/post-article/chkErrors');
       //投稿可能かチェック
       this.$store.dispatch('shared/post-article/chkCanPost');
       if(this.canPost){
         //記事のPOST送信
-      　this.$store.dispatch('shared/post-article/doPostArticle');
+      　this.$store.dispatch('shared/post-article/doPostArticle')
+      .then((res)=>{
         //入力値をリセット
         this.$store.dispatch('shared/post-article/resetFormData');
+        this.$router.push({ path: `/article/${ res.id }`});
+        this.$store.dispatch('shared/toast/showToast');
+      })
+      .finally(()=>{
         this.$store.dispatch('shared/modal/closeModal');
         this.$store.dispatch('shared/latest/getArticlesForce');
-        this.$store.dispatch('shared/toast/showToast');
-        this.$router.push({ path: `/article/${ this.postId }`});
-
+      });
       }
-      // this.$store.dispatch('doChkErrors')
-      // if(this.$store.state.canPost){
-      //   // postData作成
-      //   this.$store.commit("setPostData");
-      //   // ダイアログ表示
-      //   this.$store.commit("setPostConfirming", true);
-      // }
     },
     updateInputValue(event, item_key) {
       this.$store.dispatch('shared/post-article/doUpdateFormData', { key: item_key, value: event.target.value })

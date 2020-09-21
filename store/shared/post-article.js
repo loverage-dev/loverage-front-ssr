@@ -28,7 +28,6 @@ export default {
             msgError_sex_age: "",
         },
         postData: null,          //API送信用データ
-        postData_id: ""
     }),
     getters: {
       formData: state => {
@@ -46,8 +45,9 @@ export default {
         const res = await this.$axios.$post(`${ process.env.API_BASE_URL }/api/v1/articles`, {
             post: state.postData
         })
+        return res
         //登録済みIDの設定
-        commit('setPostDataId', res.id)
+        //commit('setPostDataId', res.id)
     },
     /**************************************************************
      * formDataへの値設定
@@ -286,9 +286,6 @@ export default {
         },
         setCanPost(state, data){
             state.canPost = data;
-        },
-        setPostDataId(state, data){
-            state.postData_id = data;
         },
         /**************************************************************
          * API送信データの設定

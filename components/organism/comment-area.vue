@@ -4,13 +4,16 @@
     <div class="o-comment-area__inner">
         <h3 class="a-text-60 a-text--bold">コメント</h3>
         <Comment 
-          v-for="comment in comments"
+          v-for="comment in dipsItemsComments"
           v-bind:key="comment.origin_id"
           :content="comment.content"
-          :optContent="optContent"
+          :optContent="optContent(comment.selected_opt, opt1, opt2)"
           :userSex="comment.user_sex"
           :userAge="comment.user_age" />
-        <ButtonSeeMore />
+        <ButtonSeeMore
+         v-on:clicked="showNextComments"
+         :isEndPage="isEndPageComments"
+         />
         <div class="o-comment-area__your-answer">
         <p class="o-comment-area__your-answer-is">あなたの回答は</p>
         <YourAnswer />
@@ -43,14 +46,28 @@ export default {
   computed:{
     ...mapState("pages/article",{
       comments: state => state.article.comments.contents,
-      optContent: state => {
-        if(state.article.comments.selected_opt === 'opt1'){
-          return state.article.post.opt1
-        }else{
-          return state.article.post.opt2
-        }
-      }
+      opt1: state => state.article.post.opt1,
+      opt2: state => state.article.post.opt2,
+    }),
+      ...mapGetters({
+        dipsItemsComments:'pages/article/dipsItems',
+        dipsItemsHiddenComments:'pages/article/dipsItemsHidden',
+        isEndPageComments:'pages/article/isEndPage',
+        pageCountComments:'pages/article/pageCount'
     })
+  },
+  methods:{
+    ...mapActions('pages/article',['showNextPage']),
+    ...mapActions('pages/article',['resetPageCount']),
+    showNextComments(){
+      this.$store.dispatch('pages/article/showNextPage')},
+    optContent(selectedOpt, opt1, opt2){
+      if(selectedOpt === 'opt1'){
+        return opt1
+      }else{
+        return opt2
+      }
+    }
   }
 };
 </script>
