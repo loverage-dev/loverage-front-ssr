@@ -8,6 +8,7 @@
     <Footer />
     <PostFormModal />
     <Dialog />
+    <Toast />
   </div>
 </template> 
 
@@ -19,6 +20,7 @@ import KvItem from '~/components/molecule/kv-item.vue'
 import PostFormArea from '~/components/organism/post-form-area.vue'
 import PostFormModal from '~/components/organism/post-form-modal.vue'
 import Dialog from '~/components/molecule/dialog.vue'
+import Toast from '~/components/atom/toast.vue'
 
 export default {
   components: {
@@ -28,7 +30,8 @@ export default {
     KvItem,
     PostFormArea,
     PostFormModal,
-    Dialog
+    Dialog,
+    Toast
   }
 }
 </script>

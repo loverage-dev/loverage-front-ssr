@@ -27,7 +27,8 @@ export default {
             msgError_options: "",
             msgError_sex_age: "",
         },
-        postData: null          //API送信用データ
+        postData: null,          //API送信用データ
+        postData_id: ""
     }),
     getters: {
       formData: state => {
@@ -39,51 +40,14 @@ export default {
      * 投稿記事データの登録
      * ************************************************************/
     async doPostArticle({commit,state}){
+        //送信データの設定
         commit('setPostData')
+        //API送信
         const res = await this.$axios.$post(`${ process.env.API_BASE_URL }/api/v1/articles`, {
-          post: state.postData
-      })
-      console.log(res)
-      if(res.status == 201){
-          console.log("登録完了！")
-          console.log(res)
-        // let historyPost = {
-        //     post_id: response.data.id,
-        //     title: response.data.title,
-        //     created_at: response.data.created_at
-        // }
-        // this.registerMyHistoryPosts(historyPost)
-        // this.$router.push({
-        //     name: "article",
-        //     params: { id: response.data.id }
-        // });
-        // this.$store.commit("resetPostData");
-        // this.$store.commit("resetErrors");
-        // this.$store.commit("setShowToast", true);
-        // if(process.env.NODE_ENV === 'production'){
-        //     this.submitSlack(`${response.data.title} <https://www.loverage.jp/article/${response.data.id}|記事はこちら>`)
-        // }
-        }
-        // .then(response => {
-        //   if(response.status == 201){
-        //     let historyPost = {
-        //       post_id: response.data.id,
-        //       title: response.data.title,
-        //       created_at: response.data.created_at
-        //     }
-        //     this.registerMyHistoryPosts(historyPost)
-        //     this.$router.push({
-        //       name: "article",
-        //       params: { id: response.data.id }
-        //     });
-        //     this.$store.commit("resetPostData");
-        //     this.$store.commit("resetErrors");
-        //     this.$store.commit("setShowToast", true);
-        //     if(process.env.NODE_ENV === 'production'){
-        //       this.submitSlack(`${response.data.title} <https://www.loverage.jp/article/${response.data.id}|記事はこちら>`)
-        //     }
-        //   }
-        // })
+            post: state.postData
+        })
+        //登録済みIDの設定
+        commit('setPostDataId', res.id)
     },
     /**************************************************************
      * formDataへの値設定
@@ -322,6 +286,9 @@ export default {
         },
         setCanPost(state, data){
             state.canPost = data;
+        },
+        setPostDataId(state, data){
+            state.postData_id = data;
         },
         /**************************************************************
          * API送信データの設定

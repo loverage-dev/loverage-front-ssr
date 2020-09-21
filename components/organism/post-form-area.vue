@@ -161,7 +161,8 @@ export default {
         msgError_content: state => state.errors.msgError_content,
         msgError_category_id: state => state.errors.msgError_category_id,
         msgError_options: state => state.errors.msgError_options,
-        msgError_sex_age: state => state.errors.msgError_sex_age
+        msgError_sex_age: state => state.errors.msgError_sex_age,
+        postId: state => state.postData_id
       }),
       ...mapState("shared/categories",{
         categoryList: state => state.categoryList
@@ -178,17 +179,24 @@ export default {
   },
   methods:{
     validate: function() {
-      console.log("validate")
+      //変更内容のストア反映
       this.$store.dispatch('shared/post-article/chkChangedFormData');
     },
     onSubmit: function() {
+      //入力値のエラーチェック
       this.$store.dispatch('shared/post-article/chkErrors');
+      //投稿可能かチェック
       this.$store.dispatch('shared/post-article/chkCanPost');
       if(this.canPost){
+        //記事のPOST送信
       　this.$store.dispatch('shared/post-article/doPostArticle');
+        //入力値をリセット
         this.$store.dispatch('shared/post-article/resetFormData');
         this.$store.dispatch('shared/modal/closeModal');
-        location.reload()
+        this.$store.dispatch('shared/latest/getArticlesForce');
+        this.$store.dispatch('shared/toast/showToast');
+        this.$router.push({ path: `/article/${ this.postId }`});
+
       }
       // this.$store.dispatch('doChkErrors')
       // if(this.$store.state.canPost){
