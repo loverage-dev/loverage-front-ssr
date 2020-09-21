@@ -1,6 +1,9 @@
 <template>
 
-  <a href="">
+  <nuxt-link 
+    :to="{
+      path: encodeURI(`/article/${ top.id }`)
+    }">
     <div class="m-list-item">
       <div class="m-list-item__right">
         <h6 class="m-list-item__title">{{ top.content }}</h6>
@@ -17,7 +20,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </nuxt-link >
 
 </template>
 

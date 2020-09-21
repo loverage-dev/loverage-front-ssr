@@ -31,6 +31,10 @@ export default {
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/latest?limit=50`)
         commit('setArticles', res.articles)
       },
+      async getArticlesForce ({commit}) {
+        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/latest?limit=50`)
+        commit('setArticles', res.articles)
+      },
       showNextPage({commit}){
         commit('countUpPage')
       },
