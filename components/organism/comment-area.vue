@@ -6,10 +6,8 @@
         <Comment 
           v-for="comment in dipsItemsComments"
           v-bind:key="comment.origin_id"
-          :content="comment.content"
-          :optContent="optContent(comment.selected_opt, opt1, opt2)"
-          :userSex="comment.user_sex"
-          :userAge="comment.user_age" />
+          :comment="comment"
+          :optContent="optContent(comment.selected_opt, opt1, opt2)" />
         <ButtonSeeMore
          v-on:clicked="showNextComments"
          :isEndPage="isEndPageComments"

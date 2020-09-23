@@ -39,6 +39,34 @@ export default {
       commit('setCategoryPosts', res.articles)
     },
     /********************************************
+     * 記事のお気に入り登録
+     ********************************************/
+    async doFavoritePost ({commit}, post_id) {
+      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles/${ post_id }/favorite`)
+      return res
+    },
+    /********************************************
+     * 記事のお気に入り解除
+     ********************************************/
+    async doUnFavoritePost ({commit}, post_id) {
+      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles/${ post_id }/unfavorite`)
+      return res
+    },
+    /********************************************
+     * コメントのお気に入り登録
+     ********************************************/
+    async doFavoriteComment ({commit}, comment_id) {
+      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/comments/${ comment_id }/favorite`)
+      return res
+    },
+    /********************************************
+     * コメントのお気に入り解除
+     ********************************************/
+    async doUnFavoriteComment ({commit}, comment_id) {
+      const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/comments/${ comment_id }/unfavorite`)
+      return res
+    },
+    /********************************************
      * ピックアップ記事（Featured/HotTopic/EditorsPick/latest）の取得
      ********************************************/
     async getPickUps ({commit}) {

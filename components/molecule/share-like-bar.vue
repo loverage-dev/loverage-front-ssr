@@ -36,7 +36,7 @@
         </a>
       </li>
     </ul>
-    <div class="m-share-like-bar__like">
+    <div class="m-share-like-bar__like" @click="favorite">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9.12826 16.3219L9.12754 16.3213C6.97165 14.3663 5.22276 12.7794 4.00682 11.2928C2.79663 9.81324 2.16667 8.49409 2.16667 7.08333C2.16667 4.79281 3.95948 3 6.25001 3C7.54861 3 8.80279 3.60697 9.61933 4.56584L10 5.01287L10.3807 4.56584C11.1972 3.60697 12.4514 3 13.75 3C16.0405 3 17.8333 4.79281 17.8333 7.08333C17.8333 8.4941 17.2034 9.81327 15.9931 11.294C14.7782 12.7804 13.0313 14.3678 10.8781 16.3245L10.8731 16.329L10.8721 16.33L10.0013 17.1167L9.12826 16.3219Z" stroke="#EB5757"/>
       </svg>
@@ -60,7 +60,19 @@ export default {
   },
   destroyed: function(){
   },
-  components: {}
+  components: {},
+  methods: {
+    async favorite(){
+      const id = this.$route.params.id;
+      this.$store.dispatch('shared/articles/doFavoritePost', id)
+      .then((res)=>{
+        //トーストを表示
+        this.$store.dispatch('shared/toast/showToast', "お気に入り登録しました。");
+      })
+      .finally(()=>{
+      });
+    }
+  }
 };
 </script>
 

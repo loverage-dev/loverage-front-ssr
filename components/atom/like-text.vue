@@ -1,12 +1,21 @@
 <template>
-<div class="a-like-text"><span class="a-like-text__number">12</span>いいね</div>
+<div class="a-like-text"><span class="a-like-text__number">{{ count }}</span>いいね</div>
 </template>
 
 
 <script>
 export default {
   name: "LikeText",
-  props: {},
+  props: {
+    count: {
+      type: Number,
+      default: 0
+    },
+    id: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
     return {};
   },
