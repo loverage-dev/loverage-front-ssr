@@ -18,11 +18,21 @@
         <p class="o-comment-area__your-answer-is">あなたの回答は</p>
         <YourAnswer />
         </div>
-        <form action="" class="o-comment-area__your-comment">
+        <form
+         action=""
+         v-on:change="validate()"
+         class="o-comment-area__your-comment"
+         v-on:submit.prevent="onSubmit">
         <div class="a-textfield">
-            <textarea type="text" placeholder="コメントがあれば入力してください"></textarea>
+            <textarea
+             type="text"
+            placeholder="コメントがあれば入力してください"
+            v-bind:value="input.content"
+            v-on:input="updateInputValue($event, 'content')"></textarea>
         </div>
-        <button class="a-button-primary">コメントを投稿する</button>
+        <button
+         class="a-button-primary"
+         v-bind:disabled="!canPost">コメントを投稿する</button>
         </form>
     </div>
 </div>
@@ -43,17 +53,25 @@ export default {
       ButtonSeeMore,
       YourAnswer
   },
+  mounted(){
+    this.validate();
+  },
   computed:{
+      ...mapState("shared/post-comment",{
+        input: state => state.input,
+        canPost: state => state.canPost
+      }),
     ...mapState("pages/article",{
       comments: state => state.article.comments.contents,
       opt1: state => state.article.post.opt1,
       opt2: state => state.article.post.opt2,
     }),
-      ...mapGetters({
-        dipsItemsComments:'pages/article/dipsItems',
-        dipsItemsHiddenComments:'pages/article/dipsItemsHidden',
-        isEndPageComments:'pages/article/isEndPage',
-        pageCountComments:'pages/article/pageCount'
+    ...mapGetters({
+      dipsItemsComments:'pages/article/dipsItems',
+      dipsItemsHiddenComments:'pages/article/dipsItemsHidden',
+      isEndPageComments:'pages/article/isEndPage',
+      pageCountComments:'pages/article/pageCount',
+      inputData:'shared/post-comment/inputData'
     })
   },
   methods:{
@@ -67,6 +85,27 @@ export default {
       }else{
         return opt2
       }
+    },
+    validate: function() {
+      //変更内容のストア反映
+      this.$store.dispatch('shared/post-comment/chkCanPost');
+      console.log("validate")
+    },
+    updateInputValue(event, item_key) {
+      this.$store.dispatch('shared/post-comment/doUpdateInput', { key: item_key, value: event.target.value })
+    },
+    async onSubmit() {
+      const postId = this.$route.params.id
+      this.$store.dispatch('shared/post-comment/doPostComment', postId)
+      .then((res)=>{
+        //入力値をリセット
+        this.$store.dispatch('shared/post-comment/resetInputData');
+        //トーストを表示
+        this.$store.dispatch('shared/toast/showToast', "コメントを投稿しました。");
+      })
+      .finally(()=>{
+        console.log("submit完了")
+      });
     }
   }
 };

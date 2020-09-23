@@ -23,7 +23,7 @@
         :tags="article.post.tag_list" />
     </div>
     <Answer :article="article" />
-    <CommentArea v-if="article.comments.contents.length != 0" />
+    <CommentArea />
     <ShareLikeBar />
   </article>
   <aside>
