@@ -2,7 +2,7 @@ export default {
     namespaced: true,
     state: () => ({
         input:{
-            selected_opt: "test",
+            selected_opt: "",
             ageNum: "",
             ageEorL: "",
             sex: ""
@@ -31,6 +31,18 @@ export default {
             commit('setAgeNum', "")
             commit('setAgeEorL', "")
             commit('setSex', "")
+        },
+        async doPostAnswer({ commit, state }, postId){
+            const age = `${state.input.ageEorL}_${state.input.ageNum}s`
+            const url = `${ process.env.API_BASE_URL }/api/v1/articles/${postId}/vote`
+            const res = await this.$axios.$post(url, {
+                vote: {
+                  age: age,
+                  sex: state.input.sex,
+                  selected_opt: state.input.selected_opt
+                }
+            })
+            return res
         }
     },
     mutations:{

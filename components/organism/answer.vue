@@ -1,7 +1,7 @@
 <template>
 <div class="o-answer">
   <h2 class="o-answer__title">
-    みんなの回答
+    みんなの回答 
   </h2>
   <div
    class="o-answer__inner" ref="ans__inner" 
@@ -34,12 +34,12 @@
           <ul class="o-answer-form-btn-list">
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageEorL', value: 'e' })">
+             @click="answer({ key: 'ageEorL', value: 'e' }, 4)">
              <span class="a-button-primary">前半</span>
             </li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageEorL', value: 'l' })">
+             @click="answer({ key: 'ageEorL', value: 'l' }, 4)">
              <span class="a-button-primary">後半</span>
             </li>
           </ul>
@@ -69,22 +69,22 @@
           <ul class="o-answer-form-btn-list">
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '10' })"><span class="a-button-primary">10代</span></li>
+             @click="answer({ key: 'ageNum', value: '10' }), 3"><span class="a-button-primary">10代</span></li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '20' })"><span class="a-button-primary">20代</span></li>
+             @click="answer({ key: 'ageNum', value: '20' }, 3)"><span class="a-button-primary">20代</span></li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '30' })"><span class="a-button-primary">30代</span></li>
+             @click="answer({ key: 'ageNum', value: '30' }, 3)"><span class="a-button-primary">30代</span></li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '40' })"><span class="a-button-primary">40代</span></li>
+             @click="answer({ key: 'ageNum', value: '40' }, 3)"><span class="a-button-primary">40代</span></li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '50' })"><span class="a-button-primary">50代</span></li>
+             @click="answer({ key: 'ageNum', value: '50' }, 3)"><span class="a-button-primary">50代</span></li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'ageNum', value: '60' })"><span class="a-button-primary">60代</span></li>
+             @click="answer({ key: 'ageNum', value: '60' }, 3)"><span class="a-button-primary">60代</span></li>
           </ul>
         </div>
       </div>
@@ -112,17 +112,17 @@
           <ul class="o-answer-form-btn-list">
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'sex', value: 'f' })">
+             @click="answer({ key: 'sex', value: 'f' }, 2)">
              <span class="a-button-primary">女性</span>
             </li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'sex', value: 'm' })">
+             @click="answer({ key: 'sex', value: 'm' }, 2)">
              <span class="a-button-primary">男性</span>
             </li>
             <li
              class="o-answer-form-btn-list__item change-pointer"
-             @click="answer({ key: 'sex', value: 'o' })">
+             @click="answer({ key: 'sex', value: 'o' }, 2)">
              <span class="a-button-primary">その他</span>
             </li>
           </ul>
@@ -152,12 +152,12 @@
           <ul class="o-answer-form-btn-list">
             <li 
               class="o-answer-form-btn-list__item change-pointer" 
-              @click="answerOpt({ key: 'selected_opt', value: 'opt1' })" >
+              @click="answer({ key: 'selected_opt', value: 'opt1' }, 1)" >
               <span class="a-button-primary">{{ article.post.opt1 }}</span>
             </li>
             <li
              class="o-answer-form-btn-list__item change-pointer" 
-             @click="answerOpt({ key: 'selected_opt', value: 'opt2' })">
+             @click="answer({ key: 'selected_opt', value: 'opt2' }, 1)">
              <span class="a-button-primary">{{ article.post.opt2 }}</span>
             </li>
           </ul>
@@ -233,6 +233,7 @@ export default {
         this.resizeBox()
       }
     );
+    console.log(this.article)
   },
   methods:{
     //回答エリアのサイズ合わせ
@@ -249,16 +250,40 @@ export default {
     handleResize: function() {
       this.resizeBox();
     },
-    answer(data){
+    answer(data, progressNum){
       this.$store.dispatch('shared/post-answer/doUpdateInput', data);
       this.$store.dispatch('pages/article/countUpAnswerProgress');
-    },
-    answerOpt(data){
-      this.$store.dispatch('shared/post-answer/doUpdateInput', data);
-      this.$store.dispatch('pages/article/countUpAnswerProgress');
-      if(data.value == 'opt1') this.$store.dispatch('pages/article/doVoteOpt1');
-      if(data.value == 'opt2') this.$store.dispatch('pages/article/doVoteOpt2');
-      this.$store.dispatch('pages/article/countUpAnswerProgress');
+      //step1
+      if(progressNum == 1){
+        //選択項目の更新
+        if(data.value == 'opt1') {
+          this.$store.dispatch('pages/article/doVoteOpt1')
+          this.$store.dispatch('shared/post-comment/doUpdateInput', data);
+        };
+        if(data.value == 'opt2') {
+          this.$store.dispatch('pages/article/doVoteOpt2');
+          this.$store.dispatch('shared/post-comment/doUpdateInput', data);
+        }
+      }
+      //step2
+      if(progressNum == 2){
+          this.$store.dispatch('shared/post-comment/doUpdateInput', data);
+      }
+      //step3
+      if(progressNum == 3){
+          this.$store.dispatch('shared/post-comment/doUpdateInput', data);
+      }
+      //step4
+      if(progressNum == 4){
+        this.$store.dispatch('shared/post-comment/doUpdateInput', data);
+        //API送信
+        this.$store.dispatch('shared/post-answer/doPostAnswer', this.article.post.id)
+        .then((res)=>{
+          console.log(res)
+          console.log("vote成功")
+          //ローカルストレージ追加
+        });
+      }
     },
   },
   destroyed: function(){

@@ -194,7 +194,7 @@ export default {
         //入力値をリセット
         this.$store.dispatch('shared/post-article/resetFormData');
         this.$router.push({ path: `/article/${ res.id }`});
-        this.$store.dispatch('shared/toast/showToast');
+        this.$store.dispatch('shared/toast/showToast', "相談を投稿しました。");
       })
       .finally(()=>{
         this.$store.dispatch('shared/modal/closeModal');

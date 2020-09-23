@@ -53,11 +53,12 @@ export default {
        ********************************************/
       async getArticle ({commit, dispatch}, {articleId}) {
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles/${ articleId }`)
-        console.log(res)
         //データを設定
         commit('setArticle', res.article)
       },
       countUpAnswerProgress({commit,state}){
+        console.log("countUpAnswerProgress")
+        console.log(state.answerProgress)
         commit('setAnswerProgress', state.answerProgress + 1)
       },
       resetAnswerProgress({commit,state}){
