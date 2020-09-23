@@ -1,10 +1,12 @@
 export default {
     namespaced: true,
     state: () => ({
-        isShow: false
+        isShow: false,
+        message: ""
     }),
     actions:{
-        showToast({commit,state}){
+        showToast({commit,state}, msg){
+            commit('setMessage', msg);
             commit("setIsShow", false);
             setTimeout(()=>{
                 commit("setIsShow", true);
@@ -17,6 +19,9 @@ export default {
     mutations:{
         setIsShow(state, data){
             state.isShow = data;
+        },
+        setMessage(state, data){
+            state.message = data;
         }
     }
 }

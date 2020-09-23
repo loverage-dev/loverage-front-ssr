@@ -2,7 +2,7 @@
   <transition name="fade">
     <div 
       class="a-toast show"
-      v-if="isToastShow">投稿しました。</div>
+      v-if="isToastShow">{{ message }}</div>
   </transition>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   },
   computed:{
     ...mapState("shared/toast",{
-      isToastShow: state => state.isShow
+      isToastShow: state => state.isShow,
+      message: state => state.message
     })
   },
   created: function(){
