@@ -13,7 +13,7 @@
        />
     <div class="p-article__itself">
       <div class="p-article__block">
-        <Avatar />
+        <Avatar :sex="article.post.user_sex" />
         <p class="a-text-30">
           {{ article.post.content }}
         </p>
