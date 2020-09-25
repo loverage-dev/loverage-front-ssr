@@ -233,7 +233,6 @@ export default {
         this.resizeBox()
       }
     );
-    console.log(this.article)
   },
   methods:{
     //回答エリアのサイズ合わせ
@@ -279,8 +278,6 @@ export default {
         //API送信
         this.$store.dispatch('shared/post-answer/doPostAnswer', this.article.post.id)
         .then((res)=>{
-          console.log(res)
-          console.log("vote成功")
           //ローカルストレージ追加
         });
       }
