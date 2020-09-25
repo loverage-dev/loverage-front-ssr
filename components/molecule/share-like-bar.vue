@@ -66,10 +66,11 @@ export default {
       const id = this.$route.params.id;
       this.$store.dispatch('shared/articles/doFavoritePost', id)
       .then((res)=>{
-        //トーストを表示
-        this.$store.dispatch('shared/toast/showToast', "お気に入り登録しました。");
+        const postId = this.$route.params.id
+        this.$store.dispatch('pages/article/getArticleNoRef', {articleId: postId})
       })
       .finally(()=>{
+        this.$store.dispatch('shared/toast/showToast', "お気に入り登録しました。");
       });
     }
   }
