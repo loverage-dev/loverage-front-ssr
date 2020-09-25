@@ -6,7 +6,8 @@ export default {
         answerProgress: 1,
         comments:{
           page: 0,
-          dispItemSize: 4,
+          dispItemSize: 2,
+          data: null
         }
     }),
     getters: {
@@ -30,17 +31,9 @@ export default {
       },
       dipsItems: state => {
         const startPage = state.comments.page * state.comments.dispItemSize;
-        return state.article.comments.contents.slice(0, startPage + state.comments.dispItemSize);
+        return state.comments.data.slice(0, startPage + state.comments.dispItemSize);
       },
-      dipsItemsHidden: state => {
-        const startPage = state.comments.page * state.comments.dispItemSize;
-        const displayedArticles =  state.article.comments.contents.slice(0, startPage + state.comments.dispItemSize);
-        const hiddenArticles = state.article.comments.contents.filter(item => 
-          displayedArticles.indexOf(item) == -1
-        );        
-        return hiddenArticles
-      },
-      isEndPage: state => {
+      isEndPage: (state) => {
           return ((state.comments.page + 1) * state.comments.dispItemSize >= state.article.comments.contents.length);
       },
       pageCount: state => {
@@ -55,10 +48,15 @@ export default {
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles/${ articleId }`)
         //データを設定
         commit('setArticle', res.article)
+        commit('setCommentData', res.article.comments.contents)
+      },
+      async getArticleNoRef ({commit, dispatch}, {articleId}) {
+        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles/${ articleId }/noref`)
+        //データを設定
+        commit('setArticle', res.article)
+        commit('setCommentData', res.article.comments.contents)
       },
       countUpAnswerProgress({commit,state}){
-        console.log("countUpAnswerProgress")
-        console.log(state.answerProgress)
         commit('setAnswerProgress', state.answerProgress + 1)
       },
       resetAnswerProgress({commit,state}){
@@ -96,8 +94,22 @@ export default {
       resetPageCount(state){
           state.comments.page = 0;
       },
-      setArticles(state, data){
-          state.comments.articles = data;
+      setCommentData(state, data){
+        //ディープコピー
+        const commentsCloned = [...data]
+        // お気に入りの高い順にソート
+        const listSorted = commentsCloned.sort((a,b) => {return (a.stars < b.stars ? 1 : -1)})
+        // opt1/opt2の回答をそれぞれ配列化
+        let listSelectedOpt1 = listSorted.filter((x) => { return (x.selected_opt == 'opt1') })
+        let listSelectedOpt2 = listSorted.filter((x) => { return (x.selected_opt == 'opt2') })
+        let resultList = []
+        // // 各配列の長さの最小数だけループ
+        let l = Math.min(listSelectedOpt1.length, listSelectedOpt2.length)
+        for (let i = 0;i < l; i++) {
+            resultList.push(listSelectedOpt1[i], listSelectedOpt2[i])
+          }
+        resultList.push(...listSelectedOpt1.slice(l), ...listSelectedOpt2.slice(l))
+        state.comments.data = resultList;
       }
     }
   }

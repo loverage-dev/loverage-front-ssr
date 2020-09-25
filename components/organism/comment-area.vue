@@ -7,6 +7,7 @@
           v-for="comment in dipsItemsComments"
           v-bind:key="comment.origin_id"
           :comment="comment"
+          :stars="comment.stars"
           :optContent="optContent(comment.selected_opt, opt1, opt2)" />
         <ButtonSeeMore
          v-on:clicked="showNextComments"
@@ -87,7 +88,6 @@ export default {
     validate: function() {
       //変更内容のストア反映
       this.$store.dispatch('shared/post-comment/chkCanPost');
-      console.log("validate")
     },
     updateInputValue(event, item_key) {
       this.$store.dispatch('shared/post-comment/doUpdateInput', { key: item_key, value: event.target.value })
@@ -102,7 +102,7 @@ export default {
         this.$store.dispatch('shared/toast/showToast', "コメントを投稿しました。");
       })
       .finally(()=>{
-        console.log("submit完了")
+        this.$store.dispatch('pages/article/getArticleNoRef', {articleId: postId})
       });
     }
   }
