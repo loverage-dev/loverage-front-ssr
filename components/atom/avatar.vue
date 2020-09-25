@@ -1,14 +1,33 @@
 <template>
-    <div class="a-avatar">&#x1f469;</div>
+    <div class="a-avatar" v-html="avatar"></div>
 </template>
 
 
 <script>
 export default {
   name: "Avater",
-  props: {},
+  props: {
+    sex: {
+      type: String,
+      default: ""
+    }
+  },
   data() {
     return {};
+  },
+  computed:{
+    avatar: function(){
+      switch (this.sex){
+        case 'f':
+          return "&#x1f469;&#x1f3fb;"
+        case 'm':
+          return "&#x1f9d1;&#x1f3fb;"
+        case 'o':
+          return "&#x1f603;"
+        default:
+          return "&#x1f603;"
+      }
+    }
   },
   created: function(){
     },
@@ -16,7 +35,7 @@ export default {
   },
   destroyed: function(){
   },
-  components: {}
+  components: {},
 };
 </script>
 
