@@ -3,6 +3,11 @@
     <div class="o-comment-area">
     <div class="o-comment-area__inner">
         <h3 class="a-text-60 a-text--bold">コメント</h3>
+        <div style="text-align: center;">
+          <span 
+           class="a-text-30"
+           v-if="dipsItemsComments.length == 0">投稿されたコメントはありません。</span>
+        </div>
         <Comment 
           v-for="comment in dipsItemsComments"
           v-bind:key="comment.origin_id"
@@ -13,25 +18,27 @@
          v-on:clicked="showNextComments"
          :isEndPage="isEndPageComments"
          />
-        <div class="o-comment-area__your-answer">
-        <p class="o-comment-area__your-answer-is">あなたの回答は</p>
-        <YourAnswer />
+        <div class="o-comment-area__your-answer" v-show="isAnswered($route.params.id)">
+          <p class="o-comment-area__your-answer-is">あなたの回答は</p>
+          <YourAnswer
+           :content="optContent(selectedOpt($route.params.id), opt1, opt2)" />
         </div>
         <form
          action=""
-         v-on:change="validate()"
+         v-on:change="validate"
          class="o-comment-area__your-comment"
-         v-on:submit.prevent="onSubmit">
-        <div class="a-textfield">
-            <textarea
-             type="text"
-            placeholder="コメントがあれば入力してください"
-            v-bind:value="input.content"
-            v-on:input="updateInputValue($event, 'content')"></textarea>
-        </div>
-        <button
-         class="a-button-primary"
-         v-bind:disabled="!canPost">コメントを投稿する</button>
+         v-on:submit.prevent="onSubmit"
+         v-show="isAnswered($route.params.id)" >
+          <div class="a-textfield">
+              <textarea
+              type="text"
+              placeholder="コメントがあれば入力してください"
+              v-bind:value="input.content"
+              v-on:input="updateInputValue($event, 'content')"></textarea>
+          </div>
+          <button
+           class="a-button-primary"
+           v-bind:disabled="!canPost">コメントを投稿する</button>
         </form>
     </div>
 </div>
@@ -70,7 +77,9 @@ export default {
       dipsItemsHiddenComments:'pages/article/dipsItemsHidden',
       isEndPageComments:'pages/article/isEndPage',
       pageCountComments:'pages/article/pageCount',
-      inputData:'shared/post-comment/inputData'
+      inputData:'shared/post-comment/inputData',
+      isAnswered:'shared/storage/isAnsweredPost',
+      selectedOpt: 'shared/storage/selectedOpt'
     })
   },
   methods:{
@@ -86,14 +95,16 @@ export default {
       }
     },
     validate: function() {
-      //変更内容のストア反映
+      //投稿可能かチェック
       this.$store.dispatch('shared/post-comment/chkCanPost');
     },
     updateInputValue(event, item_key) {
+      //変更内容のストア反映
       this.$store.dispatch('shared/post-comment/doUpdateInput', { key: item_key, value: event.target.value })
     },
     async onSubmit() {
       const postId = this.$route.params.id
+      //コメント投稿API送信
       this.$store.dispatch('shared/post-comment/doPostComment', postId)
       .then((res)=>{
         //入力値をリセット

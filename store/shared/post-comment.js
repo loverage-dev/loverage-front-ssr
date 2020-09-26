@@ -17,7 +17,6 @@ export default {
     },
     actions:{
         doUpdateInput({ commit }, payload) {
-            console.log(payload)
             switch(payload.key){
                 case 'ageEorL':
                     commit('setAgeEorL',  payload.value)
@@ -51,6 +50,12 @@ export default {
             commit('setSex', "")
             commit('setIconId', "")
             commit('setContent', "")
+        },
+        doLoadInput({ commit }, data){
+          commit('setSelectedOpt', data.selected_opt)
+          commit('setAgeNum', data.ageNum)
+          commit('setAgeEorL', data.ageEorL)
+          commit('setSex', data.sex)
         },
         async doPostComment({ commit, state }, postId){
             const age = `${state.input.ageEorL}_${state.input.ageNum}s`
