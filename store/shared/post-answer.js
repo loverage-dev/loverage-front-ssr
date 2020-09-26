@@ -26,7 +26,6 @@ export default {
             }
         },
         doResetInput({ commit }){
-
             commit('setSelectedOpt', "")
             commit('setAgeNum', "")
             commit('setAgeEorL', "")

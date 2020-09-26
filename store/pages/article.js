@@ -73,6 +73,9 @@ export default {
       },
       resetPageCount({commit}){
         commit('resetPageCount')
+      },
+      doUpdateAnswerProgress({commit}, data){
+        commit('setAnswerProgress', data.answerProgress)
       }
     },
     mutations:{

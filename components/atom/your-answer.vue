@@ -1,12 +1,19 @@
 <template>
-    <div class="a-your-answer">彼氏は浮気している</div>
+    <div class="a-your-answer">{{ content }}</div>
 </template>
 
 
 <script>
+import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+
 export default {
   name: "Likes",
-  props: {},
+  props: {
+    content: {
+      type: String,
+      default: ""
+    }
+  },
   data() {
     return {};
   },
@@ -16,7 +23,8 @@ export default {
   },
   destroyed: function(){
   },
-  components: {}
+  components: {},
+  methods: {}
 };
 </script>
 

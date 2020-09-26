@@ -23,8 +23,8 @@
         :tags="article.post.tag_list" />
     </div>
     <Answer :article="article" />
-    <CommentArea />
-    <ShareLikeBar />
+    <CommentArea :article="article" />
+      <ShareLikeBar />
   </article>
   <aside>
     <div class="o-list-block-area">
@@ -84,6 +84,7 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
+    this.$store.dispatch('pages/article/resetPageCount')
   },
    methods: {
     showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},

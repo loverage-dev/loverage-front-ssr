@@ -191,6 +191,14 @@ export default {
         //記事のPOST送信
       　this.$store.dispatch('shared/post-article/doPostArticle')
       .then((res)=>{
+
+        //ストレージへ保存
+        this.$store.dispatch('shared/storage/doAddMyPosts',{
+          id: res.id,
+          title: res.title,
+          created_at: res.created_at
+        });
+
         //入力値をリセット
         this.$store.dispatch('shared/post-article/resetFormData');
         this.$router.push({ path: `/article/${ res.id }`});

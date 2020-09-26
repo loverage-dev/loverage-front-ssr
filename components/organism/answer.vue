@@ -227,6 +227,27 @@ export default {
   created: function(){
     },
   mounted: function(){
+    const id = this.$route.params.id;
+    //保存データからデータを検索
+    this.$store.dispatch('shared/storage/doFetchSaveData', id)
+    .then((target)=>{
+      //もしデータがあれば
+      if(target){
+        //保存した値を設定
+        this.$store.dispatch('shared/post-comment/doLoadInput', {
+          selected_opt: target.selected_opt,
+          ageNum: target.ageNum,
+          ageEorL: target.ageEorL,
+          sex: target.sex
+        });
+        //進捗を回答済みに設定
+        this.$store.dispatch('pages/article/doUpdateAnswerProgress', {
+          answerProgress: 5,
+        });
+      }
+    });
+
+    //回答エリアのブロック群のサイズをリサイズ
     window.addEventListener('resize', this.handleResize)
     this.$nextTick(
       ()=>{
@@ -279,6 +300,13 @@ export default {
         this.$store.dispatch('shared/post-answer/doPostAnswer', this.article.post.id)
         .then((res)=>{
           //ローカルストレージ追加
+          this.$store.dispatch('shared/storage/doAddMyAnswers',{
+            id: res.post_id,
+            selected_opt: this.inputData.selected_opt,
+            ageNum: this.inputData.ageNum,
+            ageEorL: this.inputData.ageEorL,
+            sex: this.inputData.sex,
+          });
         });
       }
     },
