@@ -33,7 +33,8 @@ module.exports = {
   plugins: [
     '@/plugins/util.js',
     '@/plugins/filter.js',
-    '@/plugins/routerOption.js'
+    '@/plugins/routerOption.js',
+    { src: '@/plugins/localStorage.js', ssr: false }
   ],
   loading: {
     throttle: 300
