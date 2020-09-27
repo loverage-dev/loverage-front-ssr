@@ -4,8 +4,8 @@
           path: encodeURI(`/article/${ article.id }`)
         }">
     <div class="m-list-item">
-        <Rank :rank='rank' />
         <div class="m-list-item__left"><img src="~assets/images/dammy-thumbnail.jpg" alt=""></div>
+        <Rank :rank='rank' />
         <div class="m-list-item__right">
         <h6 class="m-list-item__title">{{ article.content }}</h6>
         <div class="m-list-item__info">
