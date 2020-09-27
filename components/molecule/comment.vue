@@ -46,7 +46,7 @@ export default {
   computed: {
     ...mapGetters({
       isFavorited:'shared/storage/IsFavoritedComment'
-    })
+    }),
   },
   data() {
     return {

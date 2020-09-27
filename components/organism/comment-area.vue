@@ -13,7 +13,7 @@
           v-bind:key="comment.origin_id"
           :comment="comment"
           :stars="comment.stars"
-          :optContent="optContent(comment.selected_opt, opt1, opt2)" />
+          :optContent="optContent(comment.selected_opt)" />
         <ButtonSeeMore
          v-on:clicked="showNextComments"
          :isEndPage="isEndPageComments"
@@ -22,8 +22,7 @@
           <p class="o-comment-area__your-answer-is">あなたの回答は</p>
           <YourAnswer
            :selectedOpt="selectedOpt($route.params.id)"
-           :opt1="opt1"
-           :opt2="opt2" />
+           :content="optContent(selectedOpt($route.params.id))" />
         </div>
         <form
          action=""
@@ -81,7 +80,8 @@ export default {
       pageCountComments:'pages/article/pageCount',
       inputData:'shared/post-comment/inputData',
       isAnswered:'shared/storage/isAnsweredPost',
-      selectedOpt: 'shared/storage/selectedOpt'
+      selectedOpt: 'shared/storage/selectedOpt',
+      optContent: 'pages/article/optContent'
     })
   },
   methods:{

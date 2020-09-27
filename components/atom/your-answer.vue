@@ -1,9 +1,6 @@
 <template>
-    <div
-     :class="{ 
-       'a-your-answer': selectedOpt == 'opt1', 
-       'b-your-answer': selectedOpt == 'opt2'}">
-       {{ optContent(selectedOpt, opt1, opt2) }}
+    <div :class="[isSelectedOpt1? 'a-your-answer' : 'b-your-answer']">
+       {{ content }}
     </div>
 </template>
 
@@ -12,27 +9,27 @@
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "YourAnswer",
   props: {
     selectedOpt: {
       type: String,
       default: ""
     },
-    opt1: {
+    content: {
       type: String,
-      default: "アリ"
+      default: ""
     },
-    opt2: {
-      type: String,
-      default: "ナシ"
-    }
   },
+  name: "YourAnswer",
   data() {
-    return {};
+    return {
+      isSelectedOpt1: false,
+    };
   },
   created: function(){
     },
   mounted: function(){
+    this.isSelectedOpt1 = (this.selectedOpt == 'opt1')
+    
   },
   destroyed: function(){
   },

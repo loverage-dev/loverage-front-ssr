@@ -38,6 +38,30 @@ export default {
       },
       pageCount: state => {
           return Math.ceil(state.article.comments.contents.length / state.comments.dispItemSize);
+      },
+      optContent: state => (selected_opt) =>{
+        console.log(selected_opt)
+        if(selected_opt == 'opt1'){
+          return state.article.post.opt1
+        }else{
+          return state.article.post.opt2
+        }
+      },
+      isSelectedOpt1: () => (selected_opt) =>{
+        console.log(selected_opt)
+        if(selected_opt == 'opt1'){
+          return true
+        }else{
+          return false
+        }
+      },
+      isSelectedOpt2: () => (selected_opt) =>{
+        console.log(selected_opt)
+        if(selected_opt == 'opt2'){
+          return true
+        }else{
+          return false
+        }
       }
     },
     actions:{
