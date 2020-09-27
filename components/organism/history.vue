@@ -2,8 +2,7 @@
 
 <div class="o-history" v-show="isShow">
   <div class="o-history__heading">あなたの相談履歴（最新5件）</div>
-  <ul class="o-history__o-historylist">
-  <li class="o-history__list-item-null" v-show="posts.length == 0">あなたはまだ相談していないようです。</li>
+  <ul class="o-history__o-historylist" v-show="posts.length != 0">
     <li class="o-history__list-item" v-for="post in posts" v-bind:key="post.id">
       <nuxt-link 
         :to="{
@@ -13,6 +12,9 @@
         <div class="o-history__list-item-title">{{ post.title }}</div>
       </nuxt-link>
     </li>
+  </ul>
+  <ul class="o-history__o-historylist">
+    <li class="o-history__list-item-null" v-show="posts.length == 0">あなたはまだ相談していないようです。</li>
   </ul>
 </div>
 
