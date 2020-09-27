@@ -34,6 +34,7 @@ module.exports = {
     '@/plugins/util.js',
     '@/plugins/filter.js',
     '@/plugins/routerOption.js',
+    '@/plugins/clickAway.js',
     { src: '@/plugins/localStorage.js', ssr: false }
   ],
   loading: {

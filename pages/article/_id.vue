@@ -14,8 +14,7 @@
     <div class="p-article__itself">
       <div class="p-article__block">
         <Avatar :sex="article.post.user_sex" />
-        <p class="a-text-30">
-          {{ article.post.content }}
+        <p class="a-text-30 allow-br" v-html="article.post.content">
         </p>
       </div>
       <TagList 
@@ -137,4 +136,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.allow-br{
+  white-space: pre-line;
+}
 </style>
