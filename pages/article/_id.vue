@@ -81,6 +81,7 @@ export default {
     }
   },
   mounted(){
+    this.$store.dispatch('shared/categories/getCategoryList')
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')

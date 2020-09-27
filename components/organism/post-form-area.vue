@@ -174,6 +174,7 @@ export default {
   created: function(){
     },
   mounted: function(){
+    
   },
   destroyed: function(){
   },
