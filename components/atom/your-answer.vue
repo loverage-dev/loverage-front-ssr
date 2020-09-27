@@ -1,5 +1,10 @@
 <template>
-    <div class="a-your-answer">{{ content }}</div>
+    <div
+     :class="{ 
+       'a-your-answer': selectedOpt == 'opt1', 
+       'b-your-answer': selectedOpt == 'opt2'}">
+       {{ optContent(selectedOpt, opt1, opt2) }}
+    </div>
 </template>
 
 
@@ -7,11 +12,19 @@
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "Likes",
+  name: "YourAnswer",
   props: {
-    content: {
+    selectedOpt: {
       type: String,
       default: ""
+    },
+    opt1: {
+      type: String,
+      default: "アリ"
+    },
+    opt2: {
+      type: String,
+      default: "ナシ"
     }
   },
   data() {

@@ -21,7 +21,9 @@
         <div class="o-comment-area__your-answer" v-show="isAnswered($route.params.id)">
           <p class="o-comment-area__your-answer-is">あなたの回答は</p>
           <YourAnswer
-           :content="optContent(selectedOpt($route.params.id), opt1, opt2)" />
+           :selectedOpt="selectedOpt($route.params.id)"
+           :opt1="opt1"
+           :opt2="opt2" />
         </div>
         <form
          action=""
@@ -87,13 +89,6 @@ export default {
     ...mapActions('pages/article',['resetPageCount']),
     showNextComments(){
       this.$store.dispatch('pages/article/showNextPage')},
-    optContent(selectedOpt, opt1, opt2){
-      if(selectedOpt === 'opt1'){
-        return opt1
-      }else{
-        return opt2
-      }
-    },
     validate: function() {
       //投稿可能かチェック
       this.$store.dispatch('shared/post-comment/chkCanPost');
