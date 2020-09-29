@@ -96,8 +96,6 @@ export default {
           });
         })
         .finally(()=>{
-          //トーストの表示
-          this.$store.dispatch('shared/toast/showToast', "お気に入り登録しました。");
           //記事の再取得
           this.$store.dispatch('pages/article/getArticleNoRef', {articleId: postId})
         });
