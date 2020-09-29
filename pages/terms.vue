@@ -244,6 +244,18 @@ export default {
       class: 'p-terms'
     }
   },
+  head: {
+    bodyAttrs: {
+      class: 'p-terms'
+    },
+    title: "利用規約|Loverage",
+    meta: [
+      { hid: 'description', name: 'description', content: 'この利用規約（以下「本規約」といいます。）は、「Loverage」WEBサイト（以下「本サイト」といいます。）を運営するLoverage運営事務局（以下「当事務局」といいます。）と本サイトを閲覧する利用者および本サイト上において提供される各サービス（以下「本サービス」といいます。）を利用する利用者（以下「本サイトを閲覧する利用者」および「本サービスを利用する利用者」をあわせて「ユーザー」といいます。）との間の一切の関係に適用されます。 １８歳未満のユーザーは、保護者の同意に基づいて本サイトおよび本サービスを利用するものとします。 本規約に同意できない場合は、直ちに本サイトの利用および閲覧を中止しなければなりません。' },
+      { hid: 'og:description', name: 'og:description', content: 'この利用規約（以下「本規約」といいます。）は、「Loverage」WEBサイト（以下「本サイト」といいます。）を運営するLoverage運営事務局（以下「当事務局」といいます。）と本サイトを閲覧する利用者および本サイト上において提供される各サービス（以下「本サービス」といいます。）を利用する利用者（以下「本サイトを閲覧する利用者」および「本サービスを利用する利用者」をあわせて「ユーザー」といいます。）との間の一切の関係に適用されます。 １８歳未満のユーザーは、保護者の同意に基づいて本サイトおよび本サービスを利用するものとします。 本規約に同意できない場合は、直ちに本サイトの利用および閲覧を中止しなければなりません。' },
+      { hid: 'og:title', property: 'og:title', content: '利用規約|Loverage'},
+      { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+    ]
+  },
   mounted(){
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')

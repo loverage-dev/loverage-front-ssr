@@ -271,7 +271,14 @@ export default {
   head: {
     bodyAttrs: {
       class: 'p-category-list'
-    }
+    },
+    title: "カテゴリー|Loverage",
+    meta: [
+      { hid: 'description', name: 'description', content: '投稿者のカテゴリーから相談を検索することができます。カテゴリーは次の組み合わせを指定できます。性別（男性・女性・その他）/ 年代（１０代前半・１０代後半・２０代前半・２０代後半・３０代前半・３０代後半・４０代前半・４０代後半・５０代前半・５０代後半・６０代前半・６０代後半）'},
+      { hid: 'og:description', name: 'og:description', content: '投稿者のカテゴリーから相談を検索することができます。カテゴリーは次の組み合わせを指定できます。性別（男性・女性・その他）/ 年代（１０代前半・１０代後半・２０代前半・２０代後半・３０代前半・３０代後半・４０代前半・４０代後半・５０代前半・５０代後半・６０代前半・６０代後半）'},
+      { hid: 'og:title', property: 'og:title', content: 'カテゴリー|Loverage'},
+      { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+    ]
   },
   mounted(){
     this.$store.dispatch('shared/editors_pick/resetPageCount')

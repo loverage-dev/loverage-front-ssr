@@ -85,7 +85,14 @@ export default {
   head: {
     bodyAttrs: {
       class: 'p-ranking'
-    }
+    },
+    title: "ランキング|Loverage",
+    meta: [
+      { hid: 'description', name: 'description', content: 'これまで投稿された相談について、閲覧数・回答数のランキングのTop10を見ることができます。'},
+      { hid: 'og:description', name: 'og:description', content: 'これまで投稿された相談について、閲覧数・回答数のランキングのTop10を見ることができます。'},
+      { hid: 'og:title', property: 'og:title', content: 'ランキング|Loverage'},
+      { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+    ]
   },
   mounted(){
     this.$store.dispatch('shared/editors_pick/resetPageCount')
