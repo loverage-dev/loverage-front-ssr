@@ -67,6 +67,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    analize: true,
     /*
     ** You can extend webpack config here
     */
