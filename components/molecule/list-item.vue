@@ -6,12 +6,11 @@
         }">
       <div class="m-list-item">
           <div class="m-list-item__left">
-            <!-- <IconEyeCatching
+            <IconEyeCatching
               :age="article.user_age" 
               :sex="article.user_sex"
               :tag="article.img_tag"
-              :fileNo="getRandomNo()"/> -->
-            <img src="~assets/images/dammy-thumbnail.jpg" alt="">
+              :fileNo="getRandomNo()"/>
           </div>
           <div class="m-list-item__right">
           <h6 class="m-list-item__title">{{ article.content }}</h6>
