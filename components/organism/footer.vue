@@ -22,9 +22,9 @@
             <div class="o-footer__sns">
             <div class="o-footer__sns-heading">Follow us on</div>
             <ul class="o-footer__sns-list">
-                <li class="o-footer__sns-list-item twitter"><a href=""><img src="~assets/images/icons/twitter.svg" alt="Twitter"></a></li>
-                <li class="o-footer__sns-list-item instagram"><a href=""><img src="~assets/images/icons/instagram.svg" alt="Instagram"></a></li>
-                <li class="o-footer__sns-list-item facebook"><a href=""><img src="~assets/images/icons/facebook.svg" alt="Facebook"></a></li>
+                <li class="o-footer__sns-list-item twitter"><a href="https://twitter.com/intent/follow?screen_name=Loverage_jp" target="_blank"><img src="~assets/images/icons/twitter.svg" alt="Twitter"></a></li>
+                <li class="o-footer__sns-list-item instagram"><a href="https://www.instagram.com/loverage?ref=badge" target="_blank"><img src="~assets/images/icons/instagram.svg" alt="Instagram"></a></li>
+                <li class="o-footer__sns-list-item facebook"><a href="https://www.facebook.com/Loverage-554169428422345" target="_blank"><img src="~assets/images/icons/facebook.svg" alt="Facebook"></a></li>
             </ul>
             </div>
         </div>
