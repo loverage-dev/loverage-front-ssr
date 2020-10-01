@@ -30,9 +30,9 @@
       </div>
       <div class="t-desktop-two-columns__right">
         <div class="p-index__banner-area">
-          <a href="">
+          <nuxt-link to="/about">
             <img src="~assets/images/about-banner.jpg" alt="About Loverage">
-          </a>
+          </nuxt-link>
         </div>
       </div>
     </div>
