@@ -15,16 +15,16 @@
                     <li class="o-footer__nav-list-item"><nuxt-link to="/about">Loveargeとは</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/terms">利用規約</nuxt-link></li>
                     <li class="o-footer__nav-list-item"><nuxt-link to="/privacy-policy">個人情報保護方針</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><a href="https://forms.gle/SyRjk8Yv9VeatFCL7" target="_blank">お問い合わせ</a></li>
+                    <li class="o-footer__nav-list-item"><a href="https://forms.gle/SyRjk8Yv9VeatFCL7" target="_blank" rel="noreferrer">お問い合わせ</a></li>
                 </ul>
             </nav>
             </div>
             <div class="o-footer__sns">
             <div class="o-footer__sns-heading">Follow us on</div>
             <ul class="o-footer__sns-list">
-                <li class="o-footer__sns-list-item twitter"><a href="https://twitter.com/intent/follow?screen_name=Loverage_jp" target="_blank"><img src="~assets/images/icons/twitter.svg" alt="Twitter"></a></li>
-                <li class="o-footer__sns-list-item instagram"><a href="https://www.instagram.com/loverage?ref=badge" target="_blank"><img src="~assets/images/icons/instagram.svg" alt="Instagram"></a></li>
-                <li class="o-footer__sns-list-item facebook"><a href="https://www.facebook.com/Loverage-554169428422345" target="_blank"><img src="~assets/images/icons/facebook.svg" alt="Facebook"></a></li>
+                <li class="o-footer__sns-list-item twitter"><a href="https://twitter.com/intent/follow?screen_name=Loverage_jp" target="_blank" rel="noreferrer"><img src="~assets/images/icons/twitter.svg" alt="Twitter"></a></li>
+                <li class="o-footer__sns-list-item instagram"><a href="https://www.instagram.com/loverage?ref=badge" target="_blank" rel="noreferrer"><img src="~assets/images/icons/instagram.svg" alt="Instagram"></a></li>
+                <li class="o-footer__sns-list-item facebook"><a href="https://www.facebook.com/Loverage-554169428422345" target="_blank" rel="noreferrer"><img src="~assets/images/icons/facebook.svg" alt="Facebook"></a></li>
             </ul>
             </div>
         </div>
