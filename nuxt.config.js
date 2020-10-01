@@ -1,5 +1,7 @@
 require('dotenv').config()
-const { API_BASE_URL } = process.env;
+const API_BASE_URL = process.env.API_BASE_URL ||'https://limitless-crag-46636.herokuapp.com'
+const BASE_DIR = process.env.BASE_DIR || '/'
+const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
 
 module.exports = {
   mode: 'universal',
@@ -77,6 +79,8 @@ module.exports = {
     }
   },
   env: {
-    API_BASE_URL
+    API_BASE_URL,
+    BASE_DIR,
+    BASE_URL
   }
 }
