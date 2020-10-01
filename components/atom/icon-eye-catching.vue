@@ -2,73 +2,73 @@
   <div>
     <!-- ↓↓デフォルト画像の定義 -->
         <!-- ↓↓デフォルト画像の定義 -->
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'f'" v-lazy="f_e_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 1" v-lazy="f_e_20s_1" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 2" v-lazy="f_e_20s_2" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 3" v-lazy="f_e_20s_3" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 4" v-lazy="f_e_20s_4" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 5" v-lazy="f_e_20s_5" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 6" v-lazy="f_e_20s_6" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 7" v-lazy="f_e_20s_7" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 8" v-lazy="f_e_20s_8" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'f'" v-lazy="f_e_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'f'" v-lazy="f_e_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'f'" v-lazy="f_e_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'f'" v-lazy="f_e_60s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'f'" v-lazy="f_l_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 1" v-lazy="f_l_20s_1" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 2" v-lazy="f_l_20s_2" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 3" v-lazy="f_l_20s_3" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 4" v-lazy="f_l_20s_4" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 5" v-lazy="f_l_20s_5" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 6" v-lazy="f_l_20s_6" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 7" v-lazy="f_l_20s_7" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 8" v-lazy="f_l_20s_8" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'f'" v-lazy="f_l_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'f'" v-lazy="f_l_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'f'" v-lazy="f_l_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'f'" v-lazy="f_l_60s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'm'" v-lazy="m_e_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 1" v-lazy="m_e_20s_1" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 2" v-lazy="m_e_20s_2" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 3" v-lazy="m_e_20s_3" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 4" v-lazy="m_e_20s_4" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 5" v-lazy="m_e_20s_5" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 6" v-lazy="m_e_20s_6" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 7" v-lazy="m_e_20s_7" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 8" v-lazy="m_e_20s_8" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'm'" v-lazy="m_e_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'm'" v-lazy="m_e_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'm'" v-lazy="m_e_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'm'" v-lazy="m_e_60s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'm'" v-lazy="m_l_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 1" v-lazy="m_l_20s_1" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 2" v-lazy="m_l_20s_2" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 3" v-lazy="m_l_20s_3" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 4" v-lazy="m_l_20s_4" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 5" v-lazy="m_l_20s_5" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 6" v-lazy="m_l_20s_6" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 7" v-lazy="m_l_20s_7" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 8" v-lazy="m_l_20s_8" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'm'" v-lazy="m_l_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'm'" v-lazy="m_l_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'm'" v-lazy="m_l_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'm'" v-lazy="m_l_60s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'o'" v-lazy="o_e_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'o'" v-lazy="o_e_20s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'o'" v-lazy="o_e_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'o'" v-lazy="o_e_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'o'" v-lazy="o_e_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'o'" v-lazy="o_e_60s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'o'" v-lazy="o_l_10s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'o'" v-lazy="o_l_20s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'o'" v-lazy="o_l_30s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'o'" v-lazy="o_l_40s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'o'" v-lazy="o_l_50s" alt>
-    <img v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'o'" v-lazy="o_l_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'f'" v-lazy="f_e_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 1" v-lazy="f_e_20s_1" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 2" v-lazy="f_e_20s_2" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 3" v-lazy="f_e_20s_3" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 4" v-lazy="f_e_20s_4" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 5" v-lazy="f_e_20s_5" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 6" v-lazy="f_e_20s_6" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 7" v-lazy="f_e_20s_7" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'f' && fileNo == 8" v-lazy="f_e_20s_8" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'f'" v-lazy="f_e_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'f'" v-lazy="f_e_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'f'" v-lazy="f_e_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'f'" v-lazy="f_e_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'f'" v-lazy="f_l_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 1" v-lazy="f_l_20s_1" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 2" v-lazy="f_l_20s_2" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 3" v-lazy="f_l_20s_3" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 4" v-lazy="f_l_20s_4" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 5" v-lazy="f_l_20s_5" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 6" v-lazy="f_l_20s_6" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 7" v-lazy="f_l_20s_7" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'f' && fileNo == 8" v-lazy="f_l_20s_8" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'f'" v-lazy="f_l_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'f'" v-lazy="f_l_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'f'" v-lazy="f_l_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'f'" v-lazy="f_l_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'm'" v-lazy="m_e_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 1" v-lazy="m_e_20s_1" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 2" v-lazy="m_e_20s_2" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 3" v-lazy="m_e_20s_3" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 4" v-lazy="m_e_20s_4" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 5" v-lazy="m_e_20s_5" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 6" v-lazy="m_e_20s_6" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 7" v-lazy="m_e_20s_7" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'm' && fileNo == 8" v-lazy="m_e_20s_8" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'm'" v-lazy="m_e_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'm'" v-lazy="m_e_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'm'" v-lazy="m_e_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'm'" v-lazy="m_e_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'm'" v-lazy="m_l_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 1" v-lazy="m_l_20s_1" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 2" v-lazy="m_l_20s_2" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 3" v-lazy="m_l_20s_3" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 4" v-lazy="m_l_20s_4" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 5" v-lazy="m_l_20s_5" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 6" v-lazy="m_l_20s_6" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 7" v-lazy="m_l_20s_7" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'm' && fileNo == 8" v-lazy="m_l_20s_8" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'm'" v-lazy="m_l_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'm'" v-lazy="m_l_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'm'" v-lazy="m_l_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'm'" v-lazy="m_l_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_10s' && sex == 'o'" v-lazy="o_e_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_20s' && sex == 'o'" v-lazy="o_e_20s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_30s' && sex == 'o'" v-lazy="o_e_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_40s' && sex == 'o'" v-lazy="o_e_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_50s' && sex == 'o'" v-lazy="o_e_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'e_60s' && sex == 'o'" v-lazy="o_e_60s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_10s' && sex == 'o'" v-lazy="o_l_10s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_20s' && sex == 'o'" v-lazy="o_l_20s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_30s' && sex == 'o'" v-lazy="o_l_30s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_40s' && sex == 'o'" v-lazy="o_l_40s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_50s' && sex == 'o'" v-lazy="o_l_50s" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && (tag == null || tag == '') && age == 'l_60s' && sex == 'o'" v-lazy="o_l_60s" alt>
     <!-- ↓↓タグ付き画像の定義 -->
-    <img v-if="!isContentPage && user_img == '' && tag != '' && tag != null" v-lazy="f_e_20s_happy" alt> <!-- 20代の女が友達と楽しそうにしてる -->
-    <img v-if="isContentPage && user_img != ''" :src="user_img" alt>
+    <img width="92px" height="92px" v-if="!isContentPage && user_img == '' && tag != '' && tag != null" v-lazy="f_e_20s_happy" alt> <!-- 20代の女が友達と楽しそうにしてる -->
+    <img width="92px" height="92px" v-if="isContentPage && user_img != ''" :src="user_img" alt>
   </div>
 </template>
 
