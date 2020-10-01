@@ -39,7 +39,8 @@ module.exports = {
     '@/plugins/filter.js',
     '@/plugins/routerOption.js',
     '@/plugins/clickAway.js',
-    { src: '@/plugins/localStorage.js', ssr: false }
+    '@/plugins/vue-lazyload.js',
+    { src: '@/plugins/localStorage.js', ssr: false },
   ],
   loading: {
     throttle: 300
