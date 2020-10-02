@@ -53,7 +53,6 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@nuxtjs/moment'
   ],
   moment: {
     // ここにオプションが記述できる
