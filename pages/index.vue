@@ -30,8 +30,8 @@
       </div>
       <div class="t-desktop-two-columns__right">
         <div class="p-index__banner-area">
-          <nuxt-link to="/about">
-            <img src="~assets/images/about-banner.jpg" alt="About Loverage">
+          <nuxt-link to="/about" width="260px" height="260px">
+            <img v-lazy="'about-banner.jpg'" alt="About Loverage">
           </nuxt-link>
         </div>
       </div>
