@@ -65,7 +65,8 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    'nuxt-clipboard2'
+    'nuxt-clipboard2',
+    'nuxt-purgecss'
   ],
   axios: {
 
