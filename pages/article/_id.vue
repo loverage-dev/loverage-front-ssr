@@ -79,6 +79,8 @@ export default {
       meta:{
         title: "",
         description: "",
+        type: "",
+        url: "",
         imgPath: ""
       },
       imgFile: {
@@ -122,20 +124,24 @@ export default {
     }
   },
   head(){
-    const title = this.article.post.title;
-    this.meta.title = title;
+    this.meta.title = this.article.post.title;
+    this.meta.type = "article";
     this.meta.description = this.article.post.content;
+    this.meta.url = `${process.env.BASE_URL}${this.$router.history.base}${this.$route.path}`;
     this.meta.imgPath = this.getOgpFilePath(this.article.post.user_sex, this.article.post.user_age)
     return{
       bodyAttrs: {
         class: 'p-article'
       },
-      title: title,
+      title: `${this.meta.title}|Loverage`,
       meta: [
-        { hid: 'description', name: 'description', content: this.meta.description },
-        { hid: 'og:description', name: 'og:description', content: this.meta.description },
-        { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'og:image', property: 'og:image', content: this.meta.imgPath }
+        { hid: "description", name: "description", content: this.meta.description},
+        { hid: "og:description", property: "og:description", content: this.meta.description},
+        { hid: "og:title", property: "og:title", content: this.meta.title },
+        { hid: "og:type", property: "og:type", content: this.meta.type },
+        { hid: "og:url", property: "og:url", content: this.meta.url },
+        { hid: "og:image", property: "og:image", content: this.meta.imgPath },
+        { name: "twitter:title", content: this.meta.title }
       ]
     }
   },
