@@ -104,7 +104,7 @@ export default {
         { hid: 'description', name: 'description', content: this.meta.description },
         { hid: 'og:description', name: 'og:description', content: this.meta.description },
         { hid: 'og:title', property: 'og:title', content: title },
-        { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+        { hid: 'og:image', property: 'og:image', content: `${process.env.BASE_URL}/ogp.png` }
       ]
     }
   },

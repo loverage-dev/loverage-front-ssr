@@ -59,7 +59,7 @@ export default {
       { hid: 'description', name: 'description', content: '日々の恋愛の中で「これって自分だけ？」と感じることはありませんか？誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。Loverageは、そんなあなたの恋愛にまつわる相談事を、二択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。日々の些細な出来事から、性にまつわるプライベートなことまで、家族や友人にも言えないあなたの今の気持ちをお聞かせください。'},
       { hid: 'og:description', name: 'og:description', content: '日々の恋愛の中で「これって自分だけ？」と感じることはありませんか？誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。Loverageは、そんなあなたの恋愛にまつわる相談事を、二択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。日々の些細な出来事から、性にまつわるプライベートなことまで、家族や友人にも言えないあなたの今の気持ちをお聞かせください。'},
       { hid: 'og:title', property: 'og:title', content: 'About|Loverage'},
-      { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+      { hid: 'og:image', property: 'og:image', content: `${process.env.BASE_URL}/ogp.png` }
     ]
   },
   mounted(){

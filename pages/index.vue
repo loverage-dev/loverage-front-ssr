@@ -56,7 +56,7 @@ export default {
       { hid: 'description', name: 'description', content: '2択の恋愛相談コミュニティ『Loverage』／日々の恋愛の中で誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。そんなあなたの恋愛にまつわる相談事を、2択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。'},
       { hid: 'og:description', name: 'og:description', content: '2択の恋愛相談コミュニティ『Loverage』／日々の恋愛の中で誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。そんなあなたの恋愛にまつわる相談事を、2択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。'},
       { hid: 'og:title', property: 'og:title', content: 'Loverage|2択の恋愛相談コミュニティ'},
-      { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+      { hid: 'og:image', property: 'og:image', content: `${process.env.BASE_URL}/ogp.png` }
     ]
   },
   mounted(){
