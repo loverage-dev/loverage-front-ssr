@@ -17,7 +17,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'Loverage' },
       { hid: 'og:url', property: 'og:url', content: BASE_URL + "/" },
-      { hid: 'twitter:card', name: 'twitter:card', content: 'website'},
+      { hid: 'twitter:card', name: 'twitter:card', content: 'summary'},
       { hid: 'og:locale', property: 'og:locale', content: 'ja_JP' },
       { hid: 'fb:app_id', property: 'fb:app_id', content: '330308701012309' }
     ],

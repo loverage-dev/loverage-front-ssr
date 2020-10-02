@@ -125,7 +125,7 @@ export default {
   },
   head(){
     this.meta.title = this.article.post.title;
-    this.meta.type = "summary";
+    this.meta.type = "article";
     this.meta.description = this.article.post.content;
     this.meta.url = `${process.env.BASE_URL}${this.$router.history.base}${this.$route.path}`;
     this.meta.imgPath = this.getOgpFilePath(this.article.post.user_sex, this.article.post.user_age)
