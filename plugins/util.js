@@ -15,7 +15,7 @@ Vue.mixin({
       let week=['sun','mon','tue','wed','thu','fri','sat'][new Date().getDay()]
       return  week
     },
-    getOgpTitle(userSex, userAge){
+    getOgpTitle(userSex, userAge, content){
       let title = ""
       switch (userSex) {
         case "m":
@@ -67,7 +67,8 @@ Vue.mixin({
           title += "60代後半"
           break;
       }
-      title += "のご相談"
+      title = '('+title+')'
+      title += (content.substr(0, 29) + '…')
       return title
     },
     concatMetaDescription(description){
