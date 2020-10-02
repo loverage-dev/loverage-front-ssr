@@ -80,6 +80,8 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+      config.plugins.push(new HardSourceWebpackPlugin())
     }
   },
   env: {

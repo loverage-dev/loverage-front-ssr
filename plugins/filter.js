@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import moment from 'moment'
+import dayjs from 'dayjs'
+
 
 /**************************************************
  * 　パイプ各種
@@ -73,12 +74,12 @@ Vue.filter('to_jp_age', function (value) {
 
   // 年月日時分をフォーマットする
   Vue.filter('format_datetime', function (value) {
-    return moment(value).format('YYYY/MM/DD HH:mm')
+    return dayjs(value).format('YYYY/MM/DD HH:mm')
   }
   );
 
   // 年月日をフォーマットする
   Vue.filter('format_date', function (value) {
-    return moment(value).format('YY/MM/DD')
+    return dayjs(value).format('YY/MM/DD')
   }
   );
