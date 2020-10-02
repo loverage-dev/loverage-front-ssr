@@ -123,7 +123,7 @@ export default {
     },
     // それぞれパラメータを埋め込む
     twitterUrl(currentURL) {
-      return this.formatByArr(this.twitter_url, currentURL, "Loverage");
+      return this.formatByArr(this.twitter_url, currentURL, "");
     },
     lineUrl(currentURL){
       return this.formatByArr(this.line_url, currentURL);
