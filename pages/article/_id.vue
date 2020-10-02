@@ -74,9 +74,69 @@ export default {
       ShareLikeBar,
       ListBlock
   },
-  head: {
-    bodyAttrs: {
-      class: 'p-article'
+  data: () => {
+    return {
+      meta:{
+        title: "",
+        description: "",
+        imgPath: ""
+      },
+      imgFile: {
+          f_e_10s: 'f_e_10s.jpg',
+          f_e_20s: 'f_e_20s_1.jpg',
+          f_e_30s: 'f_e_30s.jpg',
+          f_e_40s: 'f_e_40s.jpg',
+          f_e_50s: 'f_e_50s.jpg',
+          f_e_60s: 'f_e_60s.jpg',
+          f_l_10s: 'f_l_10s.jpg',
+          f_l_20s: 'f_l_20s_1.jpg',
+          f_l_30s: 'f_l_30s.jpg',
+          f_l_40s: 'f_l_40s.jpg',
+          f_l_50s: 'f_l_50s.jpg',
+          f_l_60s: 'f_l_60s.jpg',
+          m_e_10s: 'm_e_10s.jpg',
+          m_e_20s: 'm_e_20s_1.jpg',
+          m_e_30s: 'm_e_30s.jpg',
+          m_e_40s: 'm_e_40s.jpg',
+          m_e_50s: 'm_e_50s.jpg',
+          m_e_60s: 'm_e_60s.jpg',
+          m_l_10s: 'm_l_10s.jpg',
+          m_l_20s: 'm_l_20s_1.jpg',
+          m_l_30s: 'm_l_30s.jpg',
+          m_l_40s: 'm_l_40s.jpg',
+          m_l_50s: 'm_l_50s.jpg',
+          m_l_60s: 'm_l_60s.jpg',
+          o_e_10s: 'o_e_10s.jpg',
+          o_e_20s: 'o_e_20s.jpg',
+          o_e_30s: 'o_e_30s.jpg',
+          o_e_40s: 'o_e_40s.jpg',
+          o_e_50s: 'o_e_50s.jpg',
+          o_e_60s: 'o_e_60s.jpg',
+          o_l_10s: 'o_l_10s.jpg',
+          o_l_20s: 'o_l_20s.jpg',
+          o_l_30s: 'o_l_30s.jpg',
+          o_l_40s: 'o_l_40s.jpg',
+          o_l_50s: 'o_l_50s.jpg',
+          o_l_60s: 'o_l_60s.jpg',
+      }
+    }
+  },
+  head(){
+    const title = this.article.post.title;
+    this.meta.title = title;
+    this.meta.description = this.article.post.content;
+    this.meta.imgPath = this.getOgpFilePath(this.article.post.user_sex, this.article.post.user_age)
+    return{
+      bodyAttrs: {
+        class: 'p-article'
+      },
+      title: title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta.description },
+        { hid: 'og:description', name: 'og:description', content: this.meta.description },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:image', property: 'og:image', content: this.meta.imgPath }
+      ]
     }
   },
   mounted(){
@@ -90,6 +150,52 @@ export default {
     showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
     showNextEditors(){ this.$store.dispatch('shared/editors_pick/showNextPage')},
     showNextFeatured(){　this.$store.dispatch('shared/featured/showNextPage')},
+    getOgpFilePath (sex, age) {
+      let imgPath = ""
+      //10代
+      if(sex === 'f' && age === 'e_10s') imgPath = this.imgFile.f_e_10s;
+      if(sex === 'f' && age === 'l_10s') imgPath = this.imgFile.f_l_10s;
+      if(sex === 'm' && age === 'e_10s') imgPath = this.imgFile.m_e_10s;
+      if(sex === 'm' && age === 'l_10s') imgPath = this.imgFile.m_l_10s;
+      if(sex === 'o' && age === 'e_10s') imgPath = this.imgFile.o_e_10s;
+      if(sex === 'o' && age === 'l_10s') imgPath = this.imgFile.o_l_10s;
+      //20代
+      if(sex === 'f' && age === 'e_20s') imgPath = this.imgFile.f_e_20s;
+      if(sex === 'f' && age === 'l_20s') imgPath = this.imgFile.f_l_20s;
+      if(sex === 'm' && age === 'e_20s') imgPath = this.imgFile.m_e_20s;
+      if(sex === 'm' && age === 'l_20s') imgPath = this.imgFile.m_l_20s;
+      if(sex === 'o' && age === 'e_20s') imgPath = this.imgFile.o_e_20s;
+      if(sex === 'o' && age === 'l_20s') imgPath = this.imgFile.o_l_20s;
+      //30代
+      if(sex === 'f' && age === 'e_30s') imgPath = this.imgFile.f_e_30s;
+      if(sex === 'f' && age === 'l_30s') imgPath = this.imgFile.f_l_30s;
+      if(sex === 'm' && age === 'e_30s') imgPath = this.imgFile.m_e_30s;
+      if(sex === 'm' && age === 'l_30s') imgPath = this.imgFile.m_l_30s;
+      if(sex === 'o' && age === 'e_30s') imgPath = this.imgFile.o_e_30s;
+      if(sex === 'o' && age === 'l_30s') imgPath = this.imgFile.o_l_30s;
+      //40代
+      if(sex === 'f' && age === 'e_40s') imgPath = this.imgFile.f_e_40s;
+      if(sex === 'f' && age === 'l_40s') imgPath = this.imgFile.f_l_40s;
+      if(sex === 'm' && age === 'e_40s') imgPath = this.imgFile.m_e_40s;
+      if(sex === 'm' && age === 'l_40s') imgPath = this.imgFile.m_l_40s;
+      if(sex === 'o' && age === 'e_40s') imgPath = this.imgFile.o_e_40s;
+      if(sex === 'o' && age === 'l_40s') imgPath = this.imgFile.o_l_40s;
+      //50代
+      if(sex === 'f' && age === 'e_50s') imgPath = this.imgFile.f_e_50s;
+      if(sex === 'f' && age === 'l_50s') imgPath = this.imgFile.f_l_50s;
+      if(sex === 'm' && age === 'e_50s') imgPath = this.imgFile.m_e_50s;
+      if(sex === 'm' && age === 'l_50s') imgPath = this.imgFile.m_l_50s;
+      if(sex === 'o' && age === 'e_50s') imgPath = this.imgFile.o_e_50s;
+      if(sex === 'o' && age === 'l_50s') imgPath = this.imgFile.o_l_50s;
+      //60代
+      if(sex === 'f' && age === 'e_60s') imgPath = this.imgFile.f_e_60s;
+      if(sex === 'f' && age === 'l_60s') imgPath = this.imgFile.f_l_60s;
+      if(sex === 'm' && age === 'e_60s') imgPath = this.imgFile.m_e_60s;
+      if(sex === 'm' && age === 'l_60s') imgPath = this.imgFile.m_l_60s;
+      if(sex === 'o' && age === 'e_60s') imgPath = this.imgFile.o_e_60s;
+      if(sex === 'o' && age === 'l_60s') imgPath = this.imgFile.o_l_60s;
+      return `${process.env.BASE_URL}/ogp/${imgPath}`
+    }
   },
   computed:{
     ...mapState("pages/article",{

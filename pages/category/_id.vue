@@ -85,11 +85,27 @@ export default {
     return {
       grepAgeValue: "",
       grepSexValue: "",
-    };
+      meta:{
+        title: "",
+        description: ""
+      }
+    }
   },
-  head: {
-    bodyAttrs: {
-      class: 'p-post-category-search-result'
+  head(){
+    const title = `カテゴリー - ${this.$route.params.id}`;
+    this.meta.title = title;
+    this.meta.description = this.description;
+    return{
+      bodyAttrs: {
+        class: 'p-post-category-search-result'
+      },
+      title: title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta.description },
+        { hid: 'og:description', name: 'og:description', content: this.meta.description },
+        { hid: 'og:title', property: 'og:title', content: title },
+        { hid: 'og:image', property: 'og:image', content: 'https://loverage-front-ssr.herokuapp.com/ogp.png' }
+      ]
     }
   },
   mounted(){
@@ -180,6 +196,7 @@ export default {
     await store.dispatch('shared/hot_topic/getArticles')
     await store.dispatch('shared/featured/getArticles')
     store.dispatch('pages/categories/resetPageCount')
+    console.log(store.state.ar)
   }
 }
 </script>
