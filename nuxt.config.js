@@ -54,10 +54,6 @@ module.exports = {
   */
   buildModules: [
   ],
-  moment: {
-    // ここにオプションが記述できる
-    locales: ['ja']
-  },
   /*
   ** Nuxt.js modules
   */
@@ -74,6 +70,15 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    splitChunks: {
+      layouts: true,
+      pages: true,
+      commons: {
+        test: /[\\/]node_modules[\\/]/,
+        name: 'vendor',
+        chunks: 'initial'
+      }
+    },
     analize: true,
     /*
     ** You can extend webpack config here
