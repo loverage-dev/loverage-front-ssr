@@ -1,10 +1,10 @@
 require('dotenv').config()
-const API_BASE_URL = process.env.API_BASE_URL ||'https://limitless-crag-46636.herokuapp.com'
-const BASE_DIR = process.env.BASE_DIR || '/'
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+const { API_BASE_URL}  = process.env ||'https://limitless-crag-46636.herokuapp.com'
+const { BASE_DIR } = process.env || '/'
+const { BASE_URL }  = process.env || 'http://localhost:3000'
 
 module.exports = {
-  mode: 'universal',
+  ssr: true,
   /*
   ** Headers of the page
   */
@@ -84,8 +84,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-      const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
-      config.plugins.push(new HardSourceWebpackPlugin())
     }
   },
   env: {
