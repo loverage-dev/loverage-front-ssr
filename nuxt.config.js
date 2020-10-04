@@ -72,6 +72,7 @@ module.exports = {
   build: {
     splitChunks: {
       layouts: true,
+      vendor: ['axios'],
       pages: true,
       commons: {
         test: /[\\/]node_modules[\\/]/,
