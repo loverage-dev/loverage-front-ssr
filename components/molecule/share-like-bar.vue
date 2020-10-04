@@ -123,7 +123,7 @@ export default {
     },
     // それぞれパラメータを埋め込む
     twitterUrl(currentURL) {
-      return this.formatByArr(this.twitter_url, currentURL, "");
+      return this.formatByArr(this.twitter_url, currentURL, "#Loverage #恋愛相談 #2択の恋愛相談コミュニティ");
     },
     lineUrl(currentURL){
       return this.formatByArr(this.line_url, currentURL);
