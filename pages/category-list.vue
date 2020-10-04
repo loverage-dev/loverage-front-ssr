@@ -97,76 +97,148 @@
         <div class="a-heading-mini">投稿者の性別・年代</div>
         <ul class="p-category-list__block-list p-category-list__block-list--two-columns">
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性10代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性10代前半')}">
+              <button class="a-button-secondary">女性10代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性10代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性10代前半')}">
+              <button class="a-button-secondary">男性10代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性10代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性10代後半')}">
+              <button class="a-button-secondary">女性10代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性10代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性10代後半')}">
+              <button class="a-button-secondary">男性10代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性20代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性20代前半')}">
+              <button class="a-button-secondary">女性20代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性20代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性20代前半')}">
+              <button class="a-button-secondary">男性20代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性20代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性20代後半')}">
+              <button class="a-button-secondary">女性20代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性20代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性20代後半')}">
+              <button class="a-button-secondary">男性20代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性30代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性30代前半')}">
+              <button class="a-button-secondary">女性30代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性30代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性30代前半')}">
+              <button class="a-button-secondary">男性30代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性30代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性30代後半')}">
+              <button class="a-button-secondary">女性30代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性30代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性30代後半')}">
+              <button class="a-button-secondary">男性30代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性40代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性40代前半')}">
+              <button class="a-button-secondary">女性40代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性40代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性40代前半')}">
+              <button class="a-button-secondary">男性40代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性40代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性40代後半')}">
+              <button class="a-button-secondary">女性40代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性40代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性40代後半')}">
+              <button class="a-button-secondary">男性40代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性50代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性50代前半')}">
+              <button class="a-button-secondary">女性50代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性50代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性50代前半')}">
+              <button class="a-button-secondary">男性50代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性50代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性50代後半')}">
+              <button class="a-button-secondary">女性50代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性50代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性50代後半')}">
+              <button class="a-button-secondary">男性50代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性60代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性60代前半')}">
+              <button class="a-button-secondary">女性60代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性60代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性60代前半')}">
+              <button class="a-button-secondary">男性60代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性60代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性60代後半')}">
+              <button class="a-button-secondary">女性60代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性60代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性60代後半')}">
+              <button class="a-button-secondary">男性60代後半</button>
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -175,13 +247,22 @@
         <div class="a-heading-mini">投稿者の性別</div>
         <ul class="p-category-list__block-list p-category-list__block-list--three-columns">
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">女性</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/女性')}">
+              <button class="a-button-secondary">女性</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">男性</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/男性')}">
+              <button class="a-button-secondary">男性</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">その他</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/その他')}">
+              <button class="a-button-secondary">その他</button>
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -190,40 +271,76 @@
         <div class="a-heading-mini">投稿者の年代</div>
         <ul class="p-category-list__block-list p-category-list__block-list--two-columns">
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">10代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/10代前半')}">
+              <button class="a-button-secondary">10代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">10代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/10代後半')}">
+              <button class="a-button-secondary">10代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">20代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/20代前半')}">
+              <button class="a-button-secondary">20代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">20代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/20代後半')}">
+              <button class="a-button-secondary">20代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">30代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/30代前半')}">
+              <button class="a-button-secondary">30代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">30代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/30代後半')}">
+              <button class="a-button-secondary">30代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">40代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/40代前半')}">
+              <button class="a-button-secondary">40代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">40代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/40代後半')}">
+              <button class="a-button-secondary">40代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">50代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/50代前半')}">
+              <button class="a-button-secondary">50代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">50代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/50代後半')}">
+              <button class="a-button-secondary">50代後半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">60代前半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/60代前半')}">
+              <button class="a-button-secondary">60代前半</button>
+            </nuxt-link>
           </li>
           <li class="p-category-list__block-list-item">
-            <a href=""><button class="a-button-secondary">60代後半</button></a>
+            <nuxt-link 
+              :to="{ path: encodeURI('/category/60代後半')}">
+              <button class="a-button-secondary">60代後半</button>
+            </nuxt-link>
           </li>
         </ul>
       </div>

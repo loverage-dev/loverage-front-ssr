@@ -39,6 +39,16 @@ export default {
       commit('setCategoryPosts', res.articles)
     },
     /********************************************
+     * 指定のカテゴリー記事の取得
+     ********************************************/
+    async getCategoryPostsByUserAttr ({commit}, {sex, age}) {
+      let res = null;
+      if(age == undefined) res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?sex=${ sex }&limit=100`)
+      if(sex == undefined) res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?age=${ age }&limit=100`)
+      if(age != undefined && sex != undefined) res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?sex=${ sex }&age=${ age }&limit=100`)
+      commit('setCategoryPosts', res.articles)
+    },
+    /********************************************
      * 記事のお気に入り登録
      ********************************************/
     async doFavoritePost ({commit}, post_id) {

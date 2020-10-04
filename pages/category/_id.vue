@@ -196,7 +196,6 @@ export default {
     await store.dispatch('shared/hot_topic/getArticles')
     await store.dispatch('shared/featured/getArticles')
     store.dispatch('pages/categories/resetPageCount')
-    console.log(store.state.ar)
   }
 }
 </script>
