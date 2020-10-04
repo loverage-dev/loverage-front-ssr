@@ -136,13 +136,13 @@ export default {
     },
     chkErrors({ commit,state }){
       //タイトルのチェック
-      if(state.formData.title == ""){
-        commit('setHasErrorTitle', true)
-        commit('setMsgErrorTitle', "タイトルは入力が必須です。")
-      }else{
-        commit('setHasErrorTitle', false)
-        commit('setMsgErrorTitle', "")
-      }
+    //   if(state.formData.title == ""){
+    //     commit('setHasErrorTitle', true)
+    //     commit('setMsgErrorTitle', "タイトルは入力が必須です。")
+    //   }else{
+    //     commit('setHasErrorTitle', false)
+    //     commit('setMsgErrorTitle', "")
+    //   }
       // 投稿内容のチェック
       if(state.formData.content == ""){
         commit('setHasErrorContent', true)
@@ -293,6 +293,7 @@ export default {
         setPostData(state, data){
             let jsonObj = new Object();
             //タイトルの設定
+            if (state.formData.title != "") jsonObj.title = state.formData.title;
             
             //投稿者の年齢設定
             if (state.formData.age != "") jsonObj.age = state.formData.age;
