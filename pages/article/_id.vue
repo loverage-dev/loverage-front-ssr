@@ -137,7 +137,7 @@ export default {
       meta: [
         { hid: "description", name: "description", content: this.concatMetaDescription(this.meta.description)},
         { hid: "og:description", property: "og:description", name: 'og:description', content: this.concatMetaDescription(this.meta.description)},
-        { hid: "og:title", property: "og:title", content: this.getOgpTitle(this.article.post.user_sex,this.article.post.user_age, this.article.post.content)},
+        { hid: "og:title", property: "og:title", content: this.getOgpTitle(this.article.post.user_sex,this.article.post.user_age, this.article.post.title)},
         { hid: "og:type", property: "og:type", content: this.meta.type },
         { hid: "og:url", property: "og:url", content: this.meta.url },
         { hid: "og:image", property: "og:image", content: this.meta.imgPath },
