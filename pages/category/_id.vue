@@ -191,10 +191,11 @@ export default {
     })
   },
   async asyncData({ store,route }) {
-    await store.dispatch('pages/categories/getCategories', {category: route.params.id})
-    await store.dispatch('shared/editors_pick/getArticles')
-    await store.dispatch('shared/hot_topic/getArticles')
-    await store.dispatch('shared/featured/getArticles')
+    await Promise.all([
+      store.dispatch('pages/categories/getCategories', {category: route.params.id}),
+      store.dispatch('shared/editors_pick/getArticles'),
+      store.dispatch('shared/hot_topic/getArticles'),
+      store.dispatch('shared/featured/getArticles')])
     store.dispatch('pages/categories/resetPageCount')
   }
 }

@@ -134,12 +134,14 @@ export default {
     }),
   },
   async asyncData({ store }) {
-    await store.dispatch('shared/articles/getOverviewPosts')
-    await store.dispatch('shared/editors_pick/getArticles')
-    await store.dispatch('shared/hot_topic/getArticles')
-    await store.dispatch('shared/featured/getArticles')
-    await store.dispatch('shared/latest/getArticles')
-    await store.dispatch('shared/categories/getCategoryList')
+    await Promise.all([
+      store.dispatch('shared/articles/getOverviewPosts'),
+      store.dispatch('shared/editors_pick/getArticles'),
+      store.dispatch('shared/hot_topic/getArticles'),
+      store.dispatch('shared/featured/getArticles'),
+      store.dispatch('shared/latest/getArticles'),
+      store.dispatch('shared/categories/getCategoryList')
+    ])
   }
 }
 </script>
