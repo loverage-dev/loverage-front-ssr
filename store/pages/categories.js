@@ -13,142 +13,148 @@ export default {
     }),
     actions:{
       async getCategories({commit, dispatch, rootState},{category}){
-        
-        commit('setDescription', '')   
+         
+        let funcArray = []
 
-        //カテゴリーリスト未取得の場合はAPI発行
-        if(!rootState.shared.categories.categoryList){
-          await dispatch('shared/categories/getCategoryList', null, { root: true })
-        }
-
-        //カテゴリーの説明文を取得
-        let target = rootState.shared.categories.categoryList.filter(c =>{
-          return c.name == category;
-        })
-        
         switch (category) {
           case '女性':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f'} , { root: true }))
             break;
           case '男性':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm'} , { root: true }))
             break;
           case 'その他':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'o'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'o'} , { root: true }))
             break;
           case '10代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_10s'} , { root: true }))
             break;
           case '10代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_10s'} , { root: true }))
             break;
           case '20代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_20s'} , { root: true }))
             break;
           case '20代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_20s'} , { root: true }))
             break;
           case '30代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_30s'} , { root: true }))
             break;
           case '30代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_30s'} , { root: true }))
             break;
           case '40代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_40s'} , { root: true }))
             break;
           case '40代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_40s'} , { root: true }))
             break;
           case '50代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_50s'} , { root: true }))
             break;
           case '50代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_50s'} , { root: true }))
             break;
           case '60代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'e_60s'} , { root: true }))
             break;
           case '60代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {age: 'l_60s'} , { root: true }))
             break;
           case '女性10代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_10s'} , { root: true }))
             break;
           case '女性10代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_10s'} , { root: true }))
             break;
           case '女性20代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_20s'} , { root: true }))
             break;
           case '女性20代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_20s'} , { root: true }))
             break;
           case '女性30代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_30s'} , { root: true }))
             break;
           case '女性30代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_30s'} , { root: true }))
             break;
           case '女性40代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_40s'} , { root: true }))
             break;
           case '女性40代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_40s'} , { root: true }))
             break;
           case '女性50代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_50s'} , { root: true }))
             break;
           case '女性50代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_50s'} , { root: true }))
             break;
           case '女性60代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'e_60s'} , { root: true }))
             break;
           case '女性60代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'f', age: 'l_60s'} , { root: true }))
             break;
           case '男性10代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_10s'} , { root: true }))
             break;
           case '男性10代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_10s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_10s'} , { root: true }))
             break;
           case '男性20代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_20s'} , { root: true }))
             break;
           case '男性20代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_20s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_20s'} , { root: true }))
             break;
           case '男性30代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_30s'} , { root: true }))
             break;
           case '男性30代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_30s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_30s'} , { root: true }))
             break;
           case '男性40代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_40s'} , { root: true }))
             break;
           case '男性40代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_40s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_40s'} , { root: true }))
             break;
           case '男性50代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_50s'} , { root: true }))
             break;
           case '男性50代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_50s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_50s'} , { root: true }))
             break;
           case '男性60代前半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'e_60s'} , { root: true }))
             break;
           case '男性60代後半':
-            await dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_60s'} , { root: true })
+            funcArray.push(dispatch('shared/articles/getCategoryPostsByUserAttr', {sex: 'm', age: 'l_60s'} , { root: true }))
             break;
           default:
-            await dispatch('shared/articles/getCategoryPosts', {category: encodeURI(category)} , { root: true })
-            commit('setDescription', target[0].description)   
+            funcArray.push(dispatch('shared/categories/getCategoryList', null, { root: true }))
+            funcArray.push(dispatch('shared/articles/getCategoryPosts', {category: encodeURI(category)} , { root: true }))
             break;
-        }
+          }
+          await Promise.all(
+            funcArray
+          )
+          .then(()=>{
+            try{
+              //カテゴリーの説明文を取得
+              let target = rootState.shared.categories.categoryList.filter(c =>{
+                return c.name == category;
+              })
+              commit('setDescription', target[0].description)   
+            }
+            catch{
+              commit('setDescription', '')
+            }
+          })
+          
 
         //データの取得
         commit('setArticles', rootState.shared.articles.categoryPosts)
