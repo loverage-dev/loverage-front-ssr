@@ -79,7 +79,7 @@ module.exports = {
     ],
     routes() {
       return Promise.all([
-        axios.get(`${ API_BASE_URL }/api/v1/articles`),
+        axios.get(`${ API_BASE_URL }/api/v1/articles?limit=10000`),
         axios.get(`${ API_BASE_URL }/api/v1/category_list`),
       ])
       .then(([res1, res2]) => {
