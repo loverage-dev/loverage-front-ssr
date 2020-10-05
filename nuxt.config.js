@@ -76,7 +76,8 @@ module.exports = {
     generate: false,
     exclude: [
       '/terms',
-      '/privacy-policy',
+      '/privacy-policy',,
+      '/search',
     ],
     routes() {
       return axios.get(`${ API_BASE_URL }/api/v1/articles`)
@@ -110,7 +111,7 @@ module.exports = {
   },
   generate: {
     routes() {
-      return axios.get(`${ process.env.API_BASE_URL }/api/v1/articles`)
+      return axios.get(`${ process.env.API_BASE_URL }/api/v1/articles?limit=10000`)
       .then(res => {
         return res.data.articles.map(entry => {
           return {
