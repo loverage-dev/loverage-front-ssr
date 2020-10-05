@@ -1,4 +1,5 @@
 require('dotenv').config()
+const axios = require('axios')
 const { API_BASE_URL}  = process.env ||'https://limitless-crag-46636.herokuapp.com'
 const { BASE_DIR } = process.env || '/'
 const { BASE_URL }  = process.env || 'http://localhost:3000'
@@ -61,10 +62,30 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     'nuxt-clipboard2',
-    'nuxt-purgecss'
+    'nuxt-purgecss',
+    '@nuxtjs/sitemap'
   ],
   axios: {
 
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: BASE_URL,
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: false,
+    exclude: [
+      '/terms',
+      '/privacy-policy',
+    ],
+    routes() {
+      return axios.get(`${ API_BASE_URL }/api/v1/articles`)
+        .then((res) => {
+          const posts = res.data.articles
+          let exp01 = posts.map(post => '/article/' + post.id)
+          return exp01
+        })
+    }
   },
   /*
   ** Build configuration
@@ -85,6 +106,19 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    routes() {
+      return axios.get(`${ process.env.API_BASE_URL }/api/v1/articles`)
+      .then(res => {
+        return res.data.articles.map(entry => {
+          return {
+            route: `article/${entry.id}`,
+            payload: entry
+          }
+        })
+      })
     }
   },
   env: {
