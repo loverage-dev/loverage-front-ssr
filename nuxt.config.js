@@ -47,9 +47,7 @@ module.exports = {
     '@/plugins/vue-lazyload.js',
     { src: '@/plugins/localStorage.js', ssr: false },
   ],
-  loading: {
-    throttle: 300
-  },
+  loading: false,
   /*
   ** Nuxt.js dev-modules
   */

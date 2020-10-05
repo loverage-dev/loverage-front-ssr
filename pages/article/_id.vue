@@ -59,7 +59,7 @@ import Answer from '~/components/organism/answer.vue'
 import CommentArea from '~/components/organism/comment-area.vue'
 import ShareLikeBar from '~/components/molecule/share-like-bar.vue'
 import ListBlock from '~/components/organism/list-block.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   name: "Article",
