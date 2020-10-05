@@ -80,12 +80,20 @@ module.exports = {
       '/search',
     ],
     routes() {
-      return axios.get(`${ API_BASE_URL }/api/v1/articles`)
-        .then((res) => {
-          const posts = res.data.articles
-          let exp01 = posts.map(post => '/article/' + post.id)
-          return exp01
-        })
+      return Promise.all([
+        axios.get(`${ API_BASE_URL }/api/v1/articles`),
+        axios.get(`${ API_BASE_URL }/api/v1/category_list`),
+      ])
+      .then(([res1, res2]) => {
+        let exp01 = res1.data.articles.map(post => '/article/' + post.id)
+        let exp02 = res2.data.categories.map(category => '/category/' + category.name)
+        let array = [exp01, exp02]
+        let flattened = array.reduce(
+          (accumulator, currentValue) => accumulator.concat(currentValue),
+          []
+        )
+        return flattened
+      })
     }
   },
   /*
