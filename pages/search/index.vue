@@ -85,12 +85,27 @@ export default {
     return {
       grepAgeValue: "",
       grepSexValue: "",
-      title: ""
+      title: "",
+      meta:{
+        title: "",
+        description: ""
+      }
     };
   },
-  head: {
-    bodyAttrs: {
-      class: 'p-post-category-search-result'
+  head(){
+    this.meta.title = this.title;
+    this.meta.description = this.description;
+    return{
+      bodyAttrs: {
+        class: 'p-post-category-search-result'
+      },
+      title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.meta.description },
+        { hid: 'og:description', name: 'og:description', content: this.meta.description },
+        { hid: 'og:title', property: 'og:title', content: this.meta.title },
+        { hid: 'og:image', property: 'og:image', content: `${process.env.BASE_URL}/ogp.png` }
+      ]
     }
   },
   mounted(){
@@ -98,7 +113,7 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
-        //キーワード検索の場合
+    //キーワード検索の場合
     if(this.$route.query.keyword) {
       this.title = `検索結果  -  ${ this.$route.query.keyword }`
     }
