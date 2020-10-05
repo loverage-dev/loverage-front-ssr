@@ -16,7 +16,7 @@
             <input
              type="text"
              placeholder="タイトル"
-             maxlength="31"
+             maxlength="33"
              v-bind:value="formData.title"
              v-on:input="updateInputValue($event, 'title')">
         </div>
