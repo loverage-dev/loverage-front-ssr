@@ -26,6 +26,24 @@
           :articlesHidden="dipsItemsHiddenFeatured"
           v-on:clicked="showNextFeatured"
           :isEndPage="isEndPageFeatured" />
+          <ListBlock
+          :title="'ピックアップ記事'"
+          :articles="dipsItemsFeatured"
+          :articlesHidden="dipsItemsHiddenFeatured"
+          v-on:clicked="showNextFeatured"
+          :isEndPage="isEndPageFeatured" />
+          <ListBlockRanking
+          :title="'閲覧数ランキング'"
+          :articles="dipsItemsRankingView"
+          :articlesHidden="dipsItemsRankingView"
+          v-on:clicked="showNextRankingView"
+          :isEndPage="isEndPageRankingView" />
+          <ListBlockRanking
+          :title="'いいね数ランキング'"
+          :articles="dipsItemsRankingFavorite"
+          :articlesHidden="dipsItemsRankingFavorite"
+          v-on:clicked="showNextRankingFavorite"
+          :isEndPage="isEndPageRankingFavorite" />
         </div>
       </div>
       <div class="t-desktop-two-columns__right">
@@ -40,12 +58,14 @@
 
 <script>
 import ListBlock from '~/components/organism/list-block.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import ListBlockRanking from '~/components/organism/list-block--ranking.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   layout: "index",
   components: {
-    ListBlock
+    ListBlock,
+    ListBlockRanking
   },
   head: {
     bodyAttrs: {
@@ -64,48 +84,18 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
+    this.$store.dispatch('shared/ranking_view/resetPageCount')
+    this.$store.dispatch('shared/ranking_favorite/resetPageCount')
   },
   methods: {
-
-     ...mapActions('shared/articles',['getOverviewPosts']),
-     ...mapActions('shared/categories',['getCategoryList']),
-
-     ...mapActions('shared/hot_topic',['getArticles']),
-     ...mapActions('shared/hot_topic',['showNextPage']),
-     ...mapActions('shared/hot_topic',['resetPageCount']),
-    　showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
-
-     ...mapActions('shared/editors_pick',['getArticles']),
-     ...mapActions('shared/editors_pick',['showNextPage']),
-     ...mapActions('shared/editors_pick',['resetPageCount']),
+    showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
     showNextEditors(){ this.$store.dispatch('shared/editors_pick/showNextPage')},
-
-     ...mapActions('shared/featured',['getArticles']),
-     ...mapActions('shared/featured',['showNextPage']),
-     ...mapActions('shared/featured',['resetPageCount']),
     showNextFeatured(){　this.$store.dispatch('shared/featured/showNextPage')},
-
-     ...mapActions('shared/latest',['getArticles']),
-     ...mapActions('shared/latest',['showNextPage']),
-     ...mapActions('shared/latest',['resetPageCount']),
     showNextLatest(){　this.$store.dispatch('shared/latest/showNextPage')},
+    showNextRankingView(){　this.$store.dispatch('shared/ranking_view/showNextPage')},
+    showNextRankingFavorite(){　this.$store.dispatch('shared/ranking_favorite/showNextPage')},
   },
   computed:{
-      ...mapState("shared/latest",{
-        latests: state => state.articles
-      }),
-      ...mapState("shared/hot_topic",{
-        hot_topics: state => state.articles
-      }),
-      ...mapState("shared/featured",{
-        featureds: state => state.articles
-      }),
-      ...mapState("shared/editors_pick",{
-        editors_picks: state => state.articles
-      }),
-      ...mapState("shared/categories",{
-        categories: state => state.categories
-      }),
       ...mapGetters({
         // 最新の記事
         articleCountLatest:'shared/latest/articleCount',
@@ -131,6 +121,18 @@ export default {
         dipsItemsHiddenHotTopic:'shared/hot_topic/dipsItemsHidden',
         isEndPageHotTopic:'shared/hot_topic/isEndPage',
         pageCountHotTopic:'shared/hot_topic/pageCount',
+        // 閲覧数ランキング
+        articleCountRankingView:'shared/ranking_view/articleCount',
+        dipsItemsRankingView:'shared/ranking_view/dipsItems',
+        dipsItemsHiddenRankingView:'shared/ranking_view/dipsItemsHidden',
+        isEndPageRankingView:'shared/ranking_view/isEndPage',
+        pageCountRankingView:'shared/ranking_view/pageCount',
+        // いいね数ランキング
+        articleCountRankingFavorite:'shared/ranking_favorite/articleCount',
+        dipsItemsRankingFavorite:'shared/ranking_favorite/dipsItems',
+        dipsItemsHiddenRankingFavorite:'shared/ranking_favorite/dipsItemsHidden',
+        isEndPageRankingFavorite:'shared/ranking_favorite/isEndPage',
+        pageCountRankingFavorite:'shared/ranking_favorite/pageCount',
     }),
   },
   async asyncData({ store }) {
@@ -140,6 +142,8 @@ export default {
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles'),
       store.dispatch('shared/latest/getArticles'),
+      store.dispatch('shared/ranking_view/getArticles'),
+      store.dispatch('shared/ranking_favorite/getArticles'),
       store.dispatch('shared/categories/getCategoryList')
     ])
   }

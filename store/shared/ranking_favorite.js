@@ -28,11 +28,7 @@ export default {
     actions:{
       async getArticles ({commit, state}) {
         if(state.articles != null) return;
-        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/latest?limit=50`)
-        commit('setArticles', res.articles)
-      },
-      async getArticlesForce ({commit}) {
-        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/latest?limit=50`)
+        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/ranking_favorite?limit=10`)
         commit('setArticles', res.articles)
       },
       showNextPage({commit}){

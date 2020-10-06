@@ -22,10 +22,17 @@
         </ul>
         <div class="o-list">
           <ListItemRanking 
+            v-show="mode === 'view'"
             :article="article" 
             :rank="index + 1" 
-            v-for="(article,index) in rankings" 
-            v-bind:key='article.id' />
+            v-for="(article,index) in rankings_view" 
+            v-bind:key='`view_${article.id}`' />
+          <ListItemRanking 
+            v-show="mode === 'favorite'" 
+            :article="article" 
+            :rank="index + 1" 
+            v-for="(article,index) in rankings_favorite" 
+            v-bind:key='`favorite_${article.id}`' />
         </div>
         <nuxt-link 
           v-if="mode === 'view'" 
@@ -116,14 +123,13 @@ export default {
       editors_picks: state => state.articles
     }),
     ...mapState("pages/rankings",{
-      rankings: state => {
-        if(state.mode === 'view'){
-          return state.rankings_view
-        }else{
-          return state.rankings_favorite
-        }
-      },
       mode: state => state.mode
+    }),
+    ...mapState("shared/ranking_favorite",{
+      rankings_favorite: state => state.articles,
+    }),
+    ...mapState("shared/ranking_view",{
+      rankings_view: state => state.articles,
     }),
     ...mapGetters({
       // ピックアップ記事
@@ -148,7 +154,8 @@ export default {
   },
   async asyncData({ store }) {
     await Promise.all([
-      store.dispatch('pages/rankings/getRankingPosts'),
+      store.dispatch('shared/ranking_favorite/getArticles'),
+      store.dispatch('shared/ranking_view/getArticles'),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')])
