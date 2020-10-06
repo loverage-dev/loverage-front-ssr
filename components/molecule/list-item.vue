@@ -1,5 +1,4 @@
 <template>
-    <client-only>
       <nuxt-link 
         :to="{
           path: encodeURI(`/article/${ article.id }`)
@@ -26,7 +25,6 @@
           </div>
       </div>
       </nuxt-link>
-    </client-only>
 
 </template>
 

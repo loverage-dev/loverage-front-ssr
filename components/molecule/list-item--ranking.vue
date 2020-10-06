@@ -1,34 +1,37 @@
 <template>
-  <nuxt-link
-    :to="{
-      path: encodeURI(`/article/${article.id}`),
-    }"
-  >
-    <div class="m-list-item">
-      <div class="m-list-item__left">
-        <IconEyeCatching
-          :age="article.user_age"
-          :sex="article.user_sex"
-          :tag="article.img_tag"
-          :fileNo="getRandomNo()"
-        />
-      </div>
-      <Rank :rank="rank" />
-      <div class="m-list-item__right">
-        <h6 class="m-list-item__title">{{ article.content }}</h6>
-        <div class="m-list-item__info">
-          <nuxt-link
-            class="a-tag a-tag--category"
-            :to="{ path: encodeURI(`/category/${article.category}`) }"
-          >
-            {{ article.category }}
-          </nuxt-link>
-          <Likes :count="article.favorite" />
-          <Views :count="article.ref_count" />
+
+  <client-only>
+    <nuxt-link
+      :to="{
+        path: encodeURI(`/article/${article.id}`),
+      }"
+    >
+      <div class="m-list-item">
+        <div class="m-list-item__left">
+          <IconEyeCatching
+            :age="article.user_age"
+            :sex="article.user_sex"
+            :tag="article.img_tag"
+            :fileNo="getRandomNo()"
+          />
+        </div>
+        <Rank :rank="rank" />
+        <div class="m-list-item__right">
+          <h6 class="m-list-item__title">{{ article.content }}</h6>
+          <div class="m-list-item__info">
+            <nuxt-link
+              class="a-tag a-tag--category"
+              :to="{ path: encodeURI(`/category/${article.category}`) }"
+            >
+              {{ article.category }}
+            </nuxt-link>
+            <Likes :count="article.favorite" />
+            <Views :count="article.ref_count" />
+          </div>
         </div>
       </div>
-    </div>
-  </nuxt-link>
+    </nuxt-link>
+  </client-only>
 </template>
 
 

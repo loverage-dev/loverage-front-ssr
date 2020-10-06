@@ -21,13 +21,11 @@
             </li>
         </ul>
         <div class="o-list">
-          <client-only>
-            <ListItemRanking 
-              :article="article" 
-              :rank="index + 1" 
-              v-for="(article,index) in rankings" 
-              v-bind:key='article.id' />
-          </client-only>
+          <ListItemRanking 
+            :article="article" 
+            :rank="index + 1" 
+            v-for="(article,index) in rankings" 
+            v-bind:key='article.id' />
         </div>
         <nuxt-link 
           v-if="mode === 'view'" 

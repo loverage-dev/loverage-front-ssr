@@ -1,26 +1,27 @@
 <template>
-
-  <nuxt-link 
-    :to="{
-      path: encodeURI(`/article/${ top.id }`)
-    }">
-    <div class="m-list-item">
-      <div class="m-list-item__right">
-        <h6 class="m-list-item__title">{{ top.content }}</h6>
-        <div class="m-list-item__info">
-            <nuxt-link 
-              class="a-tag a-tag--category"
-              :to="{
-                path: encodeURI(`/category/${ top.category }`)
-              }">
-              {{ top.category }}
-            </nuxt-link>
-            <Likes :count="top.favorite" />
-            <Views :count="top.ref_count" />
+  <client-only>
+    <nuxt-link 
+      :to="{
+        path: encodeURI(`/article/${ top.id }`)
+      }">
+      <div class="m-list-item">
+        <div class="m-list-item__right">
+          <h6 class="m-list-item__title">{{ top.content }}</h6>
+          <div class="m-list-item__info">
+              <nuxt-link 
+                class="a-tag a-tag--category"
+                :to="{
+                  path: encodeURI(`/category/${ top.category }`)
+                }">
+                {{ top.category }}
+              </nuxt-link>
+              <Likes :count="top.favorite" />
+              <Views :count="top.ref_count" />
+          </div>
         </div>
       </div>
-    </div>
-  </nuxt-link >
+    </nuxt-link >
+  </client-only>
 
 </template>
 

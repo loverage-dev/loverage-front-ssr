@@ -13,9 +13,7 @@
             <img v-if="getDayOfWeek() == 'sat'" src="~assets/images/thumbnail/kv6.jpg" alt>
             <img v-if="getDayOfWeek() == 'sun'" src="~assets/images/thumbnail/kv7.jpg" alt>
           </div>
-          <client-only>
-            <ListItemWithoutImage />
-          </client-only>
+          <ListItemWithoutImage />
       </div>
   </nuxt-link>
 </template>

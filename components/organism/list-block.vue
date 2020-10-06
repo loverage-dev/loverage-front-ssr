@@ -1,6 +1,5 @@
 <template>
-  <client-only>
-    <div class="o-list-block">
+  <div class="o-list-block">
     <h4 class="a-text-60 a-text--bold">{{ title }}</h4>
       <div class="o-list">
           <ListItem 
@@ -16,8 +15,7 @@
             style="display: none;" />
       </div>
     <button v-on:click="seeMore" class="a-button-primary" v-if="!isEndPage">もっと見る</button>
-    </div>
-  </client-only>
+  </div>
 </template>
 
 
