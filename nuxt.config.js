@@ -1,5 +1,6 @@
 require('dotenv').config()
 const axios = require('axios')
+const redirectSSL = require('redirect-ssl')
 const { API_BASE_URL}  = process.env ||'https://limitless-crag-46636.herokuapp.com'
 const { BASE_DIR } = process.env || '/'
 const { BASE_URL }  = process.env || 'http://localhost:3000'
@@ -36,6 +37,11 @@ module.exports = {
   */
   css: [
     { src: '~/assets/scss/style.scss', lang: 'scss' }
+  ],
+  serverMiddleware: [
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production'
+     }),
   ],
   /*
   ** Plugins to load before mounting the App
