@@ -26,24 +26,18 @@
           :articlesHidden="dipsItemsHiddenFeatured"
           v-on:clicked="showNextFeatured"
           :isEndPage="isEndPageFeatured" />
-          <ListBlock
-          :title="'ピックアップ記事'"
-          :articles="dipsItemsFeatured"
-          :articlesHidden="dipsItemsHiddenFeatured"
-          v-on:clicked="showNextFeatured"
-          :isEndPage="isEndPageFeatured" />
           <ListBlockRanking
           :title="'閲覧数ランキング'"
           :articles="dipsItemsRankingView"
           :articlesHidden="dipsItemsRankingView"
           v-on:clicked="showNextRankingView"
-          :isEndPage="isEndPageRankingView" />
+          :isEndPage="true" />
           <ListBlockRanking
           :title="'いいね数ランキング'"
           :articles="dipsItemsRankingFavorite"
           :articlesHidden="dipsItemsRankingFavorite"
           v-on:clicked="showNextRankingFavorite"
-          :isEndPage="isEndPageRankingFavorite" />
+          :isEndPage="true" />
         </div>
       </div>
       <div class="t-desktop-two-columns__right">
