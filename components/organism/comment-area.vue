@@ -21,7 +21,6 @@
         <div class="o-comment-area__your-answer" v-show="isAnswered($route.params.id)">
           <p class="o-comment-area__your-answer-is">あなたの回答は</p>
           <YourAnswer
-           :selectedOpt="selectedOpt($route.params.id)"
            :content="optContent(selectedOpt($route.params.id))" />
         </div>
         <form

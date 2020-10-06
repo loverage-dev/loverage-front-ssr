@@ -13,7 +13,14 @@ export default {
     getters: {
         inputData: state => {
           return state.input
-      },
+        },
+      isSelectOpt1: state => {
+        if(state.input.selected_opt == 'opt1'){
+            return true
+        }else{
+            return false
+        }
+        },
     },
     actions:{
         doUpdateInput({ commit }, payload) {
@@ -44,11 +51,11 @@ export default {
             }
         },
         resetInputData({commit}){
-            commit('setSelectedOpt', "")
-            commit('setAgeNum', "")
-            commit('setAgeEorL', "")
-            commit('setSex', "")
-            commit('setIconId', "")
+            // commit('setSelectedOpt', "")
+            // commit('setAgeNum', "")
+            // commit('setAgeEorL', "")
+            // commit('setSex', "")
+            // commit('setIconId', "")
             commit('setContent', "")
         },
         doLoadInput({ commit }, data){

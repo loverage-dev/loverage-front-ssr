@@ -1,5 +1,5 @@
 <template>
-    <div :class="[isSelectedOpt1? 'a-your-answer' : 'b-your-answer']">
+    <div :class="[isSelectOpt1? 'a-your-answer' : 'b-your-answer']">
        {{ content }}
     </div>
 </template>
@@ -10,25 +10,20 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
-    selectedOpt: {
-      type: String,
-      default: ""
-    },
     content: {
       type: String,
       default: ""
     },
   },
   name: "YourAnswer",
-  data() {
-    return {
-      isSelectedOpt1: false,
-    };
+  computed:{
+      ...mapGetters("shared/post-comment", {
+        isSelectOpt1:'isSelectOpt1',
+    }),
   },
   created: function(){
     },
   mounted: function(){
-    this.isSelectedOpt1 = (this.selectedOpt == 'opt1')
     
   },
   destroyed: function(){
