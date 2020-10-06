@@ -1,8 +1,9 @@
 <template>
-      <nuxt-link 
-        :to="{
-          path: encodeURI(`/article/${ article.id }`)
-        }">
+  <nuxt-link 
+    :to="{
+      path: encodeURI(`/article/${ article.id }`)
+    }">
+    <client-only>
       <div class="m-list-item">
           <div class="m-list-item__left">
             <IconEyeCatching
@@ -24,7 +25,8 @@
           </div>
           </div>
       </div>
-      </nuxt-link>
+    </client-only>
+  </nuxt-link>
 
 </template>
 

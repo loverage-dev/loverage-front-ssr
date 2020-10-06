@@ -6,6 +6,7 @@
         path: encodeURI(`/article/${article.id}`),
       }"
     >
+    <client-only>
       <div class="m-list-item">
         <div class="m-list-item__left">
           <IconEyeCatching
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+    </client-only>
     </nuxt-link>
   </client-only>
 </template>
