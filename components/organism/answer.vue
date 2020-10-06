@@ -29,7 +29,7 @@
           <h4 class="o-answer-form__heading">あなたの年代を教えてください</h4>
           <p class="o-answer-form__description">質問に答えることで、みんなの回答を見たり、<br>コメントを投稿することができます。<br>（会員登録不要）</p>
           <div class="o-answer-form__label">
-            <div class="o-answer-form__label-inner">30代</div>
+            <div class="o-answer-form__label-inner">{{inputData.ageNum}}</div>
           </div>
           <ul class="o-answer-form-btn-list">
             <li
