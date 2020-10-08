@@ -52,8 +52,16 @@ module.exports = {
     '@nuxtjs/pwa',
     'nuxt-clipboard2',
     'nuxt-purgecss',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
+  robots: {
+    UserAgent: '*',
+    // クローリングしないパスを記述
+    // Disallow: '/preview',
+    // sitemap.xmlのURLを記述
+    Sitemap: `${BASE_URL}/sitemap.xml`,
+  },
   axios: {
 
   },
