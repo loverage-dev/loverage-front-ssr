@@ -32,7 +32,7 @@ export default {
   },
   computed:{
       ...mapState("shared/storage",{
-        posts: state => state.myPosts
+        posts: state => state.myPosts.slice().reverse()
       }),
       ...mapState("shared/history",{
         isShow: state => state.isShow
