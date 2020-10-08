@@ -12,7 +12,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    // title: process.env.npm_package_name || '',
+    title: "",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -28,13 +28,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
-  // loading: '~/components/atom/loading.vue',
-  /*
-  ** Global CSS
-  */
   css: [
     { src: '~/assets/scss/style.scss', lang: 'scss' }
   ],
@@ -43,9 +36,6 @@ module.exports = {
       enabled: process.env.NODE_ENV === 'production'
      }),
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
     '@/plugins/util.js',
     '@/plugins/filter.js',
@@ -55,14 +45,8 @@ module.exports = {
     { src: '@/plugins/localStorage.js', ssr: false },
   ],
   loading: false,
-  /*
-  ** Nuxt.js dev-modules
-  */
   buildModules: [
   ],
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
