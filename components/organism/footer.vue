@@ -10,11 +10,36 @@
                 <ul class="o-footer__nav-list">
                     <li class="o-footer__nav-list-item"><a @click="showModalForm()" >相談する</a></li>
                     <li class="o-footer__nav-list-item"><a @click="showSearchBar()" >検索する</a></li>
-                    <li class="o-footer__nav-list-item"><nuxt-link to="/category-list">カテゴリ</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><nuxt-link to="/ranking">ランキング</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><nuxt-link to="/about">Loveargeとは</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><nuxt-link to="/terms">利用規約</nuxt-link></li>
-                    <li class="o-footer__nav-list-item"><nuxt-link to="/privacy-policy">個人情報保護方針</nuxt-link></li>
+                    <li class="o-footer__nav-list-item">
+                      <nuxt-link 
+                        v-scroll-to="{ el: 'body'}"
+                        :to="{ path: '/category-list' }" 
+                        @click.native.prevent="toSamePath('/category-list')">カテゴリ</nuxt-link>
+                    </li>
+                    <li class="o-footer__nav-list-item">
+                      <nuxt-link 
+                        v-scroll-to="{ el: 'body'}"
+                        to="/ranking"
+                        @click.native.prevent="toSamePath('/ranking')">ランキング</nuxt-link>
+                    </li>
+                    <li class="o-footer__nav-list-item">
+                      <nuxt-link 
+                        v-scroll-to="{ el: 'body'}"
+                        to="/about" 
+                        @click.native.prevent="toSamePath('/about')">Loveargeとは</nuxt-link>
+                    </li>
+                    <li class="o-footer__nav-list-item">
+                      <nuxt-link 
+                        v-scroll-to="{ el: 'body'}"
+                        to="/terms" 
+                        @click.native.prevent="toSamePath('/terms')">利用規約</nuxt-link>
+                    </li>
+                    <li class="o-footer__nav-list-item">
+                      <nuxt-link
+                        v-scroll-to="{ el: 'body'}"
+                        to="/privacy-policy"
+                        @click.native.prevent="toSamePath('/privacy-policy')">個人情報保護方針</nuxt-link>
+                    </li>
                     <li class="o-footer__nav-list-item"><a href="https://forms.gle/SyRjk8Yv9VeatFCL7" target="_blank" rel="noreferrer">お問い合わせ</a></li>
                 </ul>
             </nav>

@@ -81,6 +81,14 @@ Vue.mixin({
         d += "…"
       }
       return d
+    },
+    toSamePath(path){
+      const toPath = encodeURI(path)
+      const fromPath = this.$route.path
+      if(fromPath === toPath) {
+        console.log("ページ内移動")
+        this.$router.push(path)
+      };
     }
   }
 })

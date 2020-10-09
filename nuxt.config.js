@@ -42,6 +42,7 @@ module.exports = {
     '@/plugins/routerOption.js',
     '@/plugins/clickAway.js',
     '@/plugins/vue-lazyload.js',
+    '@/plugins/vue-scrollto',
     { src: '@/plugins/localStorage.js', ssr: false },
   ],
   loading: false,
@@ -62,8 +63,24 @@ module.exports = {
     // sitemap.xmlのURLを記述
     Sitemap: `${BASE_URL}/sitemap.xml`,
   },
-  axios: {
 
+  manifest: {
+    name: 'Loverage|2択の恋愛コミュニティ',
+    lang: 'ja',
+    start_url: '/app/',
+    scope: '/app/',
+    background_color: '#ffffff',
+    theme_color: '#ffffff',
+    icons: [
+      {
+        src: "static/icon.png",
+        sizes: "512x512",
+        type: "image/png",
+      }
+    ]
+  },
+  workbox: {
+    swDest: 'static/sw.js',
   },
   sitemap: {
     path: '/sitemap.xml',

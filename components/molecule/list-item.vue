@@ -1,5 +1,7 @@
 <template>
   <nuxt-link 
+    v-scroll-to="{ el: 'body'}"
+    @click.native.prevent="toSamePath(`/article/${ article.id }`)"
     :to="{
       path: encodeURI(`/article/${ article.id }`)
     }">
