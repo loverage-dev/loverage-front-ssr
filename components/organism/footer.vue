@@ -12,31 +12,26 @@
                     <li class="o-footer__nav-list-item"><a @click="showSearchBar()" >検索する</a></li>
                     <li class="o-footer__nav-list-item">
                       <nuxt-link 
-                        v-scroll-to="{ el: 'body'}"
                         :to="{ path: '/category-list' }" 
                         @click.native.prevent="toSamePath('/category-list')">カテゴリ</nuxt-link>
                     </li>
                     <li class="o-footer__nav-list-item">
                       <nuxt-link 
-                        v-scroll-to="{ el: 'body'}"
                         to="/ranking"
                         @click.native.prevent="toSamePath('/ranking')">ランキング</nuxt-link>
                     </li>
                     <li class="o-footer__nav-list-item">
                       <nuxt-link 
-                        v-scroll-to="{ el: 'body'}"
                         to="/about" 
                         @click.native.prevent="toSamePath('/about')">Loveargeとは</nuxt-link>
                     </li>
                     <li class="o-footer__nav-list-item">
                       <nuxt-link 
-                        v-scroll-to="{ el: 'body'}"
                         to="/terms" 
                         @click.native.prevent="toSamePath('/terms')">利用規約</nuxt-link>
                     </li>
                     <li class="o-footer__nav-list-item">
                       <nuxt-link
-                        v-scroll-to="{ el: 'body'}"
                         to="/privacy-policy"
                         @click.native.prevent="toSamePath('/privacy-policy')">個人情報保護方針</nuxt-link>
                     </li>

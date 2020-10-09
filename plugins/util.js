@@ -86,8 +86,7 @@ Vue.mixin({
       const toPath = encodeURI(path)
       const fromPath = this.$route.path
       if(fromPath === toPath) {
-        console.log("ページ内移動")
-        this.$router.push(path)
+        this.$router.go(path)
       };
     }
   }
