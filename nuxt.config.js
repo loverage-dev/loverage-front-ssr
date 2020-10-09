@@ -67,10 +67,12 @@ module.exports = {
   manifest: {
     name: 'Loverage|2択の恋愛コミュニティ',
     lang: 'ja',
-    start_url: '/app/',
-    scope: '/app/',
     background_color: '#ffffff',
-    theme_color: '#ffffff',
+    short_name: 'Loverage',
+    title: 'Loverage|2択の恋愛コミュニティ',
+    'og:title': 'Loverage|2択の恋愛コミュニティ',
+    description: '2択の恋愛相談コミュニティ『Loverage』／日々の恋愛の中で誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。そんなあなたの恋愛にまつわる相談事を、2択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。',
+    'og:description': '2択の恋愛相談コミュニティ『Loverage』／日々の恋愛の中で誰かに共感を求めたり、意見を聞きたくなる瞬間は誰にでもあるはず。そんなあなたの恋愛にまつわる相談事を、2択の質問形式で投稿することで、みんなの意見（平均値）を知ることができるサービスです。',
     icons: [
       {
         src: "static/icon.png",
