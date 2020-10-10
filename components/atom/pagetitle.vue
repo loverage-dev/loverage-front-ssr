@@ -1,21 +1,22 @@
 <template>
     <div class="a-pagetitle">
-        <div class="a-pagetitle__inner">{{ pageTitle }}</div>
+        <div class="a-pagetitle__inner">{{ title }}</div>
     </div>
 </template>
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: "PageTitle",
-  props: {
-    pageTitle: {
-      type: String,
-      default: 'No Title'
-    }
-  },
   created: function(){
     },
+  computed:{
+    ...mapState("shared/page-title",{
+      title: state => state.title
+    })
+  },
   mounted: function(){
   },
   destroyed: function(){

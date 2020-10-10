@@ -1,7 +1,7 @@
 <template>
   <div class="t-contents t-not-article-not-index">
     <CategoryMenu />
-    <PageTitle  :pageTitle="'About'"/>
+    <PageTitle />
     <div class="t-desktop-one-column">
       <div class="t-desktop-one-column__inner">
         <h2 class="a-heading-mini">「Love」 + 「Average」 = 「Loverage」</h2>
@@ -105,6 +105,7 @@ export default {
   },
   async asyncData({ store }) {
     await Promise.all([
+    store.dispatch('shared/page-title/doSetPageTitle', {title: 'About'} ),
     store.dispatch('shared/editors_pick/getArticles'),
     store.dispatch('shared/hot_topic/getArticles'),
     store.dispatch('shared/featured/getArticles'),

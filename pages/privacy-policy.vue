@@ -1,7 +1,7 @@
 <template>
 <div class="t-contents t-not-article-not-index t-document">
   <CategoryMenu />
-  <PageTitle :pageTitle="pageTitle" />
+  <PageTitle />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <h2 class="a-heading-mini">総則</h2>
@@ -158,11 +158,6 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 export default {
   name: "PrivacyPolicy",
   props: {},
-  data() {
-    return {
-      pageTitle: '個人情報保護方針'
-    };
-  },
   head: {
     bodyAttrs: {
       class: 'p-privacy-policy'
@@ -218,6 +213,7 @@ export default {
   },
   async asyncData({ store }) {
     await Promise.all([
+    store.dispatch('shared/page-title/doSetPageTitle', {title: '個人情報保護方針'} ),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')])

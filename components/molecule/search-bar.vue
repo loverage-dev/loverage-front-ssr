@@ -1,9 +1,12 @@
 <template>
     <div class="m-search-bar" v-show="isShow">
     <div class="m-search-bar__icon"><img src="~assets/images/icons/magnifier.svg" alt="虫眼鏡"></div>
-    <form action="" class="m-search-bar__form">
+    <form 
+      action="" 
+      class="m-search-bar__form"
+      v-on:submit.prevent="search(inputValue)">
         <input type="text" class="m-search-bar__input" v-model="inputValue">
-        <button type="button" name="" class="m-search-bar__submit" @click="search()">検索</button>
+        <button type="submit" name="" class="m-search-bar__submit">検索</button>
         <button type="button" name="" class="m-search-bar__cancel" @click="closeSeachBar()">キャンセル</button>
     </form>
     </div>
@@ -27,8 +30,8 @@ export default {
       })
   },
   methods:{
-    search(){
-      this.$router.push({ path: '/search', query: { keyword: this.inputValue }});
+    search(keyword){
+      this.$router.push({ path: '/search', query: { keyword: keyword }});
       this.inputValue = ""
       this.$store.dispatch('shared/search-bar/closeSearchBar')
     },

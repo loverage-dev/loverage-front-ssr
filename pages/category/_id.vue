@@ -1,7 +1,7 @@
 <template>
     <div class="t-contents t-not-article-not-index">
         <CategoryMenu />
-        <PageTitle :pageTitle="`カテゴリー  -  ${ $route.params.id }`"/>
+        <PageTitle />
         <div class="t-desktop-one-column">
           <div class="t-desktop-one-column__inner">
             <p class="p-post-category-search-result__description" v-if='description' >{{ description }}</p>
@@ -191,7 +191,9 @@ export default {
     })
   },
   async asyncData({ store,route }) {
+    
     await Promise.all([
+      store.dispatch('shared/page-title/doSetCategoryTitle', {categoryName: route.params.id} ),
       store.dispatch('pages/categories/getCategories', {category: route.params.id}),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),

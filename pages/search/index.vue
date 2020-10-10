@@ -1,7 +1,7 @@
 <template>
     <div class="t-contents t-not-article-not-index">
         <CategoryMenu />
-        <PageTitle :pageTitle="title" />
+        <PageTitle />
         <div class="t-desktop-one-column">
           <div class="t-desktop-one-column__inner">
             <div class="a-heading-mini">検索結果 {{ articlesGrepped.length }}件</div>
@@ -85,7 +85,6 @@ export default {
     return {
       grepAgeValue: "",
       grepSexValue: "",
-      title: "",
       meta:{
         title: "",
         description: ""
@@ -113,14 +112,6 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
-    //キーワード検索の場合
-    if(this.$route.query.keyword) {
-      this.title = `検索結果  -  ${ this.$route.query.keyword }`
-    }
-    //タグ検索の場合
-    if(this.$route.query.tag){
-      this.title = `検索結果  -  #${ this.$route.query.tag }`
-    }
   },
   methods: {
      ...mapActions('pages/search',['filterBy']),
@@ -166,6 +157,9 @@ export default {
     ...mapState("shared/editors_pick",{
       editors_picks: state => state.articles
     }),
+    ...mapState("shared/page-title",{
+      title: state => state.title
+    }),
     ...mapGetters({
       articleCount:'pages/search/articleCount',
       dipsItems:'pages/search/dipsItems',
@@ -193,14 +187,16 @@ export default {
       pageCountHotTopic:'shared/hot_topic/pageCount',
     })
   },
-  async asyncData({ store,route,title }) {
+  async asyncData({ store,query }) {
     //キーワード検索の場合
-    if(route.query.keyword) {
-      await store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(route.query.keyword)})
+    if(query.keyword) {
+      await store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(query.keyword)})
+      store.dispatch('shared/page-title/doSetSearchKeywordTitle',{keyword: encodeURI(query.keyword)})
     }
     //タグ検索の場合
-    if(route.query.tag){
-      await store.dispatch('pages/search/getArticlesByTag',{tag: encodeURI(route.query.tag)})
+    if(query.tag){
+      await store.dispatch('pages/search/getArticlesByTag',{tag: encodeURI(query.tag)})
+      store.dispatch('shared/page-title/doSetSearchHashTagTitle',{tag: encodeURI(query.tag)})
     }
     await Promise.all([
       store.dispatch('shared/editors_pick/getArticles'),

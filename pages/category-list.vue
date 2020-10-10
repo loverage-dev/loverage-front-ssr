@@ -1,7 +1,7 @@
 <template>
 <div class="t-contents t-not-article-not-index">
   <CategoryMenu />
-  <PageTitle :pageTitle="'カテゴリー'" />
+  <PageTitle />
   <div class="t-desktop-one-column">
     <div class="t-desktop-one-column__inner">
       <div class="p-category-list__block">
@@ -443,6 +443,7 @@ export default {
   },
   async asyncData({ store }) {
     await Promise.all([
+    store.dispatch('shared/page-title/doSetPageTitle', {title: 'カテゴリー'} ),
     store.dispatch('shared/categories/getCategoryList', null, { root: true }),
     store.dispatch('shared/editors_pick/getArticles'),
     store.dispatch('shared/hot_topic/getArticles'),

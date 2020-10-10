@@ -1,7 +1,7 @@
 <template>
   <div class="t-contents t-not-article-not-index">
     <CategoryMenu />
-    <PageTitle  :pageTitle="'Ranking'"/>
+    <PageTitle  />
     <div class="t-desktop-one-column">
       <div class="t-desktop-one-column__inner">
         <ul class="p-ranking__tabs">
@@ -154,6 +154,7 @@ export default {
   },
   async asyncData({ store }) {
     await Promise.all([
+    store.dispatch('shared/page-title/doSetPageTitle', {title: 'Ranking'} ),
       store.dispatch('shared/ranking_favorite/getArticles'),
       store.dispatch('shared/ranking_view/getArticles'),
       store.dispatch('shared/editors_pick/getArticles'),
