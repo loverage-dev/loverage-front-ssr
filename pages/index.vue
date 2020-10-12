@@ -80,6 +80,7 @@ export default {
     this.$store.dispatch('shared/featured/resetPageCount')
     this.$store.dispatch('shared/ranking_view/resetPageCount')
     this.$store.dispatch('shared/ranking_favorite/resetPageCount')
+    this.$store.dispatch('shared/loading/finish')
   },
   methods: {
     showNextHotTopic(){ this.$store.dispatch('shared/hot_topic/showNextPage')},
@@ -130,6 +131,7 @@ export default {
     }),
   },
   async asyncData({ store }) {
+    store.dispatch('shared/loading/start')
     await Promise.all([
       store.dispatch('shared/articles/getOverviewPosts'),
       store.dispatch('shared/editors_pick/getArticles'),
@@ -140,6 +142,9 @@ export default {
       store.dispatch('shared/ranking_favorite/getArticles'),
       store.dispatch('shared/categories/getCategoryList')
     ])
+    .finally(()=>{
+      store.dispatch('shared/loading/finish')
+    })
   }
 }
 </script>

@@ -103,6 +103,7 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
+    this.$store.dispatch('shared/loading/finish')
   },
   methods: {
      ...mapActions('pages/rankings',[
@@ -153,6 +154,7 @@ export default {
     })
   },
   async asyncData({ store }) {
+    store.dispatch('shared/loading/start')
     await Promise.all([
     store.dispatch('shared/page-title/doSetPageTitle', {title: 'Ranking'} ),
       store.dispatch('shared/ranking_favorite/getArticles'),
@@ -160,6 +162,9 @@ export default {
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')])
+    .finally(()=>{
+      store.dispatch('shared/loading/finish')
+    })
   }
 }
 </script>

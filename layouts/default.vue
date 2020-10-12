@@ -1,12 +1,13 @@
 <template>
   <div class="t-wrapper">
+    <Loading v-if="loading" />
     <Header />
-    <nuxt/>
-    <PostFormArea />
-    <Footer />
-    <PostFormModal />
-    <Dialog />
-    <Toast />
+    <nuxt v-if="!loading" />
+    <PostFormArea v-if="!loading" />
+    <Footer v-if="!loading" />
+    <PostFormModal v-if="!loading" />
+    <Dialog v-if="!loading" />
+    <Toast v-if="!loading" />
   </div>
 </template>
 
@@ -19,9 +20,12 @@ import PostFormArea from '~/components/organism/post-form-area.vue'
 import PostFormModal from '~/components/organism/post-form-modal.vue'
 import Dialog from '~/components/molecule/dialog.vue'
 import Toast from '~/components/atom/toast.vue'
+import Loading from '~/components/molecule/loading.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
+    Loading,
     Header,
     Footer,
     CategoryMenu,
@@ -31,6 +35,14 @@ export default {
     Dialog,
     Toast
   },
+  computed:{
+    ...mapState("shared/loading",{
+      loading: state => state.loading
+    })
+  },
+  mounted(){
+    this.$store.dispatch('shared/loading/finish')
+  }
 }
 </script>
 

@@ -9,12 +9,14 @@ export default {
     }),
     actions:{
     async getArticlesByKeyword({commit, dispatch},{keyword}){
+        if(keyword == undefined) return;
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?keyword=${ keyword }`)
         //データの取得
         commit('setArticles', res.articles)
         commit('setArticlesGrepped', res.articles)
       },
       async getArticlesByTag({commit, dispatch},{tag}){
+        if(tag == undefined) return;
         const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/articles?tag=${ tag }`)
         //データの取得
         commit('setArticles', res.articles)

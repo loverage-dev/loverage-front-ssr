@@ -1,15 +1,15 @@
 <template>
   <div class="t-wrapper">
+    <Loading v-if="loading" />
     <Header />
     <CategoryMenu/>
-    <Loading v-show="loading" />
-    <KvItem v-show="!loading" />
+    <KvItem v-if="!loading" />
     <nuxt v-if="!loading" />
-    <PostFormArea v-show="!loading" />
-    <Footer v-show="!loading" />
-    <PostFormModal />
-    <Dialog />
-    <Toast />
+    <PostFormArea v-if="!loading" />
+    <Footer v-if="!loading" />
+    <PostFormModal v-if="!loading" />
+    <Dialog v-if="!loading" />
+    <Toast v-if="!loading" />
   </div>
 </template> 
 

@@ -191,14 +191,17 @@ export default {
     })
   },
   async asyncData({ store,route }) {
-    
+    store.dispatch('shared/loading/start')
     await Promise.all([
-      store.dispatch('shared/page-title/doSetCategoryTitle', {categoryName: route.params.id} ),
       store.dispatch('pages/categories/getCategories', {category: route.params.id}),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')])
-    store.dispatch('pages/categories/resetPageCount')
+    .finally(()=>{
+      store.dispatch('shared/page-title/doSetCategoryTitle', {categoryName: decodeURI(route.params.id)} )
+      store.dispatch('pages/categories/resetPageCount')
+      store.dispatch('shared/loading/finish')
+    })
   }
 }
 </script>

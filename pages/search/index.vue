@@ -112,6 +112,7 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
+    this.$store.dispatch('shared/loading/finish')
   },
   methods: {
      ...mapActions('pages/search',['filterBy']),
@@ -188,22 +189,22 @@ export default {
     })
   },
   async asyncData({ store,query }) {
-    //キーワード検索の場合
-    if(query.keyword) {
-      await store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(query.keyword)})
-      store.dispatch('shared/page-title/doSetSearchKeywordTitle',{keyword: encodeURI(query.keyword)})
-    }
-    //タグ検索の場合
-    if(query.tag){
-      await store.dispatch('pages/search/getArticlesByTag',{tag: encodeURI(query.tag)})
-      store.dispatch('shared/page-title/doSetSearchHashTagTitle',{tag: encodeURI(query.tag)})
-    }
+    store.dispatch('shared/loading/start')
     await Promise.all([
+      store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(query.keyword)}),
+      store.dispatch('pages/search/getArticlesByTag',{tag: encodeURI(query.tag)}),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')
     ])
-    store.dispatch('pages/search/resetPageCount')
+    .finally(()=>{
+      //キーワード検索の場合
+      if(query.keyword)  store.dispatch('shared/page-title/doSetSearchKeywordTitle',{keyword: query.keyword});
+      //タグ検索の場合
+      if(query.tag)　store.dispatch('shared/page-title/doSetSearchHashTagTitle',{tag: query.tag});
+      store.dispatch('pages/search/resetPageCount');
+      store.dispatch('shared/loading/finish')
+    })
   }
 }
 </script>
