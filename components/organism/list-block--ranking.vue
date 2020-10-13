@@ -22,7 +22,7 @@
 
 
 <script>
-import ListItemRanking from '~/components/molecule/list-item--ranking.vue'
+const ListItemRanking = () => import('~/components/molecule/list-item--ranking.vue')
 
 export default {
   name: "ListBlockRanking",

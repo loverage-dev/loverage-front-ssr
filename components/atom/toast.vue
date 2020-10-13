@@ -8,7 +8,7 @@
 
 
 <script>
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import { mapState} from 'vuex'
 export default {
   name: "Likes",
   props: {},

@@ -27,9 +27,9 @@
 
 
 <script>
-import Likes from '~/components/atom/likes.vue'
-import Views from '~/components/atom/views.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const Likes = () => import('~/components/atom/likes.vue')
+const Views = () => import('~/components/atom/views.vue')
+import { mapState } from 'vuex'
 
 export default {
   name: "ListItemWithoutImage",

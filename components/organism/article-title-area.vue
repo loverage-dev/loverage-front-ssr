@@ -24,8 +24,8 @@
 
 
 <script>
-import Likes from '~/components/atom/likes.vue'
-import Views from '~/components/atom/views.vue'
+const Likes = () => import('~/components/atom/likes.vue')
+const Views = () => import('~/components/atom/views.vue')
 
 export default {
   name: "ArticleTitleArea",

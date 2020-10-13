@@ -149,11 +149,11 @@
 
 
 <script>
-import CategoryMenu from '~/components/atom/category-menu.vue'
-import PageTitle from '~/components/atom/pagetitle.vue'
-import ListBlock from '~/components/organism/list-block.vue'
+const CategoryMenu = () => import('~/components/atom/category-menu.vue')
+const PageTitle = () => import('~/components/atom/pagetitle.vue')
+const ListBlock = () => import('~/components/organism/list-block.vue')
 import axios from "axios";
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "PrivacyPolicy",

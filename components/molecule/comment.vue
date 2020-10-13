@@ -19,9 +19,9 @@
 
 
 <script>
-import LikeText from '~/components/atom/like-text.vue'
-import AvatarSmall from '~/components/atom/avatar-small.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const LikeText = () => import('~/components/atom/like-text.vue')
+const AvatarSmall = () => import('~/components/atom/avatar-small.vue')
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Comment",

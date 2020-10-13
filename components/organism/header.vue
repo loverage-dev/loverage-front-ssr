@@ -34,10 +34,9 @@
 
 
 <script>
-import Logo from '~/components/atom/logo.vue'
-import SearchBar from '~/components/molecule/search-bar.vue'
-import History from '~/components/organism/history.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const Logo = () => import('~/components/atom/logo.vue')
+const SearchBar = () => import('~/components/molecule/search-bar.vue')
+const History = () => import('~/components/organism/history.vue')
 
 export default {
   name: "Header",

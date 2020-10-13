@@ -38,10 +38,10 @@
 
 
 <script>
-import Likes from "~/components/atom/likes.vue";
-import Views from "~/components/atom/views.vue";
-import Rank from "~/components/atom/rank.vue";
-import IconEyeCatching from "~/components/atom/icon-eye-catching.vue";
+const Likes = () => import("~/components/atom/likes.vue")
+const Views = () => import("~/components/atom/views.vue")
+const Rank = () => import("~/components/atom/rank.vue")
+const IconEyeCatching = () => import("~/components/atom/icon-eye-catching.vue")
 
 export default {
   name: "ListItemRanking",

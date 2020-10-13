@@ -20,7 +20,7 @@
 
 
 <script>
-import ListItem from '~/components/molecule/list-item.vue'
+const ListItem = () => import('~/components/molecule/list-item.vue')
 
 export default {
   name: "ListBlock",

@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import Logo from '~/components/atom/logo.vue'
+const Logo = () => import('~/components/atom/logo.vue')
 
 export default {
   name: "Footer",

@@ -52,13 +52,13 @@
 </template>
 
 <script>
-import ArticleTitleArea from '~/components/organism/article-title-area.vue'
-import Avatar from '~/components/atom/avatar.vue'
-import TagList from '~/components/molecule/tag-list.vue'
-import Answer from '~/components/organism/answer.vue'
-import CommentArea from '~/components/organism/comment-area.vue'
-import ShareLikeBar from '~/components/molecule/share-like-bar.vue'
-import ListBlock from '~/components/organism/list-block.vue'
+const ListBlock = () => import('~/components/organism/list-block.vue')
+const ArticleTitleArea = () => import('~/components/organism/article-title-area.vue')
+const Avatar = () => import('~/components/atom/avatar.vue')
+const TagList = () => import('~/components/molecule/tag-list.vue')
+const Answer = () => import('~/components/organism/answer.vue')
+const CommentArea = () => import('~/components/organism/comment-area.vue')
+const ShareLikeBar = () => import('~/components/molecule/share-like-bar.vue')
 import { mapState, mapGetters } from 'vuex'
 
 export default {

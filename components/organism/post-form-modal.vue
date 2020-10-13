@@ -13,8 +13,8 @@
 
 
 <script>
-import PostFormArea from '~/components/organism/post-form-area.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const PostFormArea = () => import('~/components/organism/post-form-area.vue')
+import { mapState } from 'vuex'
 
 export default {
   name: "PostFormModal",

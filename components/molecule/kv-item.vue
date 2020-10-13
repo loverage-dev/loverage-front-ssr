@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
-import ListItemWithoutImage from '~/components/molecule/list-item--without-image.vue'
+const ListItemWithoutImage = () => import('~/components/molecule/list-item--without-image.vue')
+import { mapState } from 'vuex'
 export default {
   name: "KvItem",
   props: {},

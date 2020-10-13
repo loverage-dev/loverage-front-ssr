@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import ListBlock from '~/components/organism/list-block.vue'
-import ListBlockRanking from '~/components/organism/list-block--ranking.vue'
+const ListBlock = () => import('~/components/organism/list-block.vue')
+const ListBlockRanking = () => import('~/components/organism/list-block--ranking.vue')
 import { mapGetters } from 'vuex'
 
 export default {

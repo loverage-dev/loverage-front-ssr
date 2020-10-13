@@ -47,10 +47,10 @@
 
 
 <script>
-import Comment from '~/components/molecule/comment.vue'
-import ButtonSeeMore from '~/components/atom/button-seemore.vue'
-import YourAnswer from '~/components/atom/your-answer.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const Comment = () => import('~/components/molecule/comment.vue')
+const ButtonSeeMore = () => import('~/components/atom/button-seemore.vue')
+const YourAnswer = () => import('~/components/atom/your-answer.vue')
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "CommentArea",

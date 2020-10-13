@@ -73,11 +73,11 @@
 
 <script>
 
-import CategoryMenu from '~/components/atom/category-menu.vue'
-import PageTitle from '~/components/atom/pagetitle.vue'
-import ListBlock from '~/components/organism/list-block.vue'
-import ListItemRanking from '~/components/molecule/list-item--ranking.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const CategoryMenu = () => import('~/components/atom/category-menu.vue')
+const PageTitle = () => import('~/components/atom/pagetitle.vue')
+const ListBlock = () => import('~/components/organism/list-block.vue')
+const ListItemRanking = () => import('~/components/molecule/list-item--ranking.vue')
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   name: "Ranking",

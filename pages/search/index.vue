@@ -64,12 +64,12 @@
 </template>
 
 <script>
-import CategoryMenu from '~/components/atom/category-menu.vue'
-import ListBlock from '~/components/organism/list-block.vue'
-import ListItem from '~/components/molecule/list-item.vue'
-import PageTitle from '~/components/atom/pagetitle.vue'
-import ButtonSeeMore from '~/components/atom/button-seemore.vue'
-import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
+const CategoryMenu = () => import('~/components/atom/category-menu.vue')
+const ListBlock = () => import('~/components/organism/list-block.vue')
+const ListItem = () => import('~/components/molecule/list-item.vue')
+const PageTitle = () => import('~/components/atom/pagetitle.vue')
+const ButtonSeeMore = () => import('~/components/atom/button-seemore.vue')
+import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
   layout: "default",
