@@ -1,5 +1,5 @@
 <template>
-  <div class="t-contents box">
+  <div v-if="!dataLoadFinish" class="t-contents box" :class="{ 'is-finish': dataLoadFinish }">
     <div class="spinner">
       <div class="cube1"></div>
       <div class="cube2"></div>
@@ -10,18 +10,15 @@
 <script>
 export default {
   name: "Loading",
-  props: {},
-  methods: {
-    start() {
-      this.loading = true
-    },
-    finish() {
-      this.loading = false
+  data() {
+    return {
+      dataLoadFinish: false
     }
   },
-  created: function(){
-    },
-  mounted: function(){
+  mounted() {
+      window.addEventListener('load', () => {
+          this.dataLoadFinish = true
+      })
   },
   destroyed: function(){
   },
@@ -106,5 +103,10 @@ export default {
     transform: rotate(-360deg);
     -webkit-transform: rotate(-360deg);
   }
+}
+.is-finish {
+  transition: opacity 1s, z-index 0s 1.01s;
+  opacity: 0;
+  z-index: -1;
 }
 </style>

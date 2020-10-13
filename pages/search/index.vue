@@ -112,7 +112,6 @@ export default {
     this.$store.dispatch('shared/editors_pick/resetPageCount')
     this.$store.dispatch('shared/hot_topic/resetPageCount')
     this.$store.dispatch('shared/featured/resetPageCount')
-    this.$store.dispatch('shared/loading/finish')
   },
   methods: {
      ...mapActions('pages/search',['filterBy']),
@@ -189,7 +188,6 @@ export default {
     })
   },
   async asyncData({ store,query }) {
-    store.dispatch('shared/loading/start')
     await Promise.all([
       store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(query.keyword)}),
       store.dispatch('pages/search/getArticlesByTag',{tag: encodeURI(query.tag)}),
@@ -203,7 +201,6 @@ export default {
       //タグ検索の場合
       if(query.tag)　store.dispatch('shared/page-title/doSetSearchHashTagTitle',{tag: query.tag});
       store.dispatch('pages/search/resetPageCount');
-      store.dispatch('shared/loading/finish')
     })
   }
 }

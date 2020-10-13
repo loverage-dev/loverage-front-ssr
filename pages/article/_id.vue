@@ -238,15 +238,11 @@ export default {
     })
   },
   async asyncData({ store,route }) {
-    store.dispatch('shared/loading/start')
     await Promise.all([
       store.dispatch('pages/article/getArticle', {articleId: route.params.id}),
       store.dispatch('shared/editors_pick/getArticles'),
       store.dispatch('shared/hot_topic/getArticles'),
       store.dispatch('shared/featured/getArticles')])
-    .finally(()=>{ 
-      store.dispatch('shared/loading/finish')
-    })
   }
 };
 </script>

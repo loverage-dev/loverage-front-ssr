@@ -1,6 +1,5 @@
 <template>
   <nuxt-link 
-    @click.native.prevent="toSamePath(`/article/${ article.id }`)"
     :to="{
       path: encodeURI(`/article/${ article.id }`)
     }">

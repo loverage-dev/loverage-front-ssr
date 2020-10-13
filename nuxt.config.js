@@ -8,9 +8,6 @@ const { BASE_URL }  = process.env || 'http://localhost:3000'
 module.exports = {
   ssr: true,
   telemetry: false,
-  /*
-  ** Headers of the page
-  */
   head: {
     title: "",
     meta: [
@@ -45,7 +42,7 @@ module.exports = {
     '@/plugins/vue-scrollto',
     { src: '@/plugins/localStorage.js', ssr: false },
   ],
-  loading: false,
+  loading: '~/components/atom/loading.vue',
   buildModules: [
   ],
   modules: [
