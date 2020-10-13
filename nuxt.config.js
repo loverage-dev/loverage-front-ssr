@@ -39,7 +39,6 @@ module.exports = {
     '@/plugins/routerOption.js',
     '@/plugins/clickAway.js',
     '@/plugins/vue-lazyload.js',
-    '@/plugins/vue-scrollto',
     { src: '@/plugins/localStorage.js', ssr: false },
   ],
   loading: '~/components/atom/loading.vue',
@@ -109,17 +108,14 @@ module.exports = {
       })
     }
   },
-  router: {
-    scrollBehavior: function (to, from, savedPosition) {
-      return { x: 0, y: 0 }
-    }
-  },
   /*
   ** Build configuration
   */
   build: {
     splitChunks: {
-      layouts: true,
+      layouts: false,
+      pages: true,
+      commons: true,
       vendor: ['axios'],
       pages: true,
       commons: {
