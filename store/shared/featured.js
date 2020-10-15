@@ -26,9 +26,10 @@ export default {
       },
     },
     actions:{
-      async getArticles ({commit, state}) {
-        if(state.articles != null) return;
-        const res = await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/featureds?limit=50`)
+      async getArticles ({commit, state}, params) {
+        const res = (params)? 
+            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/featureds/random?limit=50&not=${params.apart_from_id}`) : 
+            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/featureds/random?limit=50`) 
         commit('setArticles', res.articles)
       },
       showNextPage({commit}){

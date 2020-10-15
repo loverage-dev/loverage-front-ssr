@@ -240,9 +240,9 @@ export default {
   async asyncData({ store,route }) {
     await Promise.all([
       store.dispatch('pages/article/getArticle', {articleId: route.params.id}),
-      store.dispatch('shared/editors_pick/getArticles'),
-      store.dispatch('shared/hot_topic/getArticles'),
-      store.dispatch('shared/featured/getArticles')])
+      store.dispatch('shared/editors_pick/getArticles',{apart_from_id: route.params.id}),
+      store.dispatch('shared/hot_topic/getArticles',{apart_from_id: route.params.id}),
+      store.dispatch('shared/featured/getArticles',{apart_from_id: route.params.id})])
   }
 };
 </script>
