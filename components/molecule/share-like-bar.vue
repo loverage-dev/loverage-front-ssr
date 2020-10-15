@@ -84,25 +84,21 @@ export default {
       const postId = this.$route.params.id
       //登録済みの場合
       if(isFavoritedFlag){
+        //ローカルストレージから履歴削除
+        this.$store.dispatch('shared/storage/doDelMyFavoritePosts',postId);
         //API送信（お気に入り解除）
         this.$store.dispatch('shared/articles/doUnFavoritePost', postId)
-        .then((res)=>{
-          //ローカルストレージから履歴削除
-          this.$store.dispatch('shared/storage/doDelMyFavoritePosts',postId);
-        })
         .finally(()=>{
           //記事の再取得
           this.$store.dispatch('pages/article/getArticleNoRef', {articleId: postId})
         })
       }else{
+        //ローカルストレージに履歴追加
+        this.$store.dispatch('shared/storage/doAddMyFavoritePosts',{
+          id: postId
+        });
         //API送信（お気に入り登録）
         this.$store.dispatch('shared/articles/doFavoritePost', postId)
-        .then((res)=>{
-          //ローカルストレージに履歴追加
-          this.$store.dispatch('shared/storage/doAddMyFavoritePosts',{
-            id: postId
-          });
-        })
         .finally(()=>{
           //記事の再取得
           this.$store.dispatch('pages/article/getArticleNoRef', {articleId: postId})
