@@ -28,8 +28,8 @@ export default {
     actions:{
       async getArticles ({commit, state}, params) {
         const res = (params)? 
-            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/hot_topics/random?limit=50&not=${params.apart_from_id}`) : 
-            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/hot_topics/random?limit=50`) 
+            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/hot_topics/random?limit=254&not=${params.apart_from_id}`) : 
+            await this.$axios.$get(`${ process.env.API_BASE_URL }/api/v1/hot_topics/random?limit=25`) 
         commit('setArticles', res.articles)
       },
       showNextPage({commit}){
