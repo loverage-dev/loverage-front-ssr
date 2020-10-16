@@ -4,7 +4,7 @@
     <form 
       action="" 
       class="m-search-bar__form"
-      v-on:submit.prevent="search(inputValue)">
+      v-on:submit.prevent="search()">
         <input type="text" class="m-search-bar__input" v-model="inputValue">
         <button type="submit" name="" class="m-search-bar__submit">検索</button>
         <button type="button" name="" class="m-search-bar__cancel" @click="closeSeachBar()">キャンセル</button>
@@ -30,8 +30,15 @@ export default {
       })
   },
   methods:{
-    search(keyword){
-      this.$router.push({ path: '/search', query: { keyword: keyword }});
+    search(){
+      if(this.inputValue == "") return;
+      if(this.$route.name == 'search'){
+        this.$store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(this.inputValue)})
+        this.$store.dispatch('shared/page-title/doSetSearchKeywordTitle',{keyword: this.inputValue})
+      }else{
+        this.$router.push({ path: '/search', query: { keyword: this.inputValue  }})
+        this.$store.dispatch('pages/search/getArticlesByKeyword',{keyword: encodeURI(this.inputValue)})
+      }
       this.inputValue = ""
       this.$store.dispatch('shared/search-bar/closeSearchBar')
     },
