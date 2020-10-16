@@ -50,13 +50,17 @@ module.exports = {
     'nuxt-clipboard2',
     'nuxt-purgecss',
     '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
+    '@nuxtjs/robots',
+    [
+      '@nuxtjs/google-gtag',
+      {
+        id: process.env.GAID,
+        debug: false
+      }
+    ]
   ],
   robots: {
     UserAgent: '*',
-    // クローリングしないパスを記述
-    // Disallow: '/preview',
-    // sitemap.xmlのURLを記述
     Sitemap: `${BASE_URL}/sitemap.xml`,
   },
 
