@@ -141,6 +141,7 @@ export default {
         { hid: "og:type", property: "og:type", content: this.meta.type },
         { hid: "og:url", property: "og:url", content: this.meta.url },
         { hid: "og:image", property: "og:image", content: this.meta.imgPath },
+        { hid: "twitter:image", property: "twitter:image", content: this.meta.imgPath },
         { name: "twitter:title", content: this.getOgpTitle(this.article.post.user_sex, this.article.post.user_age, this.article.post.title) }
       ]
     }
