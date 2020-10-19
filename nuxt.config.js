@@ -43,10 +43,10 @@ module.exports = {
   ],
   loading: '~/components/atom/loading.vue',
   buildModules: [
+    '@nuxtjs/pwa'
   ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     'nuxt-clipboard2',
     'nuxt-purgecss',
     '@nuxtjs/sitemap',
