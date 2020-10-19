@@ -44,14 +44,14 @@ module.exports = {
   ],
   loading: '~/components/atom/loading.vue',
   buildModules: [
+    '@nuxtjs/pwa',
+    'nuxt-purgecss'
   ],
   modules: [
     '@nuxtjs/axios',
     'nuxt-clipboard2',
-    'nuxt-purgecss',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
-    '@nuxtjs/pwa',
     [
       '@nuxtjs/google-gtag',
       {
