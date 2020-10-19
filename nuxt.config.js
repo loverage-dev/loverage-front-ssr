@@ -43,7 +43,6 @@ module.exports = {
   ],
   loading: '~/components/atom/loading.vue',
   buildModules: [
-    '@nuxtjs/pwa'
   ],
   modules: [
     '@nuxtjs/axios',
@@ -51,6 +50,7 @@ module.exports = {
     'nuxt-purgecss',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
+    '@nuxtjs/pwa',
     [
       '@nuxtjs/google-gtag',
       {
