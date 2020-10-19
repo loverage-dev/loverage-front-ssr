@@ -151,6 +151,7 @@ module.exports = {
   env: {
     API_BASE_URL,
     BASE_DIR,
-    BASE_URL
+    BASE_URL,
+    GAID
   }
 }
