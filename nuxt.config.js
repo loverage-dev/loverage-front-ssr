@@ -4,6 +4,7 @@ const redirectSSL = require('redirect-ssl')
 const { API_BASE_URL}  = process.env ||'https://limitless-crag-46636.herokuapp.com'
 const { BASE_DIR } = process.env || '/'
 const { BASE_URL }  = process.env || 'http://localhost:3000'
+const { GAID }  = process.env || ''
 
 module.exports = {
   ssr: true,
@@ -54,7 +55,7 @@ module.exports = {
     [
       '@nuxtjs/google-gtag',
       {
-        id: process.env.GAID,
+        id: GAID,
         debug: false
       }
     ]
