@@ -23,7 +23,8 @@
       <SearchBar />
       
       <div class="o-header__post-button">
-        <a @click="showModalForm()" class="a-button-mini">相談する</a>
+        <!-- <a @click="showModalForm()" class="a-button-mini">相談する</a> -->
+        <nuxt-link v-scroll-to="'#post-form'" class="a-button-mini" to>相談する</nuxt-link>
       </div>
     </div>
   </div>
