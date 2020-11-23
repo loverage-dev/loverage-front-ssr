@@ -4,7 +4,6 @@
     <nuxt />
     <PostFormArea />
     <Footer />
-    <PostFormModal />
     <Dialog />
     <Toast />
   </div>

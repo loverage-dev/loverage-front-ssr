@@ -5,7 +5,6 @@
     <PostFormArea />
     <Footer />
     <Dialog />
-    <PostFormModal />
     <Toast />
   </div>
 </template>
