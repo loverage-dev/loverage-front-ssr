@@ -1,6 +1,6 @@
 <template>
 
-<div class="o-post-form-area">
+<div class="o-post-form-area" id="post-form">
   <div class="o-post-form-area__block">
     <div class="o-post-form-area__heading a-text-70 a-text--bold">相談してみる</div>
     <div class="o-post-form-area__description">恋愛に関する2択の相談を投稿してみましょう。</div>

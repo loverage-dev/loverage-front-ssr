@@ -41,6 +41,7 @@ module.exports = {
     '@/plugins/clickAway.js',
     '@/plugins/vue-lazyload.js',
     { src: '@/plugins/localStorage.js', ssr: false },
+    '@/plugins/vue-scrollto.js',
   ],
   loading: '~/components/atom/loading.vue',
   buildModules: [
