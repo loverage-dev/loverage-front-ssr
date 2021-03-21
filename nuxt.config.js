@@ -5,6 +5,7 @@ const { API_BASE_URL}  = process.env ||'https://limitless-crag-46636.herokuapp.c
 const { BASE_DIR } = process.env || '/'
 const { BASE_URL }  = process.env || 'http://localhost:3000'
 const { GAID }  = process.env || ''
+const domain = process.env.BASE_URL.match(/^https?:\/{2,}(.*?)(?:\/|\?|#|$)/)[1]
 
 module.exports = {
   ssr: true,
@@ -58,6 +59,14 @@ module.exports = {
       {
         id: GAID,
         debug: false
+      }
+    ],
+    [
+      '@nuxtjs/google-adsense', {
+      id: process.env.GA_ADSENSE_ID,
+      pageLevelAds: true,
+      analyticsUacct: process.env.GAID,
+      analyticsDomainName: domain
       }
     ]
   ],
