@@ -16,13 +16,17 @@
         <Avatar :sex="article.post.user_sex" />
         <p class="a-text-30 allow-br" v-html="article.post.content">
         </p>
-        <p>
-          <adsbygoogle ad-slot="5127348145" />
-        </p>
       </div>
       <TagList 
         v-if="article.post.tag_list.length != 0"
         :tags="article.post.tag_list" />
+      <div>
+        <adsbygoogle
+        :ad-slot="'5127348145'"
+        :ad-style="{ display: 'block' }"
+        :ad-format="'auto'"
+        />
+      </div>
     </div>
     <Answer :article="article" />
     <CommentArea :article="article" />
