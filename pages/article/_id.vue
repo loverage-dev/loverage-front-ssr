@@ -16,6 +16,9 @@
         <Avatar :sex="article.post.user_sex" />
         <p class="a-text-30 allow-br" v-html="article.post.content">
         </p>
+        <p>
+          <adsbygoogle ad-slot="5127348145" />
+        </p>
       </div>
       <TagList 
         v-if="article.post.tag_list.length != 0"
