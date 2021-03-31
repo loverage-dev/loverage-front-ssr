@@ -46,6 +46,7 @@
             <img v-lazy="'about-banner.jpg'" alt="About Loverage">
           </nuxt-link>
         </div>
+        <br>
         <div class="p-index__banner-area">
           <adsbygoogle
           :ad-slot="'5127348145'"
