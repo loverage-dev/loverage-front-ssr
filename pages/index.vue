@@ -45,6 +45,7 @@
           <nuxt-link to="/about" width="260px" height="260px">
             <img v-lazy="'about-banner.jpg'" alt="About Loverage">
           </nuxt-link>
+          <adsbygoogle ad-slot="8623933547" />
         </div>
       </div>
     </div>
